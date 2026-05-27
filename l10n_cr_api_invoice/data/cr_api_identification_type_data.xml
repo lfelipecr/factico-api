@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="cr_api_identification_type_01" model="cr.api.identification.type">
+        <field name="code">01</field>
+        <field name="name">Cédula física</field>
+        <field name="code_api">cedula_fisica</field>
+        <field name="notes">Se agrega tres ceros antes de iniciar con el número de cédula para completar 12 dígitos
+        </field>
+    </record>
+
+    <record id="cr_api_identification_type_02" model="cr.api.identification.type">
+        <field name="code">02</field>
+        <field name="name">Cédula jurídica</field>
+        <field name="code_api">cedula_juridica</field>
+        <field name="notes">Se debe agregar dos ceros antes de iniciar con el número de cédula para completar 12
+            dígitos
+        </field>
+    </record>
+
+    <record id="cr_api_identification_type_03" model="cr.api.identification.type">
+        <field name="code">03</field>
+        <field name="name">DIMEX</field>
+        <field name="code_api">dimex</field>
+        <field name="notes">En aquellos casos donde la cédula se encuentre compuesta de 11 dígitos se debe agregar un
+            cero al inicio para completar 12 dígitos
+        </field>
+    </record>
+
+    <record id="cr_api_identification_type_04" model="cr.api.identification.type">
+        <field name="code">04</field>
+        <field name="name">NITE</field>
+        <field name="code_api">nite</field>
+        <field name="notes">Se debe agregar dos ceros antes de iniciar con el número de identificación para completar 12
+            dígitos
+        </field>
+    </record>
+
+    <record id="cr_api_identification_type_05" model="cr.api.identification.type">
+        <field name="code">05</field>
+        <field name="name">Extranjero</field>
+        <field name="code_api">extranjero</field>
+        <field name="notes">Número de identificación en caso de que el receptor sea un extranjero. Máximo 20
+            caracteres
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cr_api_economic_activity_search" model="ir.ui.view">
+        <field name="name">cr.api.economic.activity.search</field>
+        <field name="model">cr.api.economic.activity</field>
+        <field name="arch" type="xml">
+            <search string="Document">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="code_old"/>
+                <field name="name_old"/>
+            </search>
+        </field>
+    </record>
+     <record id="cr_api_economic_activity_form" model="ir.ui.view">
+        <field name="name">cr.api.economic.activity.form</field>
+        <field name="model">cr.api.economic.activity</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Actividades Económicas">
+                <sheet>
+                    <group col="4" colspan="2">
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active" widget="boolean_toggle"/>
+                        <field name="code_old"/>
+                        <field name="name_old"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="cr_api_economic_activity_list" model="ir.ui.view">
+        <field name="name">cr.api.economic.activity.list</field>
+        <field name="model">cr.api.economic.activity</field>
+        <field name="arch" type="xml">
+            <list default_order="sequence" >
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="code_old" optional="show"/>
+                <field name="name_old" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_cr_api_economic_activity" model="ir.actions.act_window">
+        <field name="name">Actividades económicas</field>
+        <field name="res_model">cr.api.economic.activity</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="cr_api_economic_activity_list"/>
+    </record>
+</odoo>

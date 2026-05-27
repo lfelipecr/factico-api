@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cr_api_branch_list" model="ir.ui.view">
+        <field name="name">cr.api.branch.list</field>
+        <field name="model">cr.api.branch</field>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="branch_code" optional="show"/>
+                <field name="terminal_code" optional="show"/>
+                <field name="api_user_id" optional="hide"/>
+                <field name="api_user_mode" optional="hide"/>
+                <field name="company_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_cr_api_branch_form" model="ir.ui.view">
+        <field name="name">cr.api.branch.form</field>
+        <field name="model">cr.api.branch</field>
+        <field name="arch" type="xml">
+            <form string="Secuencia">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Ejem: Terminal 1 / Sucursa 1"
+                                   force_save="1" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group id="group_left">
+                            <field name="branch_code" readonly="api_sequence_ids != False "/>
+                            <field name="terminal_code" readonly="api_sequence_ids != False "/>
+                        </group>
+                        <group id="group_right">
+                            <field name="api_user_id" readonly="api_sequence_ids != False "/>
+                            <field name="api_user_mode"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Secuencias">
+                            <field name="api_sequence_ids" nolabel="1">
+                                <list editable="bottom" create="0" delete="0">
+                                    <field name="sequence_id" optional="show" readonly="1"/>
+                                    <field name="sequence_number_next_actual" optional="show"/>
+                                    <field name="document_type_id" optional="show" force_save="1" readonly="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <!-- Chatter -->
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cr_api_branch" model="ir.actions.act_window">
+        <field name="name">Sucursal y Terminal</field>
+        <field name="res_model">cr.api.branch</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Añadir nueva sucursal y terminal
+            </p>
+        </field>
+    </record>
+</odoo>

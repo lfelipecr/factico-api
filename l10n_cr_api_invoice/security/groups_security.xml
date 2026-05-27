@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_category_cr_api">
+        <field name="name">CR API Versión 4.4</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <record id="group_cr_api_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="comment">Administrador de API</field>
+        <field name="category_id" ref="l10n_cr_api_invoice.module_category_cr_api"/>
+    </record>
+
+    <record id="group_cr_api_invoice" model="res.groups">
+        <field name="name">Comprobantes</field>
+        <field name="comment">Ver y analizar los comprobantes enviado a hacienda</field>
+        <field name="category_id" ref="l10n_cr_api_invoice.module_category_cr_api"/>
+    </record>
+</odoo>

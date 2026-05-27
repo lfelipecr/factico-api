@@ -1,0 +1,138 @@
+<FacturaElectronicaExportacion
+        xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronicaExportacion"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Clave>{{ data['clave'] }}</Clave>
+    <ProveedorSistemas>{{ data['proveedor_sistemas'] }}</ProveedorSistemas>
+    <CodigoActividadEmisor>{{ data['codigo_actividad_emisor'] }}</CodigoActividadEmisor>
+    {% if data['codigo_actividad_receptor'] %}
+    <CodigoActividadReceptor>{{ data['codigo_actividad_receptor'] }}</CodigoActividadReceptor>
+    {% endif %}
+    <NumeroConsecutivo>{{ data['consecutivo'] }}</NumeroConsecutivo>
+    <FechaEmision>{{ data['fecha_emision'] }}</FechaEmision>
+    <Emisor>
+        <Nombre>{{ data['emisor_nombre'] }}</Nombre>
+        <Identificacion>
+            <Tipo>{{ data['emisor_tipo_identificacion'] }}</Tipo>
+            <Numero>{{ data['emisor_numero_identififcacion'] }}</Numero>
+        </Identificacion>
+        <NombreComercial>{{ data['emisor_nombre_comercial'] }}</NombreComercial>
+        {% if data['emisor_provincia'] and data['emisor_canton'] and data['emisor_distrito'] %}
+        <Ubicacion>
+            <Provincia>{{ data['emisor_provincia'] }}</Provincia>
+            <Canton>{{ data['emisor_canton'] }}</Canton>
+            <Distrito>{{ data['emisor_distrito'] }}</Distrito>
+            {% if data['emisor_barrio'] %}
+            <Barrio>{{ data['emisor_barrio'] }}</Barrio>
+            {% endif %}
+            {% if data['emisor_otras_senas'] %}
+            <OtrasSenas>{{ data['emisor_otras_senas'] }}</OtrasSenas>
+            {% endif %}
+        </Ubicacion>
+        {% endif %}
+        {% if data['emisor_codigo_pais_telefono'] and data['emisor_telefono'] %}
+        <Telefono>
+            <CodigoPais>{{ data['emisor_codigo_pais_telefono'] }}</CodigoPais>
+            <NumTelefono>{{ data['emisor_telefono'] }}</NumTelefono>
+        </Telefono>
+        {% endif %}
+        {% if data['emisor_email'] %}
+        <CorreoElectronico>{{ data['emisor_email'] }}</CorreoElectronico>
+        {% endif %}
+    </Emisor>
+    <Receptor>
+        <Nombre>{{ data['receptor_nombre'] }}</Nombre>
+        {% if data['receptor_tipo_identificacion'] and data['receptor_numero_identificacion'] %}
+        <Identificacion>
+            <Tipo>{{ data['receptor_tipo_identificacion'] }}</Tipo>
+            <Numero>{{ data['receptor_numero_identificacion'] }}</Numero>
+        </Identificacion>
+        {% endif %}
+        {% if data['receptor_otras_senas'] %}
+        <OtrasSenasExtranjero>{{ data['receptor_otras_senas'] }}</OtrasSenasExtranjero>
+        {% endif %}
+        {% if data['receptor_email'] %}
+        <CorreoElectronico>{{ data['receptor_email'] }}</CorreoElectronico>
+        {% endif %}
+    </Receptor>
+    <CondicionVenta>{{ data['condicion_venta'] }}</CondicionVenta>
+    <PlazoCredito>{{ data['plazo_credito'] }}</PlazoCredito>
+    <DetalleServicio>
+        {% for linea in data['detalle_servicio'] %}
+        <LineaDetalle>
+            <NumeroLinea>{{ linea['numero_linea'] }}</NumeroLinea>
+            <PartidaArancelaria>{{ linea['partida_arancelaria'] }}</PartidaArancelaria>
+            <CodigoCABYS>{{ linea['codigo_cabys'] }}</CodigoCABYS>
+            {% for codigo_comercial in linea['codigo_comercial'] %}
+            <CodigoComercial>
+                <Tipo>{{ codigo_comercial['tipo'] }}</Tipo>
+                <Codigo>{{ codigo_comercial['codigo'] }}</Codigo>
+            </CodigoComercial>
+            {% endfor %}
+            <Cantidad>{{ linea['cantidad'] }}</Cantidad>
+            <UnidadMedida>{{ linea['unidad_medida'] }}</UnidadMedida>
+            <TipoTransaccion>{{ linea['tipo_transaccion'] }}</TipoTransaccion>
+            <Detalle>{{ linea['detalle'] }}</Detalle>
+            <PrecioUnitario>{{ linea['precio_unitario'] }}</PrecioUnitario>
+            <MontoTotal>{{ linea['monto_total'] }}</MontoTotal>
+            {% if linea['descuento'] and linea['descuento']['aplica'] in ['si', 'SI', 'Si'] %}
+            <Descuento>
+                <MontoDescuento>{{ linea['descuento']['monto_descuento'] }}</MontoDescuento>
+                <CodigoDescuento>{{ linea['descuento']['codigo_descuento'] }}</CodigoDescuento>
+                <NaturalezaDescuento>{{ linea['descuento']['naturaleza_descuento'] }}</NaturalezaDescuento>
+            </Descuento>
+            {% endif %}
+            <SubTotal>{{ linea['sub_total'] }}</SubTotal>
+            {% for impuesto in linea['impuesto'] %}
+            <Impuesto>
+                <Codigo>{{ impuesto['codigo'] }}</Codigo>
+                <CodigoTarifaIVA>{{ impuesto['codigo_tarifa_iva'] }}</CodigoTarifaIVA>
+                <Tarifa>{{ impuesto['tarifa'] }}</Tarifa>
+                <Monto>{{ impuesto['monto'] }}</Monto>
+                <MontoExportacion>{{ impuesto['monto_exportacion'] }}</MontoExportacion>
+            </Impuesto>
+            {% endfor %}
+            <MontoTotalLinea>{{ linea['monto_total_linea'] }}</MontoTotalLinea>
+        </LineaDetalle>
+        {% endfor %}
+    </DetalleServicio>
+    {% if data['otros_cargos'] %}
+    <OtrosCargos>
+        <TipoDocumentoOC>{{ data['otros_cargos']['tipo_document_oc'] }}</TipoDocumentoOC>
+        <Detalle>{{ data['otros_cargos']['detalle'] }}</Detalle>
+        <PorcentajeOC>{{ data['otros_cargos']['porcentaje_oc'] }}</PorcentajeOC>
+        <MontoCargo>{{ data['otros_cargos']['monto_cargo'] }}</MontoCargo>
+    </OtrosCargos>
+    {% endif %}
+    <ResumenFactura>
+        <CodigoTipoMoneda>
+            <CodigoMoneda>{{ data['codigo_moneda'] }}</CodigoMoneda>
+            <TipoCambio>{{ data['tipo_cambio'] }}</TipoCambio>
+        </CodigoTipoMoneda>
+        <TotalServGravados>{{ data['total_serv_gravados'] }}</TotalServGravados>
+        <TotalServExentos>{{ data['total_serv_exentos'] }}</TotalServExentos>
+        <TotalMercanciasGravadas>{{ data['total_merc_gravadas'] }}</TotalMercanciasGravadas>
+        <TotalMercanciasExentas>{{ data['total_merc_exentas'] }}</TotalMercanciasExentas>
+        <TotalGravado>{{ data['total_gravado'] }}</TotalGravado>
+        <TotalExento>{{ data['total_exento'] }}</TotalExento>
+        <TotalVenta>{{ data['total_venta'] }}</TotalVenta>
+        <TotalDescuentos>{{ data['total_descuentos'] }}</TotalDescuentos>
+        <TotalVentaNeta>{{ data['total_venta_neta'] }}</TotalVentaNeta>
+        {% for total_desglose_impuesto in data['total_desglose_impuesto'] %}
+        <TotalDesgloseImpuesto>
+            <Codigo>{{ total_desglose_impuesto['codigo'] }}</Codigo>
+            <CodigoTarifaIVA>{{ total_desglose_impuesto['codigo_tarifa_iva'] }}</CodigoTarifaIVA>
+            <TotalMontoImpuesto>{{ total_desglose_impuesto['total_monto_impuesto'] }}</TotalMontoImpuesto>
+        </TotalDesgloseImpuesto>
+        {% endfor %}
+        <TotalImpuesto>{{ data['total_impuesto'] }}</TotalImpuesto>
+        <TotalOtrosCargos>{{ data['total_otros_cargos'] }}</TotalOtrosCargos>
+        {% for medio_pago in data['medios_pago'] %}
+        <MedioPago>
+            <TipoMedioPago>{{ medio_pago['tipo_medio_pago'] }}</TipoMedioPago>
+            <TotalMedioPago>{{ medio_pago['total_medio_pago'] }}</TotalMedioPago>
+        </MedioPago>
+        {% endfor %}
+        <TotalComprobante>{{ data['total_comprobante'] }}</TotalComprobante>
+    </ResumenFactura>
+</FacturaElectronicaExportacion>

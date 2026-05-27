@@ -1,0 +1,715 @@
+id,code,name,code_old,name_old
+activity_11101,0111.9,"Cultivo de otros cereales, legumbres y semillas oleaginosas n.c.p",11101,CULTIVO Y VENTA DE CEREALES
+activity_11102,0126.1,Cultivo de palma africana (aceitera),11102,CULTIVO DE PALMA AFRICANA Y OTROS FRUTOS OLEAGINOSOS
+activity_11103,0130.0,Propagación de plantas,11103,CULTIVO Y COMERCIALIZACIÓN DE CESPED
+activity_11218,0113.9,"Cultivo de otras hortalizas, raíces o tubérculos n.c.p",11218,PRODUCCIÓN DE MINIVEGETALES
+activity_11231,0111.9,"Cultivo de otros cereales, legumbres y semillas oleaginosas n.c.p",11231,CULTIVO HORTALIZAS LEGUMBRES ESPECIALIDADES HORTÍCOLAS PRODUCTOS VIVERO GRAVADOS IVA
+activity_11301,0128.0,"Cultivo de especies de plantas aromáticas, medicinales y farmacéuticas",11301,CULTIVO DE ESPECIAS DE TODO TIPO
+activity_11302,0122.9,Cultivo de otras frutas tropicales y subtropicales,11302,CULTIVO DE FRUTAS
+activity_11322,0125.0,Cultivo de otros frutos y nueces de árboles y arbustos ,11322,CULTIVO DE SEMILLAS COMESTIBLES Y GERMINACION DE SEMILLAS OLEAGINOSAS
+activity_11329,0127.9,"Cultivo de otras plantas con las que se preparan bebidas, excepto el cultivo de café n.c.p",11329,CULTIVO DE PLANTAS PARA PREPARAR BEBIDAS Y MEDICINAS
+activity_11349,0127.9,"Cultivo de otras plantas con las que se preparan bebidas, excepto el cultivo de café n.c.p",11349,CULTIVO DE CACAO
+activity_11401,0127.1,Cultivo de café,11401,CULTIVO DE CAFE
+activity_11701,0114.0,Cultivo de caña de azúcar,11701,CULTIVO DE  CAñA DE AZÚCAR
+activity_11802,0111.9,"Cultivo de otros cereales, legumbres y semillas oleaginosas n.c.p",11802,"CULTIVO Y VENTA DE CEREALES, LEGUMBRES Y GRANOS BÁSICOS INCLUIDOS  EN CANASTA BÁSICA"
+activity_11901,0119.1,Cultivo de Flores ,11901,CULTIVO DE FLORES DE TODO TIPO
+activity_11903,0130.0,Propagación de plantas,11903,VIVEROS
+activity_11907,4781.0,"Venta al por menor en puestos de venta y mercados de: alimentos, bebidas y de productos del tabaco",11907,PEQUEÑOS PRODUCTORES AGRICOLAS (FERIAS DEL AGRICULTOR)
+activity_12101,0142.0,Cría de caballos y otros equinos,12101,CRíA DE CABALLOS Y OTROS EQUINOS
+activity_12102,0141.9,Cría de Búfalos y otra producción  de ganado bovino (vacuno),12102,"PRODUCCION DE SEMEN BOVINO, VENTA DE SEMEN CONGELADO Y DILUYENTE PARA SEMEN"
+activity_12103,0144.0,Cría de ovejas y cabras,12103,"CRÍA DE ANIMALES DOMÉSTICOS,COMO: GANADO VACUNO, OVEJAS Y CABRAS"
+activity_12201,0145.0,Cría de cerdos ,12201,CRIA DE CERDOS
+activity_12202,0146.9,"Cría de otras aves de corral, excepto pollos",12202,CRIA DE ANIMALES DOMESTICADOS (AVES DE CORRAL)
+activity_12203,0149.0,Cría de otros animales,12203,CRíA DE MARIPOSAS
+activity_12204,0149.0,Cría de otros animales,12204,CRIA Y VENTA DE OTROS ANIMALES SEMIDOMESTICADOS O SALVAJES
+activity_12401,0146.9,"Cría de otras aves de corral, excepto pollos",12401,"PRODUCCION Y VENTA DE HUEVOS DE CUALQUIER TIPO, EXCEPTO  LOS DE GALLINA"
+activity_12402,0149.0,Cría de otros animales,12402,CRÍA DE ANIMALES Y OBTENCIÓN DE PRODUCTOS DE ANIMALES VIVOS
+activity_12403,0146.2,Actividades de granja para la producción de huevos de gallina,12403,PRODUCCION DE HUEVOS DE GALLINA INCLUIDOS EN LA CANASTA BASICA
+activity_13001,0150.0,Cultivo de productos agrícolas en combinación con la cría de animales (explotación mixta),13001,CULTIVO DE PRODUCTOS AGRICOLAS EN COMBINACION CON LA CRIA DE ANIMALES
+activity_14001,8130.0,Actividades de  paisajismo y servicios de  mantenimiento conexos,14001,SERVICIO DE JARDINERIA Y/O DISEÑO PAISAJISTA
+activity_14002,0163.9,Otras actividades posteriores a la cosecha,14002,RECOLECCION DE COSECHAS Y ACTIVIDADES CONEXAS
+activity_14003,0161.2,Servicios de fumigación y riego agrícola,14003,FUMIGACION DE CULTIVOS
+activity_14004,0161.9,Otros servicios de apoyo a la agricultura,14004,SERVICIO DE PLANTACION DE ARBOLES Y SIMILARES
+activity_14005,0161.2,Servicios de fumigación y riego agrícola,14005,MANEJO E INSTALACION DE SISTEMAS DE RIEGO
+activity_15001,0170.0,"Caza ordinaria, mediante trampas y actividades de servicio conexas",15001,"CAZA ORDINARIA MEDIANTE TRAMPAS, Y REPOBLACION DE ANIMALES DE CAZA"
+activity_20001,0210.0,Silvicultura y otras actividades  forestales,20001,VENTA DE ARBOLES EN PIE (ARBOLES DE REFORESTACION)
+activity_20002,0220.0,Extracción de madera,20002,EXTRACCION Y/O VENTA DE MADERA
+activity_20005,0210.0,Silvicultura y otras actividades  forestales,20005,"ACTIVIDADES DE CONSERVACIÓN DE BOSQUES. (SERVICIOS AMBIENTALES, VENTA DE OXÍGENO)"
+activity_50001,0311.0,Pesca marítima,50001,PESCADORES ARTESANALES EN PEQ. ESCALA
+activity_50002,0311.0,Pesca marítima,50002,PESCADORES ARTESANALES MEDIOS
+activity_50003,0321.0,Acuicultura marina,50003,"CRIADERO DE PECES, CRUSTACEOS O MOLUSCOS. COMERCIALIZACION DE LARVAS DE ESPECIES"
+activity_50005,0311.0,Pesca marítima,50005,PESCADORES EN GRAN ESCALA
+activity_101001,0510.0,Extracción de carbón de piedra ,101001,EXTRACCION Y AGLOMERACION DE CARBON DE PIEDRA
+activity_111001,0620.0,Extracción de gas natural,111001,EXTRACCION DE PETROLEO CRUDO Y GAS NATURAL
+activity_120001,0721.0,Extracción de minerales metalíferos no ferrosos,120001,EXTRACCIÓN DE MINERALES DE URANIO Y TORIO
+activity_141001,0810.0,"Extracción de piedra, arena y arcilla",141001,"EXTRACCION DE PIEDRA, ARENA Y ARCILLA"
+activity_142101,0891.0,Extracción de minerales para la fabricación de abonos  y productos químicos,142101,EXTRACCION DE MINERALES Y SUSTANCIAS PARA LA FABRICACION DEABONOS
+activity_142201,0893.0,Extracción de sal,142201,EXTRACCION DE SAL
+activity_142901,0899.0,Explotación de otras minas y canteras n.c.p,142901,EXPLOTACION DE OTRAS MINAS Y CANTERAS N.C.P.
+activity_142902,4690.0,Venta al por mayor de otros productos no especializada,142902,VENTA DE ASFALTO/MEZCLA ASFALTICA
+activity_151101,1010.9,Elaboración y conservación de otro tipo de carnes n.c.p,151101,"ELABORACION Y CONSERVACIÓN DE CARNE  Y EMBUTIDOS DE GANADO VACUNO, PORCINO  Y DE AVES"
+activity_151102,151102,OPERACIÓN DE MATADEROS QUE REALIZAN ACTIVIDADES DE MATANZA DE ANIMALES,151102,OPERACIÓN DE MATADEROS QUE REALIZAN ACTIVIDADES DE MATANZA DE ANIMALES
+activity_151103,1010.1,Elaboración y conservación de carne y embutidos de ganado vacuno y porcino,151103,PRODUCCION DE CUEROS Y PIELES SIN CURTIR
+activity_151105,1010.1,Elaboración y conservación de carne y embutidos de ganado vacuno y porcino,151105,"PRODUCCION Y VENTA DE EMBUTIDOS EMPACADOS, ENVASADO Y ENLATADO"
+activity_151201,1020.0,"Elaboración  y conservación de pescados, crustáceos y moluscos ",151201,"ELABORACIóN Y CONSERVACIóN DE PESCADO, CRUSTÁCEOS Y MOLUSCOS"
+activity_151301,1030.0,"Elaboración y conservación de frutas, legumbres y hortalizas (vegetales)",151301,"ELABORACION Y CONSERVACION DE FRUTAS, LEGUMBRES Y HORTALIZAS"
+activity_151304,1030.0,"Elaboración y conservación de frutas, legumbres y hortalizas (vegetales)",151304,PRODUCCIóN DE CONCENTRADOS PARA JUGOS (CITRICULTURA)
+activity_151401,1040.0,Elaboración de aceites y grasas de origen vegetal y animal,151401,ELABORACION Y VENTA DE ACEITES  Y GRASAS DE ORIGEN VEGETAL Y ANIMAL
+activity_152001,1050.0,Elaboración de productos lácteos,152001,PRODUCCIóN DE HELADOS Y OTROS PRODUCTOS SIMILARES
+activity_152002,1050.0,Elaboración de productos lácteos,152002,ELABORACIÓN Y VENTA DE PRODUCTOS LÁCTEOS NO INCLUIDOS EN CANASTA BÁSICA
+activity_152003,1050.0,Elaboración de productos lácteos,152003,ELABORACIÓN DE PRODUCTOS DE MOLINERÍA NO INCLUIDOS CANASTA BÁSICA
+activity_153101,1061.9,Elaboración de productos de molinería excepto arroz,153101,SERVICIO DE MOLIENDA
+activity_153102,1061.9,Elaboración de productos de molinería excepto arroz,153102,ELABORACIÓN DE PRODUCTOS DE MOLINERÍA NO INCLUIDOS CANASTA BÁSICA
+activity_153103,1061.1,Beneficio de arroz,153103,BENEFICIO DE ARROZ
+activity_153104,1061.9,Elaboración de productos de molinería excepto arroz,153104,ELABORACIÓN DE PRODUCTOS DE MOLINERÍA INCLUIDOS EN CANASTA BÁSICA
+activity_153201,1062.0,Elaboración de almidones y productos derivados del almidón,153201,ELABORACION DE PRODUCTOS DERIVADOS DE ALMIDON
+activity_153301,1080.0,Elaboración de alimentos preparados para animales,153301,ELABORACION DE ALIMENTOS PARA ANIMALES DESTINADOS AL CONSUMO HUMANO
+activity_153302,1080.0,Elaboración de alimentos preparados para animales,153302,ELABORACION DE PACAS DE HENO
+activity_154101,1071.9,"Elaboración de otros productos de panadería, excepto elaboración de galletas",154101,VENTA DE PAN Y OTROS PRODUCTOS SIMILARES GRAVADOS CON IVA
+activity_154102,1071.9,"Elaboración de otros productos de panadería, excepto elaboración de galletas",154102,ELABORACIÓN Y VENTA DE PRODUCTOS DE PANADERIA NO INCLUIDOS EN CANASTA BÁSICA
+activity_154104,1071.9,"Elaboración de otros productos de panadería, excepto elaboración de galletas",154104,ELABORACIÓN Y VENTA DE PRODUCTOS DE PANADERIA INCLUIDOS EN CANASTA BÁSICA
+activity_154201,1072.0,Elaboración de azúcar y otros productos derivados de la caña de  azúcar ,154201,ELABORACIÓN  Y VENTA DE AZÚCAR Y PRODUCTOS DERIVADOS DE LA CAÑA DE AZÚCAR
+activity_154301,1073.0,"Elaboración de cacao, chocolate y productos de confitería",154301,ELABORACION DE CACAO
+activity_154302,1073.0,"Elaboración de cacao, chocolate y productos de confitería",154302,ELABORACIÓN DE CHOCOLATE
+activity_154303,1073.0,"Elaboración de cacao, chocolate y productos de confitería",154303,"ELABORACION DE DULCES, GOLOSINAS Y CONSERVAS EN AZUCAR"
+activity_154401,1074.0,"Elaboración de macarrones, fideos, alcuzcuz y productos farináceos similares",154401,"ELABORACIÓN DE MACARRONES, FIDEOS, ALCUZCUZ Y PRODUCTOS FARINÁCEOS SIMILARES"
+activity_154402,1074.0,"Elaboración de macarrones, fideos, alcuzcuz y productos farináceos similares",154402,"ELABORACIÓN DE MACARRONES, FIDEOS, ALCUZCUZ Y PRODUCTOS FARINÁCEOS SIMILARES INCLUIDOS EN CANASTA BÁSICA"
+activity_154902,1079.9,Elaboración de otros productos alimenticios n.c.p,154902,FABRICACION DE PRODUCTOS ALIMENTICIOS PREPARADOS N.C.P. (NO CONTEMPLADOS EN OTRA
+activity_154903,3530.0,Suministro de vapor y aire acondicionado,154903,FABRICACIóN DE HIELO
+activity_154904,0163.1,Beneficio de café,154904,"FABRICACIóN DE CAFÉ (EXCEPTO EL ENVASADO, ENLATADO, SOLUBLEY EL DESCAFEINADO)"
+activity_154905,1061.9,Elaboración de productos de molinería excepto arroz,154905,ELABORACION DE PRODUCTOS DE MAIZ EXENTOS DE IVA
+activity_154908,1061.9,Elaboración de productos de molinería excepto arroz,154908,ELABORACION DE PRODUCTOS DE MAIZ GRAVADOS CON IVA
+activity_155101,1101.0,"Destilación, rectificación y mezcla de bebidas alcohólicas",155101,ELABORAC. RECTIFICAC MEZCLA BEBIDAS ALCOHOLICAS/PROD. DE ALCOHOL ETÍLICO (SUSTAN
+activity_155103,1101.0,"Destilación, rectificación y mezcla de bebidas alcohólicas",155103,ELABORACION DE BEBIDAS CON PORCENTAJE DE ALCOHOL POR VOLUMEN MENOR AL 15%.
+activity_155301,1103.0,Elaboración de bebidas malteadas y de malta,155301,ELABORACION DE BEBIDAS MALTEADAS Y DE MALTA NO ARTESANALES
+activity_155302,1103.0,Elaboración de bebidas malteadas y de malta,155302,ELABORACION ARTESANAL DE BEBIDAS MALTEADAS Y DE MALTA.
+activity_155403,1104.0,Elaboración de bebidas no alcohólicas;  producción de aguas minerales y otras aguas  embotelladas,155403,ELABORACION DE BEBIDAS NO ALCOHOLICAS / GASEOSAS / AGUA MINERAL Y DE MANANTIAL
+activity_155404,1079.9,Elaboración de otros productos alimenticios n.c.p,155404,ELABORACION DE CONCENTRADO PARA BEBIDAS NATURALES Y GASEOSAS
+activity_160001,1200.0,Elaboración de productos de tabaco,160001,ELABORACION DE PRODUCTOS DE TABACO
+activity_171101,1312.0,Tejedura de productos textiles,171101,FABRICACION DE TODO TIPO DE TELAS Y/O HILOS
+activity_171201,1313.0,Acabado de productos textiles,171201,MAQUILA DE PRODUCTOS TEXTILES
+activity_171202,1313.0,Acabado de productos textiles,171202,HIDROFUGADO/IMPERMEABILIZADO
+activity_172101,1392.0,"Fabricación de artículos confeccionados con materiales textiles, excepto prendas de vestir",172101,"FABRICACION DE ARTICULOS CONFECCIONADOS DE MATERIALES TEXTILES, EXEPTO PRENDAS D"
+activity_172103,7410.0,Actividades especializadas de diseño,172103,DISEÑO ARTISTICO PARA COSTURA (MOLDES)
+activity_172201,1393.0,Fabricación de tapices y alfombras,172201,FABRICACION DE TAPICES Y ALFOMBRAS
+activity_172301,1394.0,"Fabricación de cuerdas, cordeles, bramantes y redes",172301,"FABRICACION DE CUERDAS, CORDELES,BRAMANTES Y REDES"
+activity_172302,1394.0,"Fabricación de cuerdas, cordeles, bramantes y redes",172302,FABRICACION DE HILOS Y CUERDAS PARA USO AGRICOLA Y PESCA
+activity_172902,1313.0,Acabado de productos textiles,172902,SERVICIO DE BORDADO A MANO O A MAQUINA
+activity_173001,1391.0,Fabricación de tejidos de punto y ganchillo,173001,FABRICACION DE TEJDOS Y ARTICULOS DE PUNTO Y GANCHILLO
+activity_181001,1410.9,"Fabricación de otras prendas de vestir, excepto ropa interior y prendas de piel ",181001,SERVICIOS DE COSTURA Y SASTRERIA (COSTURERAS Y SASTRES)
+activity_181002,1410.9,"Fabricación de otras prendas de vestir, excepto ropa interior y prendas de piel ",181002,FABRICACION DE PRENDAS DE VESTIR (ROPA DE TODO TIPO)
+activity_182001,1511.0,Curtido y adobo de cueros; adobo y teñido de pieles,182001,ADOBO Y TEÑIDO DE PIELES; FABRICACIÓN DE ARTÍCULOS DE PIEL NATURAL O ARTIFICIAL
+activity_191101,1512.0,"Fabricación de maletas, bolsos de mano y de artículos similares, y artículos de talabartería o guarnicionería",191101,"FABRICACIóN DE MALETAS, BOLSOS DE MANO Y ARTICULOS SIMILARES"
+activity_192001,1520.0,Fabricación de calzado,192001,FABRICACION DE  TODO TIPO DE ZAPATOS EXEPTO EL ORTOPEDICO
+activity_201002,1610.0,Aserrado y acepilladura de madera,201002,ASERRADO Y ACEPILLADURA DE MADERA
+activity_202101,1621.0,Fabricación de hojas de madera para enchapado y tableros a base de madera,202101,"FABRICACIÓN DE HOJAS DE MADERA PARA ENCHAPADO Y TABLEROS COMO PLYWOOD, DURPANEL"
+activity_202201,1622.0,Fabricación de partes y piezas de carpimtería para edificios y construcciones,202201,FABRICACION DE PARTES Y PIEZAS DE CARPINTERIA PARA EDIFICIOS Y CONSTRUCCIONES
+activity_202301,1622.0,Fabricación de partes y piezas de carpimtería para edificios y construcciones,202301,FABRICACIóN DE TARIMAS
+activity_202902,3290.0,Otras industrias manufactureras n.c.p,202902,"FABRICACIóN  Y/O VENTA DE ATAUDES (CAJAS MORTUORIAS, FERETROS)."
+activity_210101,1701.0,"Fabricación de pasta de madera , papel y cartón",210101,FABRICACION DE PAPEL Y CARTON Y ENVASES DE PAPEL Y CARTON
+activity_210201,1709.0,Fabricación de otros artículos del papel y cartón,210201,FABRICACION DE OTROS ARTICULOS DE PAPEL Y CARTON
+activity_221101,5811.0,Edición de libros,221101,EDICION DE LIBROS DE TEXTOS
+activity_221201,5813.0,"Edición de periódicos, diarios y revistas",221201,"EDICION DE PERIODICOS, REVISTAS Y OTRAS PUBLICACIONES PERIODICAS"
+activity_221901,7410.0,Actividades especializadas de diseño,221901,ARTES GRáFICAS
+activity_222102,1811.0,Impresión,222102,TIPOGRAFIA  Y/O LITOGRAFIA (IMPRENTA)
+activity_222104,1811.0,Impresión,222104,IMPRESIÓN DIGITAL
+activity_222105,1811.0,Impresión,222105,SERIGRAFIA
+activity_223001,1820.0,Reproducción de grabaciones,223001,REPRODUCCION DE GRABACIONES
+activity_232001,1920.0,Fabricación de los productos de la refinación del petróleo,232001,REFINERIAS DE PETROLEO
+activity_232002,1920.0,Fabricación de los productos de la refinación del petróleo,232002,FABRICACIÓN DE PRODUCTOS DIVERSOS DERIVADOS DEL PETRÓLEO
+activity_232005,2011.0,Fabricación de sustancias químicas básicas,232005,ELABORACION DE BIOCOMBUSTIBLES
+activity_241101,2011.0,Fabricación de sustancias químicas básicas,241101,FABRICACION DE SUSTANCIAS QUIMICAS Y GASES INDUSTRIALES EXCEPTO ABONOS
+activity_241201,2012.0,Fabricación abonos y compuestos de nitrógeno,241201,FABRICACION DE ABONOS Y COMPUESTOS DE NITROGENO (ORGANICOS Y QUIMICOS)
+activity_241301,2013.0,Fabricación de plásticos y de caucho sintético en formas primarias,241301,FABRICACION DE PLASTICOS Y CAUCHO SINTETICO EN FORMAS PRIMARIAS
+activity_241302,2013.0,Fabricación de plásticos y de caucho sintético en formas primarias,241302,FABRICACIÓN DE RESINAS
+activity_242101,2021.0,Fabricación de plaguicidas  y de otros productos químicos de uso agropecuario,242101,FABRICACION DE PLAGUICIDAS Y OTROS PRODUCTOS QUIMICOS DE USO AGROPECUARIO
+activity_242201,2022.0,"Fabricación de pinturas, barnices y productos de revestimiento similares, tintas de imprenta y masillas",242201,"FABRICACIÓN DE PINTURAS, BARNICES Y PRODUCTOS DE REVESTIMI-TO SIMILARES"
+activity_242202,2022.0,"Fabricación de pinturas, barnices y productos de revestimiento similares, tintas de imprenta y masillas",242202,FABRICACION DE TINTAS DE IMPRENTAS
+activity_242301,2100.0,"Fabricación de productos farmacéuticos, sustancias químicas medicinales y de productos botánicos de uso farmacéutico",242301,"FABRICACIÓN PRODUCTOS FARMACÉUTICOS, SUSTANCIAS QUÍMICAS  Y PRODUCTOS BOTANICOS"
+activity_242401,2023.1,"Fabricación de jabones y detergentes, preparados para limpiar y pulir",242401,"FABRICACION JABONES, DETERGENTES, PREPARADOS DE TOCADOR, PARA LIMPIAR PULIR "
+activity_242404,2023.2,Fabricación de perfumes y preparados de tocador,242404,FABRICACION DE JABONES DE TOCADOR
+activity_242405,2023.1,"Fabricación de jabones y detergentes, preparados para limpiar y pulir",242405,FABRICACION DE JABONES PARA LAVAR (EXCEPTO PREPARACIONES TENSO ACTIVAS USADAS
+activity_242406,2023.1,"Fabricación de jabones y detergentes, preparados para limpiar y pulir",242406,"FABRICACION DE CERAS, ABRILLANTADORES, LUSTRADORES Y PREPARACIONES SIMILARES"
+activity_242901,2029.0,Fabricación de otros productos químicos n.c.p,242901,FABRICACION DE OTROS PRODUCTOS QUIMICOS.
+activity_242902,2029.0,Fabricación de otros productos químicos n.c.p,242902,FABRICACION DE PEGAMENTOS Y ADHESIVOS
+activity_242903,3311.0,Reparación de productos elaborados de metal,242903,REPARACION DE ARMAS DE FUEGO
+activity_243001,2030.0,Fabricación de fibras artificiales ,243001,FABRICACION DE FIBRAS SINTETICAS
+activity_251101,2211.0,Fabricación de cubiertas y cámaras de caucho; recauchutado y renovación de cubiertas de caucho,251101,FABRICACION DE LLANTAS Y CUBIERTAS PARA EQUIPO Y MAQUINARIAMOVIL
+activity_251102,2211.0,Fabricación de cubiertas y cámaras de caucho; recauchutado y renovación de cubiertas de caucho,251102,REENCAUCHADORA DE LLANTAS
+activity_251901,2219.0,Fabricación de otros productos de caucho,251901,FABRICACIÓN DE OTROS PRODUCTOS DE CAUCHO
+activity_252001,2220.9,Fabricación de otros productos de plástico,252001,FABRICACION DE ARTICULOS DE PLASTICO
+activity_261001,2310.0,Fabricación de vidrio y de productos de vidrio,261001,FABRICACION DE VIDRIO Y PRODUCTOS DE VIDRIO
+activity_269101,2393.0,Fabricación de otros productos de cerámica y porcelana,269101,FABRICACIÓN PRODUCTOS DE CERÁMICA BARRO LOZA Y/O PORCELANANO REFRACTARIA USO NO ESTRUCTURAL
+activity_269201,2391.0,Fabricación de productos refractarios,269201,FABRICACION DE PRODUCTOS DE CERAMICA REFRACTARIA
+activity_269301,2392.0,Fabricación material de arcilla para la construcción,269301,FABRICACIÓN DE PRODUCTOS DE ARCILLA Y CERÁMICA NO REFRACTARIAS PARA USO ESTRUCTURAL
+activity_269401,2394.0,"Fabricación de cemento, de la cal y del yeso",269401,"FABRICACIÓN Y/O VENTA DE CEMENTO, CAL Y YESO"
+activity_269501,2395.0,"Fabricación de artículos de hormigón, de cemento y de yeso",269501,"FABRICACION DE ARTÍCULOS DE CEMENTO, YESO Y HORMIGON PARA LA CONSTRUCCION"
+activity_269601,2396.0,"Corte, tallado y acabado de la piedra",269601,"CORTE, TALLADO Y ACABADO DE LA PIEDRA"
+activity_269901,2399.0,Fabricación de otros productos minerales no metálicos n.c.p,269901,FABRICACIÓN DE OTROS PRODUCTOS MINERALES NO METÁLICOS N.C.P.
+activity_271001,2410.0,Industrias básicas de hierro y acero ,271001,INDUSTRIAS BÁSICAS DE HIERRO Y ACERO
+activity_272001,2420.0,Fabricación de productos primarios de metales preciosos y metales no ferrosos,272001,FABRICACIÓN DE PRODUCTOS PRIMARIOS DE METALES PRECIOSOS Y METALES NO FERROSOS
+activity_273101,2431.0,Fundición de hierro y acero,273101,FUNDICION DE HIERRO Y ACERO
+activity_273201,2432.0,Fundición de metales no ferrosos,273201,FUNDICIÓN DE METALES NO FERROSOS
+activity_281101,2511.0,Fabricación de productos metálicos para uso estructural,281101,FABRICACION DE PRODUCTOS METALICOS PARA USO ESTRUCTURAL
+activity_281201,2512.0,"Fabricación de tanques, depósitos y recipientes de metal",281201,"FABRICACIÓN DE TANQUES, DEPÓSITOS Y RECIPIENTES DE METAL"
+activity_281301,2513.0,"Fabricación de los generadores del vapor, excepto calderas de agua caliente para calefacción central",281301,"FABRICACIÓN GENERADORES DE VAPOR, EXCEPTO CALDERAS DE AGUA CALIENTE PARA CALEFACCIÓN"
+activity_289201,2592.0,Tratamiento y revestimiento de metales,289201,SERVICIOS DE SOLDADURA
+activity_289202,2592.0,Tratamiento y revestimiento de metales,289202,SERVICIO DE TRATAMIENTO Y REVESTIMIENTO DE TODO TIPO DE MATERIALES
+activity_289302,2592.0,Tratamiento y revestimiento de metales,289302,HOJALATERIA
+activity_289304,2592.0,Tratamiento y revestimiento de metales,289304,TALLER DE MECáNICA DE PRECISIÓN
+activity_289305,2599.0,Fabricación de otros productos de metal n.c.p,289305,"FABRICACION DE PIEZAS, ARTICULOS Y ACCESORIOS DE METAL INCLUYE LAS CERRAJERIAS."
+activity_289306,2592.0,Tratamiento y revestimiento de metales,289306,SERVICIOS DE TORNO (MECANICA DE PRECISION)
+activity_289902,2599.0,Fabricación de otros productos de metal n.c.p,289902,FABRICACIÓN DE OTROS PRODUCTOS ELABORADOS DE METAL N.C.P.
+activity_290001,3312.0,Reparación de maquinaria,290001,SERVICIO DE REPARACION DE MAQUINARIA Y EQUIPO.
+activity_290003,3312.0,Reparación de maquinaria,290003,SERVICIO DE MANTENIMIENTO DE MAQUINARIA Y EQUIPO.
+activity_291101,2811.0,"Fabricación de motores y turbinas, excepto motores para aeronaves, vehículos automotores y motocicletas",291101,"FABRICACIÓN DE MOTORES Y TURBINAS, EXCEPTO MOTORES PARA AERONAVES, VEHÍCULOS AUT"
+activity_291201,2813.0,"Fabricación de otras bombas, compresores, grifos y válvulas",291201,"FABRICACIÓN DE BOMBAS, COMPRESORES, GRIFOS Y VÁLVULAS"
+activity_291202,4659.0,Venta al por mayor de otro tipo de maquinaria y equipo,291202,VENTA DE BOMBAS DE AGUA
+activity_291401,2815.0,"Fabricación de hornos, hogueras  y quemadores ",291401,FABRICACIÓN DE HORNOS Y QUEMADORES
+activity_291901,3312.0,Reparación de maquinaria,291901,REPARACION DE EQUIPO DE REFRIGERACION Y CONGELACION
+activity_291903,3312.0,Reparación de maquinaria,291903,INSTALACION Y/O MANTENIMIENTO DE EQUIPO DE REFRIGERACION Y CONGELACION
+activity_292101,2821.0,Fabricación de maquinaria agropecuaria y forestal,292101,FABRICACION DE MAQUINARIA AGRICOLA
+activity_292201,2822.0,Fabricación de maquinarias para la conformación de metales y de máquinas herramienstas,292201,FABRICACIÓN DE MÁQUINAS HERRAMIENTA
+activity_292301,2823.0,Fabricación de maquinaria para metalúrgica,292301,FABRICACIÓN DE MAQUINARIA METALÚRGICA
+activity_292401,2824.0,Fabricación de maquinaria para explotación de minas y canteras y para obras de construcción,292401,FABRICACIÓN DE MAQUINARIA PARA LA EXPLOTACIÓN DE MINAS Y CANTERAS
+activity_292402,4390.0,Otras actividades especializadas de la construcción,292402,PERFORACION DE POZOS
+activity_292501,2825.0,"Fabricación de maquinaria para la elaboración de alimentos, bebidas y tabaco",292501,"FABRICACIÓN DE MAQUINARIA PARA LA ELABORACIÓN DE ALIMENTOS,BEBIDAS Y TABACO"
+activity_292601,2826.0,"Fabricación de maquinaria para la elaboración de productos textiles, prendas de vestir y cueros",292601,"FABRICACIÓN MAQUINARIA PARA LA ELABORACIÓN DE PRODUCTOS TEXTILES, PRENDAS DE VES"
+activity_292701,2520.0,Fabricación de armas y municiones,292701,FABRICACIÓN DE ARMAS Y MUNICIONES
+activity_292901,2829.0,Fabricación de otros tipos de maquinaria de uso especial,292901,FABRICACIÓN DE OTROS TIPOS DE MAQUINARIA DE USO ESPECIAL
+activity_293001,2750.0,Fabricación de aparatos de uso doméstico,293001,FABRICACIÓN DE APARATOS DE USO DOMÉSTICO N.C.P.
+activity_300001,2817.0,Fabricación de maquinaria y equipo de oficina (excepto computadoras y equipos periféricos),300001,"FABRICACIÓN DE MAQUINARIA DE OFICINA, CONTABILIDAD E INFORMÁTICA"
+activity_311001,2710.0,"Fabricación de motores eléctricos, generadores, transformadores eléctricos y aparatos  de distribución y control de la energía eléctrica",311001,"FABRICACION DE MOTORES, GENERADORES Y TRANSFORMADORES ELECTRICOS, PARTES Y ACCESORIOS"
+activity_313001,2732.0,Fabricación de otros hilos y cables  eléctricos,313001,FABRICACIÓN DE HILOS Y CABLES AISLADOS
+activity_314001,2720.0,Fabricación de baterias y acumuladores,314001,"FABRICACION DE PILAS, BATERIAS Y ACUMULADORES"
+activity_315001,2740.0,Fabricación de equipos de iluminación eléctricos,315001,FABRICACION DE LAMPARAS ELECTRICAS Y EQUIPO DE ILUMINACION
+activity_319001,2790.0,Fabricación de otro equipo eléctrico,319001,FABRICACIÓN DE OTROS TIPOS DE EQUIPO ELÉCTRICO N.C.P.
+activity_321001,2610.0,Fabricación de componentes y tableros electrónicos,321001,MANUFACTURA O FABRICACION DE OTROS COMPONENTES ELECTRONICOS
+activity_321002,2610.0,Fabricación de componentes y tableros electrónicos,321002,DISEÑO DE COMPONENTES ELECTRONICOS
+activity_322001,2630.0,Fabricación de equipos de comunicaciones,322001,FABRICACION DE TRANSMISORES Y RECEPTORES DE RADIO Y TELEVISION
+activity_331101,3250.0,Fabricación de instrumentos y suministros médicos y odontológicos,331101,FABRICACION  DE PROTESIS EN GENERAL
+activity_331102,3250.0,Fabricación de instrumentos y suministros médicos y odontológicos,331102,FABRICACION Y COMERCIALIZACION DE EQUIPO MEDICO
+activity_331103,3250.0,Fabricación de instrumentos y suministros médicos y odontológicos,331103,FABRICACION Y COMERCIALIZACION DE ZAPATOS ORTOPEDICOS
+activity_331201,2651.0,"Fabricación de equipos de medición, prueba, verificación, navegación y de equipo de control",331201,"FABRICACIÓN DE EQUIPOS PARA MEDIR, VERIFICAR, Y NAVEGAR Y DE EQUIPOS DE CONTROL"
+activity_332001,2670.0,Fabricación de instrumentos ópticos de equipo fotográfico,332001,FABRICACIÓN DE INSTRUMENTOS OPTICOS Y EQUIPO FOTOGRÁFICO
+activity_333001,2652.0,Fabricación de  relojes,333001,FABRICACION DE RELOJES DE TODO TIPO
+activity_341001,2910.0,Fabricación de vehículos automotores,341001,FABRICACIÓN DE VEHÍCULOS AUTOMOTORES
+activity_342001,2920.0,Fabricación de carrocerias para vehículos automotores; fabricación de remolques y semiremolques,342001,"FABRICACIÓN DE CARROCERÍAS PARA VEHÍCULOS AUTOMOTORES, REMOLQUES Y SEMIREMOLQUES"
+activity_34200,34200,2 FABRICACION DE CARROCERIAS PARA CAMIONES DE LAS PARTIDAS ARANCELARIAS 870790002,34200,2 FABRICACION DE CARROCERIAS PARA CAMIONES DE LAS PARTIDAS ARANCELARIAS 870790002
+activity_343001,2930.0,Fabricación de partes y accesorios para motores de vehículos,343001,"FABRICACIÓN DE PARTES, PIEZAS Y ACCESORIOS PARA VEHÍCULOS AUTOMOTORES"
+activity_351101,3315.0,"Reparación de equipo de transporte, excepto los vehículos automotores",351101,SERVICIO DE REPARACION DE EMBARCACIONES Y SUS PARTES Y/O ESTRUCTURAS FLOTANTES
+activity_351102,3012.0,Construcción de embarcaciones de recreo y deporte,351102,CONSTRUCCION DE EMBARCACIONES Y ESTRUCTURAS FLOTANTES
+activity_351103,4763.0,Venta al por menor de artículos de deporte en comercios especializados,351103,VENTA DE EMBARCACIONES DE MOTOR Y VELA
+activity_352001,3020.0,Fabricación de locomotoras y de material rodante,352001,FABRICACIÓN DE LOCOMOTORAS Y  MATERIAL RODANTE PARA FERROCARRILES Y TRANVÍAS
+activity_353001,3030.0,Fabricación de aeronaves y naves espaciales y de maquinaria conexa,353001,FABRICACIÓN DE AERONAVES Y NAVES ESPACIALES Y MAQUINARIA CONEXA
+activity_359101,3091.0,Fabricación de motocicletas,359101,"FABRICACIÓN DE MOTOCICLETAS, PARTES, PIEZAS Y SUS ACCESORIOS"
+activity_359201,3092.0,Fabricación de bicicletas y sillas de ruedas para personas con discapacidad,359201,"FABRICACION DE BICICLETAS Y SILLAS DE RUEDAS, PARTES, PIEZAS Y SUS ACCESORIOS"
+activity_359901,3099.0,Fabricación de otros tipos de equipo de transporte n.c.p,359901,FABRICACIÓN DE OTROS TIPOS DE EQUIPO DE TRANSPORTE N.C.P.
+activity_361001,3100.1,Fabricación de muebles de madera,361001,FABRICACION Y/O REPARACION DE MUEBLES Y ACCESORIOS (INCLUYECOLCHONES)
+activity_361002,9524.0,Reparación de muebles y accesorios domésticos,361002,REPARACIóN DE TAPICERíA
+activity_361004,3100.9,"Fabricación de muebles de otro tipo de material (excepto de madera, piedra, cemento o cerámica)",361004,MAQUILA DE MUEBLES
+activity_369101,3211.0,Fabricación de joyas y artículos conexos,369101,"FABRICACIÓN DE JOYAS, BISUTERIA Y ARTÍCULOS CONEXOS"
+activity_369201,3220.0,Fabricación de Instrumentos musicales,369201,"FABRICACION DE INSTRUMENTOS MUSICALES, PARTES Y PIEZAS Y SUS ACCESORIOS"
+activity_369301,3230.0,Fabricación de artículos de deporte,369301,FABRICACIÓN DE ARTÍCULOS DE DEPORTE
+activity_369401,3240.0,Fabricación de juegos y juguetes,369401,FABRICACION DE JUEGOS Y JUGUETES
+activity_369901,3290.0,Otras industrias manufactureras n.c.p,369901,FABRICACIÓN DE  ESCOBAS
+activity_369902,3290.0,Otras industrias manufactureras n.c.p,369902,"FABRICACIóN DE VELAS (CANDELAS) EXCEPTO LAS PERFUMADAS, COLOREADAS Y DECORADAS."
+activity_369903,3290.0,Otras industrias manufactureras n.c.p,369903,"FABRICACIóN DE VELAS COLOREADAS, PERFUMADAS Y DECORADAS"
+activity_369904,3290.0,Otras industrias manufactureras n.c.p,369904,"FABRICACION DE SELLOS DE MANO, METAL O HULE (CAUCHO)"
+activity_371001,4669.9,"Venta al por mayor de basura, desechos y otros productos n.c.p",371001,RECICLAJE DE DESPERDICIOS Y DESECHOS METáLICOS
+activity_372001,3830.0,Recuperación de materiales,372001,RECICLAJE DE OTRO TIPO DE MATERIALES N.C.P.
+activity_372003,3830.0,Recuperación de materiales,372003,RECICLAJE DE PAPEL Y PLASTICO Y MATERIALES RELACIONADOS
+activity_401002,3510.0,"Generación , transmisión y distribución de energía eléctrica",401002,"GENERACIÓN Y/O DISTRIBUCION DE ENERGIA ELECTRICA (HIDRAULICA,CONVENCIONAL, TERMI"
+activity_401004,2710.0,"Fabricación de motores eléctricos, generadores, transformadores eléctricos y aparatos  de distribución y control de la energía eléctrica",401004,"FABRICACION, ENSAMBLE Y VENTA DE SISTEMAS PARA EL APROVECHAMIENTO DE ENERGIAS RE"
+activity_402001,3520.0,Fabricación de gas; distribución de combustibles gaseosos por tuberías,402001,FABRICACIÓN DE GAS; DISTRIBUCIÓN DE COMBUSTIBLES GASEOSOS POR TUBERÍAS
+activity_402002,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,402002,INSTALACION Y VENTA DE TANQUES PARA GAS
+activity_403001,3530.0,Suministro de vapor y aire acondicionado,403001,SUMINISTRO DE VAPOR Y AIRE ACONDICIONADO
+activity_410001,3600.0,"Captación, tratamiento y distribución  de agua",410001,"CAPTACION, TRATAMIENTO Y DISTRIBUCION DE AGUA"
+activity_451001,4311.0,Demolición ,451001,DEMOLICION DE EDIFICIOS Y OTRAS ESTRUCTURAS
+activity_451002,4312.0,Preparación del terreno,451002,PREPARACIóN DE TERRENOS
+activity_452002,4100.0,Construcción de edificios,452002,"CONSTRUCCION DE EDIFICIOS, APARTAMENTOS, CONDOMINIOS  Y CASAS DE HABITACION"
+activity_452003,4330.0,Terminación  y acabados de edificios,452003,"MANTENIMIENTO, REPARACION Y AMPLIACIONES DE EDIFICIOS, APARTAMENTOS, CONDOMINIOS"
+activity_452005,4210.0,Construcción de carreteras y vías férreas,452005,CONSTRUCCION Y MANTENIMIENTO DE CARRETERAS Y OTRAS VIAS
+activity_452006,4390.0,Otras actividades especializadas de la construcción,452006,ACTIVIDADES DE CONSTRUCCIÓN ESPECIALES
+activity_453001,4322.0,Instalación de fontanería e instalación de calefacción y aire acondicionado,453001,REPARACION DE AIRE ACONDICIONADO
+activity_453002,4329.0,Otro tipo de instalaciones de construcción,453002,REPARACIóN  DE ASCENSORES(ELEVADORES)
+activity_453003,4321.0,Instalación eléctrica y de telecomunicaciones,453003,VENTA E INSTALACION DE ALARMAS Y OTROS SISTEMAS ELECTRICOS
+activity_453004,4321.0,Instalación eléctrica y de telecomunicaciones,453004,REPARACION DE CABLEADO DE COMUNICACIONES
+activity_453005,4321.0,Instalación eléctrica y de telecomunicaciones,453005,INSTALACIÓN DE ALARMAS Y OTROS SISTEMAS DE SEGURIDAD
+activity_453006,4322.0,Instalación de fontanería e instalación de calefacción y aire acondicionado,453006,INSTALACION Y MANTENIMIENTO DE AIRE ACONDICIONADO
+activity_453007,4329.0,Otro tipo de instalaciones de construcción,453007,INSTALACION Y MANTENIMIENTO DE ASCENSORES (ELEVADORES)
+activity_453008,4321.0,Instalación eléctrica y de telecomunicaciones,453008,INSTALACION Y MANTENIMIENTO DE CABLEADO DE COMUNICACIONES Y/O ENERGIA ELECTRICA
+activity_453009,3314.0,Reparación de equipo eléctrico,453009,REPARACION DE PORTONES ELECTRICOS
+activity_453010,4329.0,Otro tipo de instalaciones de construcción,453010,INSTALACION Y MANTENIMIENTO DE PORTONES ELECTRICOS
+activity_453011,4321.0,Instalación eléctrica y de telecomunicaciones,453011,INSTALACION Y MANTENIMIENTO DE CONMUTADORES Y OTROS SISTEMAS PARA TELECOMUNICACI
+activity_454001,4330.0,Terminación  y acabados de edificios,454001,SERVICIOS DE TERMINACIÓN Y ACABADO DE EDIFICIOS
+activity_455001,4390.0,Otras actividades especializadas de la construcción,455001,ALQUILER DE EQUIPO DE CONSTRUCCION O DEMOLICION CON OPERADORES
+activity_501001,4510.0,Venta de vehículos automotores,501001,VENTA AL POR MAYOR Y MENOR DE VEHICULOS NUEVOS Y/O USADOS (PARTIDAS ARANCELARIAS 8702 Y 8704)
+activity_501002,4510.0,Venta de vehículos automotores,501002,"VENTA AL POR MAYOR Y MENOR DE VEHICULOS NUEVOS Y/O USADOS, EXCEPTO PARTIDAS ARANCELARIAS 8702 Y 8704"
+activity_502001,4520.0,Mantenimiento y reparación de vehículos automotores,502001,"LAVADO, ENCERADO Y PULIDO DE AUTOMÓVILES (LAVA CAR)"
+activity_502002,4520.0,Mantenimiento y reparación de vehículos automotores,502002,SERVICIOS DE  ALINEAMIENTO Y REPARACIÓN DE LLANTAS
+activity_502003,4520.0,Mantenimiento y reparación de vehículos automotores,502003,SERVICIO DE REPARACION DE TODA CLASE DE VEHICULOS Y SUS PARTES
+activity_502004,4520.0,Mantenimiento y reparación de vehículos automotores,502004,SERVICIO DE ENDEREZADO Y PINTURA PARA TODA CLASE DE VEHICULO
+activity_502007,4520.0,Mantenimiento y reparación de vehículos automotores,502007,AUTODECORACIóN
+activity_502008,7120.0,Ensayos y análisis técnicos,502008,SERVICIO DE REVISION TECNICA VEHICULAR(DIAGNOSTICOS POR ESCANER)
+activity_503002,4774.0,Venta al por menor de artículos de segunda mano,503002,VENTA DE REPUESTOS USADOS PARA AUTOMOVILES
+activity_503004,4530.0,"Venta de partes, piezas y accesorios de vehículos automotores",503004,VENTA DE REPUESTOS NUEVOS PARA AUTOMOVILES
+activity_503005,4530.0,"Venta de partes, piezas y accesorios de vehículos automotores",503005,COMERCIALIZACION DE LLANTAS (NEUMATICAS) PARA VEHICULOS AUTOMOTORES
+activity_503006,4669.9,"Venta al por mayor de basura, desechos y otros productos n.c.p",503006,ACTIVIDADES DE DESARME DE VEHICULOS Y VENTA DE REPUESTOS
+activity_504001,4540.0,"Venta, mantenimiento y reparación de motocicletas y de sus partes, piezas y accesorios",504001,VENTA DE MOTOCICLETAS
+activity_504003,4540.0,"Venta, mantenimiento y reparación de motocicletas y de sus partes, piezas y accesorios",504003,VENTA DE PARTES O ACCESORIOS DE MOTOCICLETAS
+activity_504004,4540.0,"Venta, mantenimiento y reparación de motocicletas y de sus partes, piezas y accesorios",504004,SERVICIO DE REPARACION DE TODA CLASE DE MOTOCICLETAS Y SUS PARTES
+activity_505001,4730.0,Venta al por menor de combustibles para vehículos automotores en comercios especializados,505001,VENTA DE COMBUSTIBLES (CONOCIDAS COMO GASOLINERAS O BOMBAS)
+activity_505002,4730.0,Venta al por menor de combustibles para vehículos automotores en comercios especializados,505002,"VENTA DE LUBRICANTES, ACEITES, GRASAS Y PRODUCTOS DE LIMPIEZA PARA AUTOMOTORES"
+activity_505003,4730.0,Venta al por menor de combustibles para vehículos automotores en comercios especializados,505003,COMERCIO DE COMBUSTIBLE SIN PUNTO FIJO (PEDDLER)
+activity_511001,4610.0,Venta al por mayor a cambio de una retribución o por contrato,511001,"COMISIONISTAS, AGENTES DE VENTAS, ORGANIZADORES DE SUBASTAS,TIQUETERAS, ETC."
+activity_512102,4620.0,Venta al por mayor de materias primas agropecuarias y animales vivos,512102,VENTA AL POR MAYOR DE FLORES Y PLANTAS DE TODO TIPO
+activity_512201,4630.9,Venta al por mayor de otros alimentos ,512201,VENTA AL POR MAYOR DE OTROS ALIMENTOS INCLUIDOS EN CANASTA BÁSICA
+activity_512202,4630.3,Venta al por mayor de frutas y verduras frescas,512202,VENTA AL POR MAYOR DE FRUTAS Y VERDURAS FRESCAS INCLUIDAS EN CANASTA BÁSICA
+activity_512204,4630.9,Venta al por mayor de otros alimentos ,512204,COMERCIO AL POR MAYOR DE PRODUCTOS LáCTEOS
+activity_512208,4630.9,Venta al por mayor de otros alimentos ,512208,COMERCIO AL POR MAYOR DE PRODUCTOS DE CONFITERíA
+activity_512209,4630.4,"Venta al por mayor de licores, bebidas y tabaco",512209,COMERCIO AL POR MAYOR DE PRODUCTOS DE TABACO
+activity_512210,4630.4,"Venta al por mayor de licores, bebidas y tabaco",512210,COMERCIO AL POR MAYOR DE BEBIDAS CON CONTENIDO ALCOHOLICO (IMPORTADORES)
+activity_512211,4630.9,Venta al por mayor de otros alimentos ,512211,COMERCIO AL POR MAYOR DE OTROS ALIMENTOS N.C.P. GRAVADOS CON IVA
+activity_512213,4630.4,"Venta al por mayor de licores, bebidas y tabaco",512213,COMERCIO AL POR MAYOR DE BEBIDAS GASEOSAS Y CARBONATADAS
+activity_512214,4630.9,Venta al por mayor de otros alimentos ,512214,"VENTA AL POR MAYOR DE CAFE (EXCEPTO EL ENVASADO, ENLATADO, SOLUBLE, DESCAFEINADO"
+activity_523407,4752.1,Venta al por menor de artículos de ferretería y pinturas en comercios especializados,523407,VENTA AL POR MENOR DE PLYWOOD
+activity_512217,4630.4,"Venta al por mayor de licores, bebidas y tabaco",512217,COMERCIO AL POR MAYOR DE VINOS. BEBIDAS FERMENTADAS Y NO FERMENTADAS
+activity_512225,4630.4,"Venta al por mayor de licores, bebidas y tabaco",512225,"COMERCIO AL POR MAYOR DE BEBIDAS NO ALCOHOLICAS (JUGOS DEFRUTAS, VEGETALES) Y AG"
+activity_512232,4630.9,Venta al por mayor de otros alimentos ,512232,COMERCIO AL POR MAYOR DE PRODUCTOS SUSTITUTOS DEL AZUCAR
+activity_512233,4630.9,Venta al por mayor de otros alimentos ,512233,VENTA AL POR MAYOR DE CARNES Y PRODUCTOS CÁRNICOS
+activity_512234,4630.4,"Venta al por mayor de licores, bebidas y tabaco",512234,COMERCIO AL POR MAYOR DE CERVEZA IMPORTADA
+activity_512235,4630.3,Venta al por mayor de frutas y verduras frescas,512235,VENTA AL POR MAYOR DE FRUTAS Y VERDURAS FRESCAS NO INCLUIDAS EN CANASTA BÁSICA
+activity_513101,4641.1,Venta al por mayor de productos textiles y prendas de vestir,513101,"VENTA AL POR MAYOR DE  CALZADO, PRODUCTOS TEXTíLES; PRENDAS DE VESTIR"
+activity_513501,4649.9,Venta al por mayor de otros enseres domésticos n.c.p,513501,VENTA AL POR MAYOR DE PREPARADOS Y/O ARTICULOS PARA LA LIMPIEZA DE USO GENERAL
+activity_513602,4649.2,"Venta al por mayor de productos farmacéuticos, veterinarios y artículos de tocador",513602,VENTA AL POR MAYOR DE PRODUCTOS VETERINARIOS GRAVADOS CON IVA
+activity_513604,4659.0,Venta al por mayor de otro tipo de maquinaria y equipo,513604,VENTA AL POR MAYOR EQUIPO MÉDICO ACCESORIO MEDICAMENTO PRODUC FARMACEUTICO GRAVADOS IVA
+activity_513710,4649.9,Venta al por mayor de otros enseres domésticos n.c.p,513710,VENTA AL POR MAYOR DE LIBROS (EXCEPTO EN MEDIOS ELECTRÓNICOS)
+activity_513901,4763.0,Venta al por menor de artículos de deporte en comercios especializados,513901,VENTA AL POR MENOR DE ARTICULOS DEPORTIVOS
+activity_513904,4649.9,Venta al por mayor de otros enseres domésticos n.c.p,513904,VENTA AL POR MAYOR DE SUMINISTROS Y ARTíCULOS DE LIBRERíA
+activity_513906,4649.1,"Venta al por mayor de aparatos, artículos y equipo de uso doméstico",513906,"VENTA AL POR MAYOR DE ARTICULOS, ARTEFACTOS, DISCOS Y MUEBLES PARA EL HOGAR"
+activity_513907,4649.9,Venta al por mayor de otros enseres domésticos n.c.p,513907,VENTA AL POR MAYOR DE DISCOS COMPACTOS Y OTROS DISPOSITIVOSDE GRABACION
+activity_513910,4690.0,Venta al por mayor de otros productos no especializada,513910,VENTA AL POR MAYOR DE TODO TIPO DE ARTICULOS POR CATALOGO
+activity_514101,4661.0,"Venta al por mayor de combustibles sólidos, líquidos y gaseosos y de productos conexos",514101,VENTA AL POR MAYOR DE COMBUSTIBLES SOLIDOS (LEÑA Y SIMILARES)
+activity_514103,4661.0,"Venta al por mayor de combustibles sólidos, líquidos y gaseosos y de productos conexos",514103,VENTA AL POR MAYOR DE COMBUSTIBLES SOLIDOS (CARBON)
+activity_514201,4662.0,Venta al por mayor de metales y de minerales metalíferos,514201,VENTA AL POR MAYOR DE METALES Y MINERALES METALÍFEROS
+activity_514304,4663.0,"Venta al por mayor de materiales de construcción, articulos de ferretería y equipo y materiales de fontanería y calefacción",514304,VENTA AL POR MAYOR DE EQUIPO DE AIRE ACONDICIONADO Y CALENTADORES (ELECTRICOS)
+activity_514308,4663.0,"Venta al por mayor de materiales de construcción, articulos de ferretería y equipo y materiales de fontanería y calefacción",514308,"VENTA AL POR MAYOR DE  MATERIALES PARA LA CONTRUCCION, ARTICULOS DE FERRETERIA,"
+activity_514701,4669.9,"Venta al por mayor de basura, desechos y otros productos n.c.p",514701,"VENTA AL POR MAYOR DE PRODUCTOS,SUSTANCIAS O REACTIVOS QUIMICOS Y SOLVENTES"
+activity_514901,4669.9,"Venta al por mayor de basura, desechos y otros productos n.c.p",514901,VENTA AL POR MAYOR  Y AL POR MENOR DE CHATARRA
+activity_514903,4669.1,Venta al por mayor de fertilizantes y productos agroquímicos,514903,VENTA AL POR MAYOR DE PRODUCTOS PARA USO AGROPECUARIO Y VENTA DESECHOS ORGANICOS
+activity_515001,4659.0,Venta al por mayor de otro tipo de maquinaria y equipo,515001,"VENTA AL POR MAYOR DE MAQUINARIA Y EQUIPO INDUSTRIAL, DE CONSTRUCCION, INGENIERIA"
+activity_515002,4653.0,"Venta al por mayor de maquinaria, equipo y materiales agropecuarios",515002,VENTA AL POR MAYOR DE REPUESTOS Y/O ACCESORIOS PARA MAQUINARIA Y EQUIPO AGROPECUARIO
+activity_515003,4653.0,"Venta al por mayor de maquinaria, equipo y materiales agropecuarios",515003,VENTA AL POR MAYOR DE MAQUINARIA Y EQUIPO AGROPECUARIO
+activity_515004,4690.0,Venta al por mayor de otros productos no especializada,515004,VENTA AL POR MAYOR DE EXTINTORES Y EQUIPO SIMILAR
+activity_515201,4651.0,"Venta al por mayor de computadoras, equipo informático periférico y programas informáticos",515201,"VENTA AL  POR MAYOR DE EQUIPO DE COMPUTO, SUS PARTES Y ACCESORIOS"
+activity_515203,4659.0,Venta al por mayor de otro tipo de maquinaria y equipo,515203,VENTA AL POR MAYOR DE EQUIPO Y SUMINISTROS DE OFICINA
+activity_519003,4649.2,"Venta al por mayor de productos farmacéuticos, veterinarios y artículos de tocador",519003,"VENTA AL POR MAYOR DE EQUIPO, ARTICULOS Y ACCESORIOS DE BELLEZA, COSMETICOS E HIGIENE"
+activity_519005,4649.3,"Venta al por mayor de juegos, juguetes, artículos deportivos y de esparcimiento",519005,VENTA AL POR MAYOR DE EQUIPO PARA CAMPO DE JUEGOS (PLAY)
+activity_519006,4669.9,"Venta al por mayor de basura, desechos y otros productos n.c.p",519006,DISTRIBUCION Y COMERCIALIZACION AL POR MAYOR DE MATERIAL DEEMPAQUE
+activity_519010,4630.9,Venta al por mayor de otros alimentos ,519010,COMERCIALIZACION Y DISTRIBUCION AL POR MAYOR DE ALIMENTOS PREPARADOS PARA ANIMAL
+activity_519011,4649.3,"Venta al por mayor de juegos, juguetes, artículos deportivos y de esparcimiento",519011,COMERCIO AL POR MAYOR DE EQUIPO Y ACCESORIOS PARA PESCA DEPORTIVA O ARTESANAL
+activity_519013,4630.9,Venta al por mayor de otros alimentos ,519013,COMERCIALIZACION AL POR MAYOR DE SUPLEMENTOS ALIMENTICIOS
+activity_519014,4620.0,Venta al por mayor de materias primas agropecuarias y animales vivos,519014,VENTA AL POR MAYOR DE POLEN Y/O  SEMILLAS PARA USO AGRICOLA
+activity_519015,4690.0,Venta al por mayor de otros productos no especializada,519015,VENTA AL POR MAYOR DE OTROS PRODUCTOS NO ESPECIALIZADOS
+activity_519016,4652.0,"Venta al por mayor de equipo, partes y piezas   electrónicas y  de telecomunicaciones ",519016,VENTA AL POR MAYOR DE ARTICULOS Y ACCESORIOS ELECTRONICOS
+activity_521101,4711.1,"Venta al por menor en supermercados, almacenes y similares",521101,"VENTA AL POR MENOR EN SUPERMERCADOS, ALMACENES Y SIMILARES DE PRODUCTOS ALIMENTICIOS"
+activity_521102,4721.9,Venta al por menor de otros alimentos,521102,"VENTA AL POR MENOR DE ESPECIAS, SALSAS Y CONDIMENTOS"
+activity_521201,4711.2,"Venta al por menor en minisuper, pulperias y similares",521201,VENTA AL POR MENOR EN TIENDAS POR DEPARTAMENTOS
+activity_521202,4711.2,"Venta al por menor en minisuper, pulperias y similares",521202,PULPERíAS ( MINI-SUPER)(SIN CANTINA)
+activity_521901,4719.1,Venta al por menor en tiendas por departamentos,521901,VENTA AL POR MENOR EN TIENDAS POR DEPARTAMENTOS
+activity_522001,4721.9,Venta al por menor de otros alimentos,522001,COMERCIO AL POR MENOR DE CONFITES Y OTROS PRODUCTOS RELACIONADOS (CONFITERIA)
+activity_522002,4721.1,"Venta al por menor de carne de bovino, porcino y sus derivados",522002,"VENTA AL POR MENOR DE CARNE DE BOVINO, PORCINO Y AVES (ADEMÁS EMBUTIDOS), INCLUIDOS EN CANASTA BÁSICA"
+activity_522003,4772.0,"Venta al por menor de productos farmacéuticos y medicinales, cosméticos y artículos de tocador en comercios especializados",522003,MACROBIóTICAS
+activity_522004,4721.4,Venta al por menor de frutas y verduras frescas,522004,VENTA AL POR MENOR DE PRUTAS Y VERDURAS FRESCAS INCLUIDAS EN CANASTA BÁSICA
+activity_522005,4721.3,Venta al por menor de pescados y mariscos,522005,VENTA AL POR MENOR DE PESCADOS INCLUIDOS EN CANASTA BÁSICA
+activity_522007,4722.0,Venta al por menor de bebidas en comercios especializados,522007,LICORERíAS Y/O DEPOSITO DE LICORES (VENTA AL POR MENOR)
+activity_522008,4721.9,Venta al por menor de otros alimentos,522008,VENTA AL POR MENOR DE HUEVOS DE GALLINA INCLUIDOS EN LA CANASTA BASICA
+activity_522009,4721.4,Venta al por menor de frutas y verduras frescas,522009,"VENTA AL POR MENOR DE PRUTAS Y VERDURAS FRESCAS, NO INCLUIDAS EN CANASTA BÁSICA"
+activity_522011,5610.0,Actividades de restaurantes y de servicios móviles de comidas,522011,"PREPARACIÓN, SERVICIO Y VENTA DE FRUTAS PICADAS Y BEBIDAS DE FRUTAS Y/O LEGUMBRE"
+activity_522012,4722.0,Venta al por menor de bebidas en comercios especializados,522012,COMERCIO AL POR MENOR DE BEBIDAS GASEOSAS Y CARBONATADAS
+activity_522013,4722.0,Venta al por menor de bebidas en comercios especializados,522013,COMERCIO AL POR MENOR DE AGUA EMBOTELLADA
+activity_522016,4723.0,Venta al por menor de tabaco en comercios especializados,522016,COMERCIO AL POR MENOR DE PRODUCTOS DE TABACO
+activity_522017,4721.1,"Venta al por menor de carne de bovino, porcino y sus derivados",522017,"VENTA AL POR MENOR DE CARNE DE BOVINO, PORCINO Y AVES (ADEMÁS EMBUTIDOS) NO INCLUIDOS EN CANASTA BÁSICA"
+activity_522018,4721.3,Venta al por menor de pescados y mariscos,522018,"VENTA AL POR MENOR  DE PESCADOS Y MARISCOS , ASI COMO OTROS PRODUCTOS DE ORIGEN MARINO"
+activity_522020,522020,VENTA AL POR MENOR DE OTROS ALIMENTOS INCLUIDOS EN CANASTA BÁSICA,522020,VENTA AL POR MENOR DE OTROS ALIMENTOS INCLUIDOS EN CANASTA BÁSICA
+activity_522021,4721.9,Venta al por menor de otros alimentos,522021,VENTA AL POR MENOR DE OTROS ALIMENTOS NO INCLUIDOS EN CANASTA BÁSICA
+activity_523101,4772.0,"Venta al por menor de productos farmacéuticos y medicinales, cosméticos y artículos de tocador en comercios especializados",523101,FARMACIAS
+activity_523102,4772.0,"Venta al por menor de productos farmacéuticos y medicinales, cosméticos y artículos de tocador en comercios especializados",523102,VENTA AL POR MENOR DE COSMETICOS Y PERFUMERIA
+activity_523103,523103,VENTA AL POR MENOR DE PRÓTESIS EN GENERAL,523103,VENTA AL POR MENOR DE PRÓTESIS EN GENERAL
+activity_523201,4719.9,Venta al por menor en bazares y otros establecimientos no especializados n.c.p,523201,BAZARES
+activity_523202,4771.1,Venta al por menor de prendas de vestir y artículos de cuero en almacenes especializados,523202,VENTA AL POR MENOR DE ROPA (BOUTIQUE)
+activity_523203,4771.2,Venta al por menor de zapatos  en comercios especializados,523203,VENTA AL POR MENOR DE CALZADO (ZAPATAERIAS)
+activity_523204,4751.0,Venta al por menor de productos textiles en comercios especializados,523204,PASAMANERíAS
+activity_523205,4771.1,Venta al por menor de prendas de vestir y artículos de cuero en almacenes especializados,523205,"VENTA AL POR MENOR DE PRENDAS DE VESTIR, ROPA Y ZAPATOS (TIENDAS)"
+activity_523206,8219.0,"Fotocopiado, preparación de documentos y otras actividades especializadas de apoyo de oficina",523206,SERVICIO DE FOTOCOPIADORA
+activity_523207,4771.1,Venta al por menor de prendas de vestir y artículos de cuero en almacenes especializados,523207,VENTA AL POR MENOR DE ARTíCULOS DE CUERO (EXCEPTO CALZADO)
+activity_523208,4751.0,Venta al por menor de productos textiles en comercios especializados,523208,VENTA AL POR MENOR DE PRODUCTOS TEXTILES (TELAS)
+activity_523209,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523209,VENTA AL POR MENOR DE MATERIALES PARA CALZADO
+activity_523301,4759.0,"Venta al por menor de aparatos eléctricos de uso doméstico, muebles, equipos de iluminación y otros enseres domésticos en comercios especializados",523301,COMERCIO AL POR MENOR DE OBJETOS DE CERAMICA  Y PORCELANA
+activity_523302,4759.0,"Venta al por menor de aparatos eléctricos de uso doméstico, muebles, equipos de iluminación y otros enseres domésticos en comercios especializados",523302,VENTA AL POR MENOR DE CRISTALERíA
+activity_523303,4762.0,Venta al por menor de grabaciones musicales y videográficas en comercios especializados,523303,"VENTA AL POR MENOR DE DISCOS, CD'S Y OTROS SIMILARES"
+activity_523304,4759.0,"Venta al por menor de aparatos eléctricos de uso doméstico, muebles, equipos de iluminación y otros enseres domésticos en comercios especializados",523304,"VENTA AL POR MENOR DE ELECTRODOMESTICOS, MUEBLES Y ARTICULOS PARA EL HOGAR"
+activity_523306,4774.0,Venta al por menor de artículos de segunda mano,523306,VENTA AL POR MENOR DE ANTIGUEDADES
+activity_523308,4759.0,"Venta al por menor de aparatos eléctricos de uso doméstico, muebles, equipos de iluminación y otros enseres domésticos en comercios especializados",523308,"VENTA AL POR MENOR DE INSTRUMENTOS MUSICALES, PARTES Y ACCESORIOS"
+activity_523309,4773.0,Otra venta al por menor de otros productos nuevos en comercios especializados.,523309,VENTA DE CUADROS PINTURAS HECHAS POR PINTORES NACIONALES Y EXTRANJEROS PRODUCIDO
+activity_523401,4752.1,Venta al por menor de artículos de ferretería y pinturas en comercios especializados,523401,VENTA AL POR MENOR DE DEPóSITO DE MADERA
+activity_523402,4752.1,Venta al por menor de artículos de ferretería y pinturas en comercios especializados,523402,VENTA AL POR MENOR ARTÍCULOS DE FERRETERÍA PINTURAS MADERA Y MATERIALES PARA LA CONSTRUCCIÓN
+activity_523403,4752.1,Venta al por menor de artículos de ferretería y pinturas en comercios especializados,523403,VENTA DE PINTURAS
+activity_523404,4752.2,Venta al por menor de productos de vidrio en comercios especializados,523404,VENTA AL POR MENOR DE VIDRIO PARA LA CONSTRUCCION
+activity_523405,4752.1,Venta al por menor de artículos de ferretería y pinturas en comercios especializados,523405,VENTA AL POR MENOR DE MATERIALES PARA LA CONSTRUCCION
+activity_523406,4741.0,"Venta al por menor de computadoras, equipo periféricos, programas de información y telecomunicaciones en comercios especializados",523406,"VENTA AL POR MENOR DE ARTICULOS ELECTRONICOS, ELECTRICOS Y SIMILARES"
+activity_523501,4759.0,"Venta al por menor de aparatos eléctricos de uso doméstico, muebles, equipos de iluminación y otros enseres domésticos en comercios especializados",523501,VENTA AL POR MENOR REALIZADA DENTRO DEL DEPÓSITO LIBRE COMERCIAL DE GOLFITO.
+activity_523601,4741.0,"Venta al por menor de computadoras, equipo periféricos, programas de información y telecomunicaciones en comercios especializados",523601,"COMERCIO AL POR MENOR DE COMPUTADORAS, ACCESORIOS, MICROCOMPONENTES Y PAQUETES "
+activity_523701,4761.0,"Venta al por menor de libros, periódicos y artículos de papelería en comercios especializados",523701,LIBRERÍAS
+activity_523702,4761.0,"Venta al por menor de libros, periódicos y artículos de papelería en comercios especializados",523702,VENTA AL POR MENOR DE REVISTAS/PERIODICOS EN PUESTOS DE VENTAS O MERCADOS
+activity_523703,4761.0,"Venta al por menor de libros, periódicos y artículos de papelería en comercios especializados",523703,VENTA AL POR MENOR DE LIBROS (EXCEPTO EN MEDIOS ELECTRÓNICOS)
+activity_523801,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523801,VENTA AL POR MENOR DE ARMAS (ARMERIAS)
+activity_523803,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523803,VENTA AL POR MENOR DE MAQUINARIA Y EQUIPO DE TODO TIPO Y ARTICULOS CONEXOS
+activity_523805,4759.0,"Venta al por menor de aparatos eléctricos de uso doméstico, muebles, equipos de iluminación y otros enseres domésticos en comercios especializados",523805,"VENTA AL POR MENOR DE PURIFICADORES DE AGUA, SUS PARTES Y REPUESTOS"
+activity_523806,4774.0,Venta al por menor de artículos de segunda mano,523806,VENTA AL POR MENOR DE MAQUINARIA INDUSTRIAL USADA
+activity_523807,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523807,"VENTA AL POR MENOR DE REPUESTOS NUEVOS PARA MAQUINARIA, EQUIPO Y OTROS"
+activity_523808,4774.0,Venta al por menor de artículos de segunda mano,523808,"VENTA AL POR MENOR DE REPUESTOS USADOS PARA MAQUINARIA, EQUIPO Y OTROS"
+activity_523901,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523901,VENTA AL POR MENOR DE OTROS PRODUCTOS EN ALMACENES ESPECIALIZADOS
+activity_523902,4761.0,"Venta al por menor de libros, periódicos y artículos de papelería en comercios especializados",523902,VENTA AL POR MENOR DE SUMINISTROS Y/0 EQUIPO DE OFICINA
+activity_523903,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523903,VENTA AL POR MENOR DE FLORES
+activity_523904,9529.0,Reparación de otros bienes personales y  enseres domésticos n.c.p,523904,SERVICIOS DE REPARACION DE JOYERIA Y RELOJERIA EN GENERAL
+activity_523905,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523905,"VENTA AL POR MENOR DE JOYERíA, RELOJERIA Y BISUTERIA"
+activity_523906,4741.0,"Venta al por menor de computadoras, equipo periféricos, programas de información y telecomunicaciones en comercios especializados",523906,VENTA AL POR MENOR CELULARES ACCESORIOS EQUIPO Y ART PARA COMUNICACIONES
+activity_523907,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523907,FLORISTERIA
+activity_523908,4620.0,Venta al por mayor de materias primas agropecuarias y animales vivos,523908,COMERCIO AL POR MENOR DE ANIMALES DOMÉSTICOS PARA CONSUMO HUMANO
+activity_523909,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523909,VENTA DE PRODUCTOS DE ARTESANIA Y SOUVENIR
+activity_523910,4764.0,Venta al por menor de juegos y de juguetes en almacenes especializados,523910,VENTA AL POR MENOR DE JUGUETES Y/O ARTICULOS DE ESPARCIMIENTO
+activity_523911,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523911,VENTA AL POR MENOR DE OTROS PRODUCTOS NUEVOS EN COMERCIOS ESPECIALIZADOS NO INCLUIDOS EN CANASTA BÁSICA
+activity_523912,4620.0,Venta al por mayor de materias primas agropecuarias y animales vivos,523912,VENTA AL POR MENOR Y MAYOR DE PRODUCTOS E INSUMOS AGROPECUARIOS
+activity_523913,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523913,VENTA AL POR MENOR DE ANIMALES DOMESTICOS PARA MASCOTAS.
+activity_523915,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523915,DISTRIBUCION Y VENTA DE GAS EN CILINDRO
+activity_523916,4721.9,Venta al por menor de otros alimentos,523916,COMERCIO AL POR MENOR DE ALIMENTOS Y PRODUCTOS N.C.P. EXENTOS DE IVA
+activity_523917,4763.0,Venta al por menor de artículos de deporte en comercios especializados,523917,VENTA AL POR MENOR DE BICICLETAS Y SUS ACCESORIOS
+activity_523918,4742.0,Venta al por menor de equipo de audio y video en comercios especializados,523918,VENTA AL POR MENOR DE EQUIPO DE AUDIO Y VIDEO
+activity_523919,4772.0,"Venta al por menor de productos farmacéuticos y medicinales, cosméticos y artículos de tocador en comercios especializados",523919,VENTA AL POR MENOR DE ARTICULOS Y ACCESORIOS ORTOPEDICOS
+activity_523920,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523920,VENTA AL POR MENOR DE ANTEOJOS Y ARTICULOS OPTICOS (OPTICA)
+activity_523921,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523921,"VENTA AL POR MENOR DE CAJAS REGISTRADORAS, CALCULADORAS O MAQUINAS DE CONTABILIDAD"
+activity_523922,4721.9,Venta al por menor de otros alimentos,523922,VENTA AL POR MENOR DE POLEN Y SEMILLAS
+activity_523923,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523923,VENTA AL POR MENOR DE REPUESTOS PARA ELECTRODOMESTICOS
+activity_523925,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523925,VENTA AL POR MENOR DE EXTINTORES
+activity_523926,3312.0,Reparación de maquinaria,523926,MANTENIMIENTO DE EXTINTORES
+activity_523927,9521.0,Reparación de aparatos electrónicos de consumo eléctrico,523927,REPARACION EQUIPO DE AUDIO Y VIDEO
+activity_523929,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523929,VENTA DE PERROS ENTRENADOS PARA SEGURIDAD
+activity_523930,4799.0,"Otros tipos de venta al por menor no realizada en comercios,  puestos de venta o mercados",523930,VENTA AL POR MENOR DE PIEZAS DE BAMBU
+activity_523935,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,523935,VENTA AL POR MENOR DE OTROS PRODUCTOS NUEVOS EN COMERCIOS ESPECIALIZADOS NO INCLUIDOS EN CANASTA BÁSICA
+activity_524001,4774.0,Venta al por menor de artículos de segunda mano,524001,VENTA DE TODO TIPO DE ARTICULOS USADOS
+activity_524002,6492.0,Otros tipos de crédito,524002,CASA DE EMPEñO Y AFíN
+activity_524004,4774.0,Venta al por menor de artículos de segunda mano,524004,VENTA DE LIBROS USADOS
+activity_524005,4773.0,Otra venta al por menor de otros  productos nuevos en comercios especializados,524005,"VENTA DE MONEDAS, BILLETES,ESTAMPILLAS (NUEVAS Y USADAS) PARA COLECCION "
+activity_525101,4799.0,"Otros tipos de venta al por menor no realizada en comercios,  puestos de venta o mercados",525101,VENTA AL POR MENOR DE TODO TIPO DE ARTICULOS POR CATALOGO
+activity_525201,4799.0,"Otros tipos de venta al por menor no realizada en comercios,  puestos de venta o mercados",525201,VENTA DE REVISTAS/PERIÓDICOS (PUESTOS CALLEJEROS)
+activity_525301,9200.0,Actividades de juego de azar y apuestas,525301,VENTA AL POR MENOR DE LOTERIA Y SIMILARES
+activity_525303,8411.0,Actividades de la administración pública en general,525303,EMISIÓN DE LA LOTERIA NACIONAL Y SIMILARES
+activity_525901,4753.0,"Venta al por menor de tapices, alfombras, cubrimientos para paredes y pisos en comercios especializados",525901,VENTA DE ALFOMBRAS Y TAPICES
+activity_525902,4799.0,"Otros tipos de venta al por menor no realizada en comercios,  puestos de venta o mercados",525902,VENTA AMBULANTE DE ARTICULOS PARA EL HOGAR
+activity_525903,4799.0,"Otros tipos de venta al por menor no realizada en comercios,  puestos de venta o mercados",525903,VENTA DE LIBROS A DOMICILIO
+activity_525904,3290.0,Otras industrias manufactureras n.c.p,525904,TRABAJOS DE  MANUALIDADES
+activity_525905,6190.9,Otras actividades de telecomunicación,525905,"VENTA AL POR MENOR DE TARJETAS TELEFóNICAS, PINES, TIEMPO AIRE Y SIMILARES"
+activity_526001,9523.0,Reparación de calzado y artículos de cuero,526001,SERVICIOS DE REPARACIÓN DE ZAPATOS
+activity_526002,9524.0,Reparación de muebles y accesorios domésticos,526002,REPARACION DE MUEBLES Y ACCESORIOS DOMESTICOS
+activity_526003,9529.0,Reparación de otros bienes personales y  enseres domésticos n.c.p,526003,REPARACION DE BICICLETAS
+activity_526005,4321.0,Instalación eléctrica y de telecomunicaciones,526005,"ELECTRICISTA, SERVICIOS"
+activity_526006,9522.0,Reparación de aparatos de uso doméstico y equipo doméstico y de jardinería,526006,REPARACION DE ARTICULOS ELECTRICOS
+activity_526008,9601.0,"Lavado y limpieza, incluida la limpieza en seco, de productos textiles y piel",526008,REPARACION Y MANTENIMIENTO DE PERSIANAS Y CORTINAS
+activity_526010,4330.0,Terminación  y acabados de edificios,526010,INSTALACION Y MANTENIMIENTO DE PERSIANAS Y CORTINAS
+activity_526011,9512.0,Reparación de equipos de comunicaciones,526011,REPARACION Y MANTENIMIENTO DE EQUIPO PARA TELECOMUNICACIONES
+activity_526012,4390.0,Otras actividades especializadas de la construcción,526012,"INSTALACION Y MANTENIMIENTO DE PISCINAS,JACUZZIS Y SIMILARES"
+activity_551002,5510.1,Actividades de alojamiento para estancias cortas en hoteles y moteles,551002,HOTEL
+activity_551004,5510.1,Actividades de alojamiento para estancias cortas en hoteles y moteles,551004,"MOTEL Y/O SERVICIO DE HABITACION OCASIONAL, ALBERGUES, POSADAS Y SIMILARES"
+activity_551005,5223.0,Actividades de servicio secundario de transporte por vía aérea,551005,SERVICIO DE SALAS VIP Y PREMIUN EN AEROPUERTOS
+activity_552001,5630.0,Actividades de servicio de bebidas,552001,"BARES, CANTINAS O TABERNAS"
+activity_552002,5610.0,Actividades de restaurantes y de servicios móviles de comidas,552002,CAFETERíAS
+activity_552003,5621.0,Suministros de comidas por encargo,552003,SERVICIOS DE CATERING SERVICE
+activity_552004,5610.0,Actividades de restaurantes y de servicios móviles de comidas,552004,"SERVICIO DE RESTAURANTE, CAFETERIAS, SODAS Y OTROS EXPENDIOS DE COMIDA"
+activity_552005,5610.0,Actividades de restaurantes y de servicios móviles de comidas,552005,SODAS
+activity_552007,5610.0,Actividades de restaurantes y de servicios móviles de comidas,552007,OTROS EXPENDIOS DE COMIDAS
+activity_601001,4911.0,Transporte  de pasajeros por ferrocarril,601001,SERVICIO DE TRANSPORTE POR VÍA FÉRREA
+activity_602001,4923.9,Otro transporte de carga n.c.p,602001,SERVICIO DE TRANSPORTE DE CARGA POR VÍA TERRESTRE
+activity_602002,4923.9,Otro transporte de carga n.c.p,602002,TRANSPORTE DE  PRODUCTOS DERIVADOS DEL PETROLEO
+activity_602101,4922.1,Transporte terrestre  de estudiantes y de empleados,602101,TRANSPORTE REGULAR DE ESTUDIANTES Y EMPLEADOS POR VIA TERRESTRE
+activity_602102,4921.0,"Transporte terrestre de pasajeros del área urbana, suburbana por vía terrestre",602102,TRANSPORTE REGULAR DE PASAJEROS POR VIA TERRESTRE
+activity_602201,4922.3,"Transporte terrestre no regular de pasajeros, en buses ",602201,TRANSPORTE NO REGULAR DE PASAJEROS POR VIA TERRESTRE (EXCURSIONES)
+activity_602202,4922.2,Servicios de taxi ,602202,SERVICIO DE TAXI
+activity_602203,4922.2,Servicios de taxi ,602203,SERVICIO ESPECIAL ESTABLE DE TAXI (SEETAXI)
+activity_602301,4923.9,Otro transporte de carga n.c.p,602301,SERVICIO DE ACARREO Y DISTRIBUCION DE TODO TIPO DE MERCANCIA (INCLUYE LA MUDANZA
+activity_602302,5221.1,Remolque y asistencia para vehículo destinado al transporte terrestre,602302,SERVICIOS DE GRUA
+activity_602304,4923.1,Transporte terrestre local e internacional de contenedores,602304,SERVICIO DE MUDANZA INTERNACIONAL
+activity_603001,4930.0,Transporte por tuberías,603001,SERVICIO DE TRANSPORTE POR TUBERÍAS
+activity_611001,5012.0,Transporte marítimo y de cabotaje de carga,611001,TRANSPORTE DE CARGA POR  VIA ACUATICA
+activity_611002,611002,TRANSPORTE DE CABOTAJE DE PASAJEROS POR  VIA ACUATICA,611002,TRANSPORTE DE CABOTAJE DE PASAJEROS POR  VIA ACUATICA
+activity_621001,5120.0,Transporte de carga por vía aérea,621001,SERVICIO DE TRANSPORTE DE CARGA POR VIA AEREA
+activity_621002,5110.0,Transporte de pasajeros por vía aérea,621002,SERVICIO DE TRANSPORTE AEREO REGULADO DE PASAJEROS (LINEAS AEREAS)
+activity_621003,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",621003,SERVICIO DE PILOTAJE
+activity_622001,5110.0,Transporte de pasajeros por vía aérea,622001,SERVICIO DE TRANSPORTE AEREO NO REGULAR DE PASAJEROS
+activity_630001,5223.0,Actividades de servicio secundario de transporte por vía aérea,630001,PRESTACION DE SERVICIOS DE TRANSITO AEREO
+activity_630101,5224.0,Manipulación de carga,630101,SERVICIO DE CONSOLIDACION DE CARGA Y DESCARGA
+activity_630201,5210.0,Almacenamiento y depósito,630201,SERVICIOS DE ALMACENAJE
+activity_630301,5221.2,Servicios de estacionamientos y garajes,630301,PARQUEOS/ESTACIONAMIENTO DE VEHíCULOS
+activity_630302,5221.2,Servicios de estacionamientos y garajes,630302,"FUNCIONAMIENTO DE INSTALACIONES TERMINALES COMO PUERTOS, MUELLES Y AEROPUERTOS"
+activity_630303,5221.9,"Servicios de administración de carreteras, puentes y otros servicios   auxiliares",630303,PERMISO DE PASO POR PROPIEDADES PRIVADAS (PEAJE)
+activity_630401,7911.0,Actividades de agencias de viajes,630401,ACTIVIDADES DE AGENCIAS DE VIAJES
+activity_630403,7912.0,Actividades de operadores turísticos,630403,ACTIVIDADES DE OPERADORES TURÍSTICOS (GUIA  DE TURISMO)
+activity_630405,7912.0,Actividades de operadores turísticos,630405,EXPLOTACIóN DE ACTIVIDADES TURíSTICAS(CUYA PRESTACION NO SEA REALIZADA POR UN CE
+activity_630901,5229.0,Otras actividades de apoyo al  transporte,630901,ALMACENES FISCALES (DEPOSITOS ADUANEROS) Y ESTACIONAMIENTOSTRANSITORIOS
+activity_630903,5229.0,Otras actividades de apoyo al  transporte,630903,AGENCIA DE TRANSPORTE (NAVIERA)
+activity_630904,5229.0,Otras actividades de apoyo al  transporte,630904,AGENTE ADUANERO INDEPENDIENTE Y AGENCIA DE ADUANAS
+activity_641101,5310.0, Servicios postales (Correo),641101,ACTIVIDADES POSTALES Y DE CORREO
+activity_642001,6190.9,Otras actividades de telecomunicación,642001,"SERVICIOS DE RADIO-MENSAJES, RADIOLOCALIZADORES Y SIMILARES"
+activity_642002,6110.0,Actividades de telecomunicaciones alámbricas,642002,"SERVICIO DE TELEVISION POR CABLE, SATELITE U OTROS SISTEMA S SIMILARES"
+activity_642003,6190.9,Otras actividades de telecomunicación,642003,MANTENIMIENTO DE REDES DE TELECOMUNICACION
+activity_642004,6010.0,Transmisiones de radio,642004,SERVICIO DE RADIO FRECUENCIA
+activity_642005,6110.0,Actividades de telecomunicaciones alámbricas,642005,"SERVICIOS TELEFONICOS, TELEGRAFICOS Y POR TELEX"
+activity_642007,6110.0,Actividades de telecomunicaciones alámbricas,642007,VENTA DE ESPACIO EN EL CABLE SUBMARINO
+activity_642008,6120.0,Actividades de telecomunicaciones inalámbricas,642008,"SERVICIO DE TRANSMISION  DE  DATOS, TEXTO, SONIDO, VOZ  Y VIDEO POR MEDIO DE LA"
+activity_642009,0000.2,Servicios digitales o de telecomunicaciones e intangibles prestados desde el exterior por proveedores,642009,SERVICIOS DIGITALES O DE TELECOMUNICACIONES E INTANGIBLES PRESTADOS DESDE EL EXTERIOR
+activity_651101,6411.0,Banca Central,651101,BANCA CENTRAL
+activity_651901,6419.0,Otros tipos de intermediación monetaria,651901,COOPERATIVAS DE AHORRO Y CREDITO
+activity_651903,6419.0,Otros tipos de intermediación monetaria,651903,BANCOS ESTATALES (EXCEPTO EL BANCO CENTRAL)
+activity_651904,6419.0,Otros tipos de intermediación monetaria,651904,ENTIDADES FINANCIERAS PRIVADAS (BANCOS)
+activity_651905,6419.0,Otros tipos de intermediación monetaria,651905,SERVICIO DE ENVIO Y RECIBO DE DINERO
+activity_651906,6419.0,Otros tipos de intermediación monetaria,651906,INSTITUCIONES DE AHORRO Y CREDITO PARA VIVIENDA
+activity_659101,6491.0,Arriendamiento financiero,659101,ARRENDAMIENTO OPERATIVO EN FUNCION FINANCIERA CON OPCION DECOMPRA O RENOVACION (
+activity_659201,6492.0,Otros tipos de crédito,659201,ENTIDADES FINANCIERAS DISTINTAS AL SISTEMA BANCARIO NACIONAL
+activity_659202,6492.0,Otros tipos de crédito,659202,EMISORAS Y PROCESADORAS DE TARJETAS DE CREDITO
+activity_659901,6492.0,Otros tipos de crédito,659901,SERVICIO DE PRESTAMO (PRESTAMISTAS)
+activity_659902,6430.0,Fondo y sociedades de Inversión y entidades financieras similares ,659902,FIDEICOMISOS Y/O ADMINISTRADORES DE FONDOS DE INVERSION
+activity_659903,6430.0,Fondo y sociedades de Inversión y entidades financieras similares ,659903,SOCIEDADES DE INVERSION MOBILIARIA
+activity_659904,6499.0,"Otras actividades de servicios financiero, excepto las de seguros y fondos de pensiones n.c.p",659904,SERVICIO RECUPERACION DE DEUDAS (FACTORE0)
+activity_659905,6430.0,Fondo y sociedades de Inversión y entidades financieras similares ,659905,FONDOS DE INVERSION
+activity_659906,6420.0,Actividades de sociedades de cartera ,659906,ACTIVIDADES DE SOCIEDADES DE CARTERA (HOLDING)
+activity_659907,6499.0,"Otras actividades de servicios financiero, excepto las de seguros y fondos de pensiones n.c.p",659907,INGRESOS POR INTERESES DIFERENTES AL COMERCIO DEL PRESTAMO
+activity_659908,8411.0,Actividades de la administración pública en general,659908,FONDOS DE LA LEY DEL SISTEMA DE BANCA PARA EL DESARROLLO
+activity_659909,8411.0,Actividades de la administración pública en general,659909,FIDEICOMISOS DE LA LEY DEL SISTEMA DE BANCA PARA EL DESARROLLO
+activity_660101,6511.0,Seguros de vida,660101,SEGUROS DE VIDA
+activity_660201,6530.0,Fondos de pensión,660201,OPERADORAS DE PENSIONES
+activity_660202,6530.0,Fondos de pensión,660202,FONDOS DE OPERADORAS DE PENSIONES EXENTOS DEL 8%
+activity_660301,6622.0,Actividades de agentes y corredores de seguro,660301,AGENTES DE SEGUROS
+activity_660302,6622.0,Actividades de agentes y corredores de seguro,660302,COMERCIALIZADORES DE SEGUROS
+activity_660303,6512.0,Seguros generales,660303,SEGUROS GENERALES
+activity_671101,6611.0,Administración de mercados financieros,671101,ADMINISTRACIÓN DE MERCADOS FINANCIEROS
+activity_671201,6612.0,Corretaje de valores y de contratos de productos básicos,671201,CORREDORES DE BOLSA
+activity_671202,6612.0,Corretaje de valores y de contratos de productos básicos,671202,PUESTOS DE BOLSA
+activity_671901,6612.0,Corretaje de valores y de contratos de productos básicos,671901,PUESTOS Y/O CASAS DE CAMBIO DE MONEDA EXTRANJERA
+activity_671902,6619.0,Otras actividades auxiliares a las actividades de servicios financieros,671902,ASESORES FINANCIEROS Y ACTIVIDADES AUXILIARES DE LA INTERMEDICIACION FINANCIERA
+activity_672001,6629.0,Otras actividades auxiliares de seguros y fondos de pensiones,672001,ACTIVIDADES AUXILIARES DE LA FINANCIACIÓN DE PLANES DE SEGUROS Y DE PENSIONES
+activity_701001,6810.0,Actividades inmobiliarias con bienes propios o arrendados,701001,ACTIVIDADES INMOBILIARIAS (ALQUILER DE VIVIENDA SUPERIOR A 1.5 SALARIO BASE)
+activity_701002,6810.0,Actividades inmobiliarias con bienes propios o arrendados,701002,ALQUILER DE LOCALES COMERCIALES Y CENTROS COMERCIALES
+activity_701003,6810.0,Actividades inmobiliarias con bienes propios o arrendados,701003,COMPRA Y VENTA DE PROPIEDADES (INVERSIONISTAS)
+activity_701004,6810.0,Actividades inmobiliarias con bienes propios o arrendados,701004,ALQUILER DE EDIFICIOS Y PROPIEDADES DIFERENTES A CASAS DE HABITACION
+activity_701005,7740.0,Arrendamiento de propiedad intelectual y productos similares excepto obras protegidas por derechos de autor,701005,ALQUILER DE MARCAS REGISTRADAS
+activity_701006,7740.0,Arrendamiento de propiedad intelectual y productos similares excepto obras protegidas por derechos de autor,701006,"ALQUILER DE PATENTES (DE LICORES, UNICAMENTE)"
+activity_701007,7740.0,Arrendamiento de propiedad intelectual y productos similares excepto obras protegidas por derechos de autor,701007,EXPLOTACION DE FRANQUICIAS
+activity_701008,701008,ACTIVIDADES INMOBILIARIAS (ALQUILER DE VIVIENDA INFERIOR A 1.5 SALARIO BASE),701008,ACTIVIDADES INMOBILIARIAS (ALQUILER DE VIVIENDA INFERIOR A 1.5 SALARIO BASE)
+activity_702001,6820.0,Actividades inmobiliarias realizadas a cambio de una retribución o por contrata,702001,AGENTES O CORREDORES DE BIENES RAICES
+activity_702003,8110.0,Actividades combinadas de apoyo a instalaciones,702003,"ADMINISTRACIóN, MANTENIMIENTO, REPARACIóN Y LIMPIEZA DE LOS SERVICIOS Y BIENES COMUNES DE LA PROPIEDAD EN CONDOMINIO"
+activity_711101,7710.1,Alquiler de automóviles sin conductor,711101,ALQUILER DE AUTOMOVILES  DE TODO TIPO
+activity_711102,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",711102,ALQUILER DE MOTOCICLETA/SERVICIO
+activity_711103,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",711103,"ALQUILER DE EQUIPO DE TRANSPORTE POR VIA TERRESTRE, ACUATICA O AEREA"
+activity_711105,7721.0,Alquiler y arrendamiento de equipo recreativo y deportivo,711105,ALQUILER DE CARRITOS DE GOLF Y OTROS
+activity_712101,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712101,ALQUILER DE MAQUINARIA Y EQUIPO PARA USO AGRICOLA
+activity_712201,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712201,ALQUILER DE MAQUINARIA Y EQUIPO DE CONSTRUCCIÓN E INGENIERÍA CIVIL
+activity_712301,6190.1,Servicios de café internet,712301,SERVICIOS DE INTERNET EN LOCALES PUBLICOS ( CAFE INTERNET )
+activity_712302,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712302,ALQUILER DE MAQUINARIA Y EQUIPO DE OFICINA
+activity_712901,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712901,ALQUILER DE MáQUINAS EXPENDEDORAS DE ALIMENTOS Y OTROS
+activity_712902,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712902,ALQUILER DE MAQUINAS DE ENTRETENIMIENTO (CON MONEDAS)
+activity_712904,7722.0,Alquiler de cintas de vídeo y discos,712904,ALQUILER DE PELICULAS CINEMATOGRAFICAS (VIDEO CLUB) Y/O VIDEO JUEGOS
+activity_712905,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712905,"ALQUILER DE EQUIPO PARA RADIO, TELEVISIóN Y COMUNICACIONES"
+activity_712906,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712906,ALQUILER DE EQUIPO PARA DISPENSAR BILLETES (CAJERO AUTOMá-TICO)
+activity_712907,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712907,ALQUILER MAQUINARIA Y EQUIPO PARA LA ELABORACION Y/O MANTENIMIENTO DE PRODUCTOS
+activity_712909,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712909,ALQUILER DE OTROS TIPOS DE MAQUINARIA Y EQUIPO PARA USO COMERCIAL
+activity_712910,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712910,ALQUILER DE MAQUINARIA Y/O EQUIPO PARA USO INDUSTRIAL
+activity_712911,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",712911,ALQUILER DE RAMPAS Y SIMILARES
+activity_713001,7729.0,Alquiler y arrendamiento de otros efectos personales  y enseres domésticos ,713001,ALQUILER DE MENAJE
+activity_713002,7721.0,Alquiler y arrendamiento de equipo recreativo y deportivo,713002,ALQUILER DE EQUIPO RECREATIVO Y DEPORTIVO
+activity_713003,7730.0,"Alquiler  y arrendamiento de otros tipo de maquinaria, equipo y bienes tangibles",713003,ALQUILER DE EQUIPO MEDICO Y ARTICULOS CONEXOS
+activity_713012,7729.0,Alquiler y arrendamiento de otros efectos personales  y enseres domésticos ,713012,ALQUILER DE TRAJES DE TODO TIPO
+activity_713013,7729.0,Alquiler y arrendamiento de otros efectos personales  y enseres domésticos ,713013,ALQUILER DE EQUIPO Y UTENSILIOS PARA EVENTOS ESPECIALES
+activity_713053,7721.0,Alquiler y arrendamiento de equipo recreativo y deportivo,713053,"ALQUILER DE ANIMALES (CABALLOS, SERPIENTES, ETC)"
+activity_721001,6202.0,Actividades de consultoría informática y gestión de instalaciones informáticas,721001,CONSULTORES INFORMÁTICOS
+activity_722003,6201.0,Actividades de programación informática,722003,"DISEÑADOR GRAFICO, DE SOFWARE Y PAGINAS WEB"
+activity_723001,6311.0,"Procesamiento de datos, hospedaje y actividades conexas",723001,PROCESAMIENTO DE DATOS
+activity_724001,6311.0,"Procesamiento de datos, hospedaje y actividades conexas",724001,ACTIVIDADES RELACIONADAS CON BASES DE DATOS
+activity_725001,9511.0,Reparación de computadoras y equipo periférico,725001,REPARACION DE EQUIPO DE COMPUTO
+activity_725002,9511.0,Reparación de computadoras y equipo periférico,725002,MANTENIMIENTO DE EQUIPO DE COMPUTO
+activity_725003,3312.0,Reparación de maquinaria,725003,"REPARACIÓN CAJAS REGISTRADORAS, CALCULADORAS, MAQUINAS DE CONTABILIDAD Y EQUIPO"
+activity_725004,3312.0,Reparación de maquinaria,725004,"MANTENIMIENTO DE CAJAS REGISTRADORAS, CALCULADORAS, MAQUINAS DE CONTABILIDAD"
+activity_729001,6209.0,Otras actividades de la tecnología de información y servicio informáticos,729001,OTRAS ACTIVIDADES DE INFORMÁTICA
+activity_731001,7210.0,Investigaciones  y desarrollo experimental en el campo de las ciencias naturales y la ingeniería,731001,INVESTIGACION Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS NATURALES
+activity_731003,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",731003,METEOROLOGO POR CUENTA PROPIA
+activity_732001,7220.0,Investigación y desarrollo experimental en el campo de las ciencias sociales y las humanidades,732001,INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS SOCIALES
+activity_741101,6910.0,Actividades jurídicas,741101,"BUFFETE DE ABOGADO, NOTARIO, ASESOR LEGAL"
+activity_741203,6920.0,"Actividades de contabilidad, teneduría de libros y auditorías; consultoría fiscal",741203,"ACTVIDAD DE CONTABILIDAD (CONTADORES), TENEDURIA DE LIBROS,AUDITORIA Y ASESOR FINANCIERO"
+activity_741301,7320.0,Estudios de mercados y encuestas de opinión pública,741301,ASESORES EN MERCADEO Y VENTAS
+activity_74130,74130,2 ENCUESTAS DE OPINIóN PúBLICA,74130,2 ENCUESTAS DE OPINIóN PúBLICA
+activity_741401,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",741401,ECONOMISTAS
+activity_741402,7020.0,Actividades de consultoría en gestión,741402,ASESORAMIENTO EMPRESARIAL Y EN MATERIA DE GESTIÓN (HANDLING)
+activity_741407,5229.0,Otras actividades de apoyo al  transporte,741407,ASESOR ADUANERO
+activity_741408,9000.0,"Actividades creativas, artísticas y  de entretenimiento ",741408,"CORRESPONSAL DE RADIO, TELEVISION Y PRENSA ESCRITA"
+activity_742102,7110.0,Actividades de arquitectura e ingeniería y actividades conexas de consultoría técnica,742102,ACTIVIDADES DE ARQUITECTURA E INGENIERÍA
+activity_742105,7110.0,Actividades de arquitectura e ingeniería y actividades conexas de consultoría técnica,742105,SERVICIOS DE CONSULTORIA EN MANTENIMIENTO INDUSTRIAL Y MECANICO
+activity_742107,7120.0,Ensayos y análisis técnicos,742107,QUIMICOS
+activity_742108,7110.0,Actividades de arquitectura e ingeniería y actividades conexas de consultoría técnica,742108,ACTIVIDADES DE GEOGRAFIA Y/O GEOLOGIA
+activity_742110,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",742110,BIOLOGO POR CUENTA PROPIA
+activity_74211,74211,2 DIBUJANTE ARQUITECTONICO Y/O PLANOS DE CONSTRUCCION,74211,2 DIBUJANTE ARQUITECTONICO Y/O PLANOS DE CONSTRUCCION
+activity_742201,7120.0,Ensayos y análisis técnicos,742201,ENSAYOS Y ANÁLISIS TÉCNICOS
+activity_742202,7120.0,Ensayos y análisis técnicos,742202,PROFESIONALES EN TECNOLOGÍA DE ALIMENTOS
+activity_743001,7310.0,Publicidad,743001,PUBLICIDAD
+activity_743004,7310.0,Publicidad,743004,SERVICIOS DE PUBLICIDAD
+activity_743005,7310.0,Publicidad,743005,ALQUILER DE ESPACIOS PUBLICITARIOS
+activity_743006,7310.0,Publicidad,743006,PUBLICIDAD A TRAVES DE MEDIOS ELECTRONICOS
+activity_749101,7830.0,Otras actividades de dotación de recursos humanos,749101,SERVICIOS DE ADMINISTRACIÓN DE PERSONAL
+activity_749102,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",749102,SERVICIOS DE BIBLIOTECOLOGíA
+activity_749201,8010.0,Actividades de seguridad  privada,749201,"SERVICIOS DE INVESTIGACION, SEGURIDAD PRIVADA, AGENCIAS Y CONSULTORES"
+activity_749204,8549.0,Otros tipos de enseñanza n.c.p,749204,INSTRUCTOR DE TIRO (MANEJO DE ARMAS).
+activity_749301,8129.0,Otras actividades de limpieza de edificios e instalaciones industriales,749301,SERVICIOS DE FUMIGACIóN (NO AGRíCOLA)
+activity_749302,8121.0,Limpieza general de edificios,749302,SERVICIOS DE LIMPIEZA (INTERIORES Y EXTERIORES)
+activity_749401,7420.0,Actividades de fotografía,749401,ESTUDIOS FOTOGRAFICOS
+activity_749402,7420.0,Actividades de fotografía,749402,SERVICIO DE FOTOGRAFIA (FOTOGRAFO)
+activity_749501,8292.0,Actividades de envasado y empacado,749501,SERVICIOS DE ENVASE Y EMPAQUE
+activity_749901,8219.0,"Fotocopiado, preparación de documentos y otras actividades especializadas de apoyo de oficina",749901,SERVICIO DE FOTOCOPIADO Y OTROS
+activity_749902,8219.0,"Fotocopiado, preparación de documentos y otras actividades especializadas de apoyo de oficina",749902,SERVICIOS DE LEVANTADO DE TEXTO Y/O CORRECCION DE TEXTOS Y OTROS
+activity_749903,8219.0,"Fotocopiado, preparación de documentos y otras actividades especializadas de apoyo de oficina",749903,SERVICIOS SECRETARIALES Y/O OFICINISTA
+activity_749904,7410.0,Actividades especializadas de diseño,749904,SERVICIO DE DISEÑO O DECORACION DE INTERIORES (POR CUENTA PROPIA).
+activity_749905,8220.0,Actividades de centros de llamadas,749905,SERVICIO DE CONTESTACIóN DE TELéFONOS (CALL CENTER)
+activity_749906,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",749906,SERVICIOS DE TRADUCTOR
+activity_749907,5229.0,Otras actividades de apoyo al  transporte,749907,SERVICIO DE INSPECCION DE TODO TIPO DE MERCADERIAS Y ACTIVOS(INCLUYE DROGAS)
+activity_749908,8299.0,Otras actividades de servicios de apoyo  a las empresas n.c.p,749908,SERVICIO DE RECOLECCION DE MONEDAS DE LOS TELEFONOS PUBLICOS
+activity_749911,7420.0,Actividades de fotografía,749911,AGENCIAS FOTOGRAFICAS POR CATALOGO
+activity_749914,8291.0,Actividades de agencias de cobro y agencias de calificación crediticia,749914,SERVCICIO DE COBRANZA DE RECIBOS PUBLICOS Y OTROS
+activity_749917,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",749917,MODELAJE PROFESIONAL (MODELO)
+activity_749918,8291.0,Actividades de agencias de cobro y agencias de calificación crediticia,749918,AGENCIAS DE COBRO Y CALIFICACION CREDITICIA
+activity_751101,8411.0,Actividades de la administración pública en general,751101,ACTIVIDADES DE LA ADMINISTRACION PUBLICA EN GENERAL
+activity_751102,8411.0,Actividades de la administración pública en general,751102,"ACTIVIDADES DE LA ADMINISTRACIÓN PÚBLICA EN GENERAL, NO SUJETAS AL IMPUESTO SOBR"
+activity_751103,8411.0,Actividades de la administración pública en general,751103,MUNICIPALIDADES Y CONCEJOS DE DISTRITO
+activity_751106,751106,ACTIVIDADES DE LA ADMINISTRACION PUBLICA EN GENERAL GRAVADAS CON IVA,751106,ACTIVIDADES DE LA ADMINISTRACION PUBLICA EN GENERAL GRAVADAS CON IVA
+activity_751201,9499.0,Actividades de otras asociaciones n.c.p,751201,"JUNTAS DE EDUCACIÓN, COMEDORES ESCOLARES, PATRONATOS, COOPERATIVAS ESCOLARES, CO"
+activity_751202,8411.0,Actividades de la administración pública en general,751202,COMITES CANTONALES DE DEPORTES Y RECREACION
+activity_751301,8413.0,Regulación y facilitación de la actividad económica,751301,ACTIVIDADES DEL SECTOR PúBLICO RELACIONADAS CON LA INFRAESTRUCTURA
+activity_751302,8413.0,Regulación y facilitación de la actividad económica,751302,FONDOS PUBLICOS (ACTIVIDADES DEL SECTOR PUBLICO)
+activity_751401,7010.0,Actividades de oficinas principales,751401,ACTIVIDADES DE SERVICIOS AUXILIARES PARA LA ADMINISTRACIÓN PÚBLICA EN GENERAL
+activity_752101,8421.0,Relaciones exteriores,752101,RELACIONES EXTERIORES
+activity_752201,8010.0,Actividades de seguridad  privada,752201,ACTIVIDADES DE DEFENSA
+activity_752301,8423.0,Actividades de mantenimiento del orden público y de seguridad,752301,ACTIVIDADES DE MANTENIMIENTO DEL ORDEN PÚBLICO Y DE SEGURIDAD
+activity_752302,8423.0,Actividades de mantenimiento del orden público y de seguridad,752302,"SERVICIOS DE VIGILANCIA O CONTROL PORTUARIA, COSTERA, AEREA,Y FRONTERIZA"
+activity_753001,8430.0,Actividades de planes de seguridad social de afiliación obligatoria,753001,ACTIVIDADES DE PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN OBLIGATORIA
+activity_801001,8510.0,Enseñanza preescolar y primaria,801001,ENSEÑANZA PREESCOLAR Y PRIMARIA PRIVADA
+activity_801002,8510.0,Enseñanza preescolar y primaria,801002,ENSEÑANZA PREESCOLAR Y PRIMARIA PRIVADA NO AUTORIZADOS POR EL MEP
+activity_802101,8521.0,Enseñanza secundaria de formación general,802101,ENSEÑANZA SECUNDARIA PRIVADA
+activity_802102,8521.0,Enseñanza secundaria de formación general,802102,ENSEÑANZA SECUNDARIA PRIVADA NO AUTORIZADA POR EL MEP
+activity_802201,8530.2,Enseñanza parauniversitaria,802201,ENSEÑANZA DE FORMACIÓN TÉCNICA Y PARAUNIVERSITARIA
+activity_802202,8522.0,Enseñanza de formación técnica y profesional,802202,ENSEÑANZA SECUNDARIA DE FORMACIÓN TÉCNICA Y PROFESIONAL NO AUTORIZADA POR EL MEP
+activity_803002,8530.1,Enseñanza universitaria ,803002,ENSEÑANZA SUPERIOR PRIVADA (UNIVERSIDADES)
+activity_803003,8530.1,Enseñanza universitaria ,803003,ENSEÑANZA SUPERIOR PUBLICA (UNIVERSIDADES)
+activity_809001,8549.0,Otros tipos de enseñanza n.c.p,809001,ESCUELAS COMERCIALES (NO ESTATALES)
+activity_809004,8549.0,Otros tipos de enseñanza n.c.p,809004,PROFESOR POR CUENTA PROPIA
+activity_809005,8542.0,Educación cultural,809005,ENSEÑANZA CULTURAL
+activity_809006,8549.0,Otros tipos de enseñanza n.c.p,809006,ENSEÑANZA DE LA DE SEGURIDAD PRIVADA
+activity_809007,8542.0,Educación cultural,809007,ESCUELA Y AGENCIA DE MODELOS
+activity_851101,8610.0,Actividades de hospitales,851101,ACTIVIDADES DE HOSPITALES
+activity_851201,8620.1,Actividades de médicos,851201,GINECÓLOGO
+activity_851202,8620.1,Actividades de médicos,851202,SERVICOS DE MÉDICO GENERAL
+activity_851203,8620.1,Actividades de médicos,851203,NEURÓLOGOS
+activity_851204,8620.1,Actividades de médicos,851204,"SERVICIOS DE OFTALMOLOGO U OCULISTA, OPTOMETRISTA Y/O OPTICO"
+activity_851206,8620.1,Actividades de médicos,851206,ORTOPEDISTA (CONSULTA PRIVADA)
+activity_851207,8620.2,Actividades de odontólogos,851207,SERVICIOS DE ODONTOLOGO Y CONEXOS
+activity_851208,8620.1,Actividades de médicos,851208,"OTORRINOLARINGOLOGIA, AUDIOLOGíA Y SERVICIOS CONEXOS."
+activity_851209,8620.1,Actividades de médicos,851209,FARMACEUTICO O BOTICARIO
+activity_851210,8620.1,Actividades de médicos,851210,CARDIOLOGOS
+activity_851212,8620.1,Actividades de médicos,851212,ONCOLOGOS
+activity_851213,8620.1,Actividades de médicos,851213,REUMATOLOGO
+activity_851901,8690.9,Otras actividades relacionadas con la salud humana,851901,MEDICINA ALTERNATIVA
+activity_851902,8690.9,Otras actividades relacionadas con la salud humana,851902,FÍSICO TERAPISTA
+activity_851905,8690.9,Otras actividades relacionadas con la salud humana,851905,PSICOLOGO
+activity_851906,8620.1,Actividades de médicos,851906,PSIQUIATRÍA
+activity_851907,8690.9,Otras actividades relacionadas con la salud humana,851907,SERVICIOS DE ENFERMERÍA
+activity_851908,8690.1,Laboratorios médicos y de diagnóstico,851908,LABORATORIOS MÉDICOS - CLÍNICOS
+activity_851909,8610.0,Actividades de hospitales,851909,"SERVICIOS DE RADIOLOGÍA, ANESTESIOLOGIA Y OTROS"
+activity_851910,8690.9,Otras actividades relacionadas con la salud humana,851910,TRANSPORTE EN AMBULANCIA TERRESTRE Y AEREO (SERVICIO PRIVADO)
+activity_851911,7110.0,Actividades de arquitectura e ingeniería y actividades conexas de consultoría técnica,851911,PROFESIONALES EN SALUD OCUPACIONAL
+activity_851912,8690.9,Otras actividades relacionadas con la salud humana,851912,NUTRICIONISTA
+activity_851913,8510.0,Enseñanza preescolar y primaria,851913,PROFESIONALES EN EDUCACION ESPECIAL
+activity_851914,8690.9,Otras actividades relacionadas con la salud humana,851914,SERVICIOS DE PARAMEDICOS
+activity_851915,8690.1,Laboratorios médicos y de diagnóstico,851915,SERVICIOS DE ESTERILIZACIÓN DE PRODUCTOS MÉDICOS Y FARMACÉUTICOS
+activity_851916,8690.9,Otras actividades relacionadas con la salud humana,851916,OTRAS ACTIVIDADES RELACIONADAS CON LA SALUD HUMANA(BANCO DE SANGRE…)
+activity_851917,8620.1,Actividades de médicos,851917,CIRUJANO PLÁSTICO
+activity_853101,8810.0,Asistencia social sin alojamiento para el adulto mayor y personas con discapacidad,853101,FUNDACIONES DE BIEN SOCIAL
+activity_853102,8790.0,Otras actividades de atención en instituciones n.c.p,853102,FUNDACIONES DE SERVICIO SOCIAL (PRIVADAS)
+activity_853103,5590.0,Otras actividades de  alojamientos,853103,RESIDENCIAS UNIVERSITARIAS CON SERVICIOS INTEGRADOS
+activity_853201,8890.0,Otras actividades de asistencia  social sin alojamiento n.c.p,853201,GUARDERIAS/CENTROS INFANTILES Y SERVICIOS SOCIALES
+activity_853202,7490.0,"Otras actividades profesionales, científicas y técnicas n.c.p.",853202,SERVICIOS SOCIALES DE REDES DE CUIDO  Y CENTROS DE ATENCIÓN DE ADULTOS MAYORES
+activity_853301,9499.0,Actividades de otras asociaciones n.c.p,853301,ASOCIACIONES DECLARADAS DE UTILIDAD PUBLICA POR EL PODER EJECUTIVO
+activity_900001,3811.0,Recolección de desechos no peligrosos,900001,"ASESORAMIENTO Y ELIMINACION DE DESPERDICIOS, SANEAMIENTO (EXCEPTO LIMPIEZA DE TANQUES)"
+activity_900002,3700.0,Evacuación de aguas residuales,900002,LIMPIEZA DE TANQUES SEPTICOS Y AGUAS REDISUALES
+activity_911101,9411.0,Actividades de Asociaciones empresariales y de empleadores,911101,ACTIVIDADES DE ORGANIZACIONES EMPRESARIALES Y DE EMPLEADORES
+activity_911102,9411.0,Actividades de Asociaciones empresariales y de empleadores,911102,CAMARAS DE COMERCIO
+activity_911201,9412.0,Actividades de asociaciones  profesionales,911201,ACTIVIDADES DE ORGANIZACIONES PROFESIONALES
+activity_912001,9420.0,Actividades de sindicatos,912001,ASOCIACIONES SOLIDARISTAS
+activity_912002,9420.0,Actividades de sindicatos,912002,ACTIVIDADES DE SINDICATOS
+activity_919101,9491.0,Actividades de organizaciones religiosas,919101,ACTIVIDADES DE ORGANIZACIONES RELIGIOSAS
+activity_919201,9492.0,Actividades de organizaciones políticas,919201,ACTIVIDADES DE ORGANIZACIONES POLÍTICAS
+activity_919901,9499.0,Actividades de otras asociaciones n.c.p,919901,ASOCIACION DE DESARROLLO COMUNAL Y/O SERVICIOS COMUNITARIOS
+activity_919903,9499.0,Actividades de otras asociaciones n.c.p,919903,"ASOCIACIONES O ENTIDADES CON FINES CULTURALES, SOCIALES, RECREATIVOS, ARTESANALE"
+activity_919906,3600.0,"Captación, tratamiento y distribución  de agua",919906,ASOCIACIONES ADMINISTRADORAS DE LOS SISTEMAS DE ACUEDUCTOS Y ALCANTARILLADOS (ASADAS)
+activity_921101,5911.0,"Actividades de producción de películas cinematográficas, videos y  programas de televisión",921101,ACTIVIDADES PRODUCCION POSTPRODUCCION Y DISTRIBUCION DE PELICULAS CINEMATOGRAFIC
+activity_921201,5914.0,Actividades de proyección de películas,921201,EXHIBICIÓN DE FILMES Y VIDEOCINTAS  (SALAS DE CINE)
+activity_921301,6010.0,Transmisiones de radio,921301,TRANSMISIONES DE RADIO
+activity_921302,6020.0,Programación y transmisión de televisión,921302,PROGRAMACIÓN Y TRANSMISIONES DE TELEVISIÓN
+activity_921303,6010.0,Transmisiones de radio,921303,TRANSMISIONES DE RADIO CULTURALES SEGÚN LEY GENERAL DE TELECOMUNICACIONES
+activity_921401,9000.0,"Actividades creativas, artísticas y  de entretenimiento ",921401,TEATROS (EXPLOTACION)
+activity_921402,9000.0,"Actividades creativas, artísticas y  de entretenimiento ",921402,ACTIVIDADES MUSICALES Y ARTÍSTICAS (SERVICIOS)
+activity_921403,9000.0,"Actividades creativas, artísticas y  de entretenimiento ",921403,PERIODISTA POR CUENTA PROPIA
+activity_921501,6020.0,Programación y transmisión de televisión,921501,CANALES DE TELEVISIóN
+activity_921902,4762.0,Venta al por menor de grabaciones musicales y videográficas en comercios especializados,921902,"VENTA AL POR MENOR DE DISCOS, GRABACIONES DE MUSICA Y DE VIDEO"
+activity_921903,9329.0,Otras actividades de esparcimiento y recreativas  n.c.p,921903,SALóN DE BAILE Y DISCOTECA
+activity_921904,9329.0,Otras actividades de esparcimiento y recreativas  n.c.p,921904,SALON DE PATINES
+activity_922001,6391.0,Actividades de agencias de noticias,922001,ACTIVIDADES DE AGENCIAS DE NOTICIAS
+activity_923101,9101.0,Actividades de Bibliotecas y archivos,923101,ACTIVIDADES DE BIBLIOTECAS Y ARCHIVOS
+activity_923201,9102.0,Actividades de museos y preservación de lugares históricos,923201,GALERIAS DE ARTE
+activity_923202,9000.0,"Actividades creativas, artísticas y  de entretenimiento ",923202,SERVICIOS DE RESTAURACION DE OBRAS DE ARTE
+activity_923301,9103.0,"Actividades de jardines botánicos, zoológicos y parques naturales",923301,"ACTIVIDADES DE JARDINES BOTANICOS, ZOOLOGICOS, PARQUES NACIONALES Y RESERVAS NACIONALES"
+activity_924101,9311.0,Gestión de instalaciones deportivas,924101,GIMNASIOS
+activity_924102,9311.0,Gestión de instalaciones deportivas,924102,EXPLOTACIÓN DE PISCINAS O ALBERCAS DE BAÑO
+activity_924103,8541.0,Educación deportiva y recreativa,924103,"ENTRENADOR, INSTRUCTORES Y/O PREPARADORES FISICOS POR CUENTA PROPIA"
+activity_924104,8541.0,Educación deportiva y recreativa,924104,ACTIVIDADES DE ESCUELAS Y CLUBES DEPORTIVOS
+activity_924105,9311.0,Gestión de instalaciones deportivas,924105,EXPLOTACION DE INSTALACIONES Y CAMPOS DEPORTIVOS
+activity_924106,9319.0,Otras actividades deportivas,924106,ACTIVIDADES DEPORTIVAS Y OTRAS POR CUENTA PROPIA
+activity_924107,9311.0,Gestión de instalaciones deportivas,924107,ESPECTÁCULOS DEPORTIVOS
+activity_924901,9329.0,Otras actividades de esparcimiento y recreativas  n.c.p,924901,NIGHT CLUB/CABARETTE
+activity_924902,9200.0,Actividades de juego de azar y apuestas,924902,EXPLOTACIÓN DE CASINOS (INCLUYE MESAS DE JUEGOS Y MAQUINAS TRAGAMONEDAS)
+activity_924903,9319.0,Otras actividades deportivas,924903,PESCA DEPORTIVA
+activity_924904,9329.0,Otras actividades de esparcimiento y recreativas  n.c.p,924904,"ACTIVIDADES DE JUEGOS DE BILLAR, POOL Y OTROS SIMILARES"
+activity_924905,9329.0,Otras actividades de esparcimiento y recreativas  n.c.p,924905,SALA DE VIDEO JUEGOS
+activity_924906,5920.0,Actividades de grabación y publicación de grabaciones sonoras,924906,"GRABACIÓN DE SONIDO (MUSICA, ETC.) EN DISCOS GRAMOFONICOS YEN CINTA MAGNETOFONIC"
+activity_924907,9200.0,Actividades de juego de azar y apuestas,924907,SERVICIO DE ENLACE DE LLAMADAS Y CASAS DE APUESTAS ELECTRONICAS (SPORTBOOKS)
+activity_924908,9000.0,"Actividades creativas, artísticas y  de entretenimiento ",924908,ESPECTACULOS PUBLICOS EN GENERAL EXCEPTO LOS DEPORTIVOS Y EL TEATRO
+activity_924909,9329.0,Otras actividades de esparcimiento y recreativas  n.c.p,924909,OTRAS ACTIVIDADES DE ESPARCIMIENTO
+activity_924910,9200.0,Actividades de juego de azar y apuestas,924910,EXPLOTACIÓN DE JUEGOS DE ÁZAR NO ELECTRÓNICOS (INCLUYE MÁQUINAS TRAGAMONEDAS
+activity_930101,9601.0,"Lavado y limpieza, incluida la limpieza en seco, de productos textiles y piel",930101,SERVICIOS DE LAVANDERíA DE TODO TIPO
+activity_930102,1313.0,Acabado de productos textiles,930102,SERVICIO DE TEÑIDO DE PRENDAS DE VESTIR
+activity_930103,9601.0,"Lavado y limpieza, incluida la limpieza en seco, de productos textiles y piel",930103,SERVICIO DE LIMPIEZA Y LAVADO DE MUEBLES
+activity_930202,9602.0,Actividades de peluquería y otros tratamientos de belleza,930202,"SALONES DE BELLEZA, PELUQUERIA Y BARBERIA"
+activity_93030,93030,1 SERVICIOS FUNEBRES Y ACTIVIDADES CONEXAS,93030,1 SERVICIOS FUNEBRES Y ACTIVIDADES CONEXAS
+activity_930302,9603.0,Funerales y actividades conexas,930302,CEMENTERIO PUBLICO (JUNTA ADMINISTRATIVA)
+activity_930303,9603.0,Funerales y actividades conexas,930303,CEMENTERIO O CAMPOSANTO PRIVADO
+activity_930901,9609.0,Otras actividades de servicios  personales n.c.p,930901,SALAS DE MASAJES
+activity_930903,9609.0,Otras actividades de servicios  personales n.c.p,930903,OTRAS ACTIVIDADES DE SERVICIOS PERSONALES N.C.P.
+activity_930904,9609.0,Otras actividades de servicios  personales n.c.p,930904,CENTRO O SALA DE BRONCEADO
+activity_930905,9609.0,Otras actividades de servicios  personales n.c.p,930905,PELUQUERíA Y SALA DE ESTÉTICA PARA ANIMALES
+activity_930906,9609.0,Otras actividades de servicios  personales n.c.p,930906,SERVICIO DE TATUAJE Y PIERCING
+activity_930907,9329.0,Otras actividades de esparcimiento y recreativas  n.c.p,930907,SERVICIO DE DISCO MOVIL
+activity_930908,0162.9,Otras actividades de apoyo a la ganadería,930908,SERVICIO DE HERRADURA
+activity_930915,9609.0,Otras actividades de servicios  personales n.c.p,930915,ALBERGUE Y CUIDO DE ANIMALES A DOMICILIO
+activity_950001,9700.0,Actividades de los hogares como empleadores de personal doméstico,950001,HOGARES PRIVADOS CON SERVICIO DOMÉSTICO
+activity_960104,960104,IMPUESTO A LAS PERSONAS JURIDICAS,960104,IMPUESTO A LAS PERSONAS JURIDICAS
+activity_960105,0000.1,Preoperativa,960105,ACTIVIDADES PREOPERATIVAS O DE ORGANIZACION
+activity_960106,960106,EXPORTADORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS,960106,EXPORTADORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS
+activity_960107,960107,PRODUCTORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS,960107,PRODUCTORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS
+activity_960108,960108,COMERCIALIZADORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS,960108,COMERCIALIZADORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS
+activity_960109,960109,DISTRIBUIDORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS,960109,DISTRIBUIDORES DE MERCANCIAS EXENTAS DEL IMPUESTO DE VENTAS
+activity_990001,9900.0,Actividades de organizaciones y órganos extraterritoriales,990001,"ACTVIDADES DE ORGANIZACIONES Y ORGANOS EXTRATERRITORIALES, INCLUYE LAS EMBAJADAS"

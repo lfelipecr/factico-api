@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cr_api_invoice_list" model="ir.ui.view">
+        <field name="name">cr.api.invoice.list</field>
+        <field name="model">cr.api.invoice</field>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="id" string="ID" optional="show"/>
+                <field name="consecutive" optional="show"/>
+                <field name="key" optional="hide"/>
+                <field name="document_type_id" optional="show"/>
+                <field name="customer_name" optional="show"/>
+                <field name="customer_identification_id" optional="hide"/>
+                <field name="customer_vat" optional="hide"/>
+                <field name="date_emission" optional="show"/>
+                <field name="condition_sale_id" optional="hide"/>
+                <field name="method_ids" optional="hide" widget="many2many_tags" />
+                <field name="invoice_total" optional="show"/>
+                <field name="api_user_id" optional="show"/>
+                <field name="state" optional="show" widget="badge"
+                       decoration-success="state == 'accepted'"
+                       decoration-warning="state == 'processing'"
+                       decoration-danger="state in ['error','rejected']"
+                />
+                <field name="company_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_cr_api_invoice_form" model="ir.ui.view">
+        <field name="name">cr.api.invoice.form</field>
+        <field name="model">cr.api.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Comprobantes">
+                <header>
+                    <button name="action_sent_hacienda" string="Enviar a Hacienda" class="oe_highlight"
+                            type="object" invisible="state not in ['not_sent'] "/>
+                    <button name="action_consult_hacienda" string="Consultar a Hacienda" class="oe_highlight"
+                            type="object" invisible="state not in ['processing'] "/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="not_sent,processing,accepted,rejected,error"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="consecutive"/>
+                        <h1>
+                            <field name="consecutive" placeholder="Ejem: 000012132210121212"/>
+                        </h1>
+                    </div>
+                    <group id="group_header">
+                        <group colspan="4">
+                            <field name="key"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group id="group_left">
+                            <field name="document_type_id"/>
+                            <field name="reference_code_id" invisible="document_type_id.code not in ['NC', 'ND']"/>
+                            <field name="customer_identification_id"/>
+                            <field name="customer_vat"/>
+                            <field name="customer_name"/>
+                            <field name="customer_email"/>
+                            <field name="date_emission"/>
+                            <field name="date_emission_str"/>
+                            <field name="state_manual"  groups="base.group_no_one"/>
+                        </group>
+                        <group id="group_right">
+                             <field name="id" string="ID"/>
+                            <field name="invoice_rate"/>
+                            <field name="invoice_currency_id"/>
+                            <field name="invoice_tax"/>
+                            <field name="invoice_total"/>
+                            <field name="api_user_id"/>
+                            <field name="api_user_mode"/>
+                            <field name="condition_sale_id"/>
+                            <field name="method_ids" widget="many2many_tags" />
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="page_xml" string="Archivos">
+                            <group>
+                                <field name="xml_customer_name" invisible="1"/>
+                                <field name="xml_customer" filename="xml_customer_name" force_save="1" readonly="1"/>
+                                <field name="xml_customer_url" widget="url" force_save="1" readonly="1"/>
+                                <field name="xml_customer_att_id" invisible="1"/>
+                                <field name="xml_response_name" invisible="1"/>
+                                <field name="xml_response" filename="xml_response_name" force_save="1" readonly="1"/>
+                                <field name="xml_response_url" widget="url" force_save="1" readonly="1"/>
+                                <field name="xml_response_att_id" invisible="1"/>
+                            </group>
+                            <group string="Respuesta de Hacienda">
+                                <field name="xml_response_msg" nolabel="1"/>
+                            </group>
+                        </page>
+                        <page id="page_xml_content" string="XML">
+                            <field name="xml_content" nolabel="1" force_save="1" readonly="1"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <!-- Chatter -->
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cr_api_invoice" model="ir.actions.act_window">
+        <field name="name">Comprobantes</field>
+        <field name="res_model">cr.api.invoice</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_cr_api_invoice_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Añadir nuevo certificado
+            </p>
+        </field>
+    </record>
+
+
+    <!--ACCIONES-->
+    <record id="action_server_invoice_create_xml" model="ir.actions.server">
+        <field name="name">Crear xml</field>
+        <field name="model_id" ref="l10n_cr_api_invoice.model_cr_api_invoice"/>
+        <field name="binding_model_id" ref="l10n_cr_api_invoice.model_cr_api_invoice"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_create_xml()</field>
+    </record>
+    <record id="action_server_invoice_send_xml" model="ir.actions.server">
+        <field name="name">Enviar a Hacienda</field>
+        <field name="model_id" ref="l10n_cr_api_invoice.model_cr_api_invoice"/>
+        <field name="binding_model_id" ref="l10n_cr_api_invoice.model_cr_api_invoice"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_server_sent_invoice()</field>
+    </record>
+     <record id="action_server_invoice_consult_xml" model="ir.actions.server">
+        <field name="name">Consultar a Hacienda</field>
+        <field name="model_id" ref="l10n_cr_api_invoice.model_cr_api_invoice"/>
+        <field name="binding_model_id" ref="l10n_cr_api_invoice.model_cr_api_invoice"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_server_consult_invoice()</field>
+    </record>
+
+</odoo>

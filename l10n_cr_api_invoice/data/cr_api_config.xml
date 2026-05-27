@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="cr_api_config_default" model="cr.api.config">
+            <field name="name">Configuración de Api</field>
+            <field name="api_active">True</field>
+            <field name="active">True</field>
+            <field name="image_1920" type="base64" file="l10n_cr_api_invoice/static/description/icon.png"/>
+        </record>
+    </data>
+</odoo>

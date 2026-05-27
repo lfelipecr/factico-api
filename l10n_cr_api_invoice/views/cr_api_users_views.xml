@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cr_api_users_list" model="ir.ui.view">
+        <field name="name">cr.api.users.list</field>
+        <field name="model">cr.api.users</field>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="user_name" optional="show"/>
+                <field name="mode" optional="show" decoration-success="mode == 'production'"
+                       decoration-warning="mode == 'staging'" widget="badge"/>
+                <field name="from_api" optional="hide"/>
+                <field name="identification_id" optional="show"/>
+                <field name="vat" optional="show"/>
+                <field name="email" optional="show"/>
+                <field name="tag_ids" optional="show" widget="many2many_tags"/>
+                <field name="state" optional="show" decoration-success="state == 'approved'"
+                       decoration-info="state == 'new'" widget="badge"/>
+                <field name="company_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_cr_api_users_form" model="ir.ui.view">
+        <field name="name">cr.api.users.form</field>
+        <field name="model">cr.api.users</field>
+        <field name="arch" type="xml">
+            <form string="Usuarios">
+                <header>
+                    <button name="action_approved" string="Aprobar" class="oe_highlight"
+                            type="object" invisible="state == 'approved'"/>
+                    <button name="action_new" string="Regresar a Nuevo" class="oe_highlight"
+                            type="object" invisible="state == 'new'"/>
+                    <button name="action_create_secret_key" string="Generar clave" class="oe_highlight"
+                            type="object" invisible="secret_key != False"/>
+                    <button name="action_update_secret_key" string="Actualizar clave" class="oe_highlight"
+                            type="object" invisible="secret_key == secret_key "/>
+
+                    <button name="action_new_certified" string="Nuevo cetificado" class="oe_highlight"
+                            type="object" invisible="state != 'approved' or certifies_ids"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,approved" invisible="not active"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_certifies"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text text-warning"
+                                      title="Certificados">Certificados
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="user_name"/>
+                        <h1>
+                            <field name="user_name" placeholder="Ejem: Felipe Montero"/>
+                        </h1>
+                    </div>
+                    <group id="group_header" string="Datos principales">
+                        <group id="user_left">
+                            <field name="secret_key"/>
+                            <field name="complete_name" invisible="1"/>
+                            <field name="identification_id"/>
+                            <field name="vat"/>
+                            <field name="email"/>
+                            <field name="mode"/>
+
+                        </group>
+                        <group id="user_right">
+
+                            <field name="tag_ids" widget="many2many_tags"/>
+
+                            <field name="country_id"/>
+                            <field name="province_id" domain="[('country_id', '=', country_id)]"/>
+                            <field name="canton_id" domain="[('state_id', '=', province_id)]"
+                                   options="{'no_open': 1,'no_create': 1, 'no_create_edit': 1}"
+                                   context="{'state_id': province_id}"/>
+                            <field name="district_id" domain="[('county_id', '=', canton_id)]"
+                                   options="{'no_open': 1,'no_create': 1, 'no_create_edit': 1}"
+                                   context="{'county_id': canton_id}"/>
+                            <field name="neighborhood_id" domain="[('district_id', '=', district_id)]"
+                                   options="{'no_open': 1,'no_create': 1, 'no_create_edit': 1}"
+                                   context="{'district_id': district_id}"/>
+                            <field name="mobile"/>
+                            <!--                            <field name="password"/>-->
+                        </group>
+                    </group>
+                    <group if="economic_activities">
+                        <field name="economic_activity_ids" widget="many2many_tags" required="state == 'approved' "
+                               options='{"no_open": True, "no_create": True}'/>
+                        <field name="economic_activity_id" domain="[('id', 'in', economic_activity_ids)]"
+                               required="economic_activity_ids"
+                               options='{"no_open": True, "no_create": True}'/>
+                    </group>
+                    <notebook>
+                        <page id="page_mails" string="Correos">
+                            <group id="group_mails">
+                                <group id="group_left_mails" string="Para reporte en PDF">
+                                </group>
+                                <group id="group_right_mails" string="Cuándo es aceptado en hacienda">
+                                    <field name="mail_billing_invoice_send"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page id="page_others" string="Otros">
+                            <group>
+                                <group>
+                                    <field name="from_api"/>
+                                    <field name="company_id"/>
+                                </group>
+                                <group>
+
+                                </group>
+                            </group>
+                        </page>
+                        <page id="page_sent" string="Envíos por documento">
+                            <field name="sent_ids" nolabel="1">
+                                <list create="0" delete="0" edit="0">
+                                    <field name="document_type_id"/>
+                                    <field name="send_count"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <!-- Chatter -->
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cr_api_users_kanban" model="ir.ui.view">
+        <field name="name">cr.api.users.kanban</field>
+        <field name="model">cr.api.users</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <div class="row">
+                            <div class="col-8">
+                                <field class="fw-bolder" name="user_name"/>
+                            </div>
+                            <div class="col-4 text-end">
+                                <field class="badge rounded-pill" name="email"/>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Tags:</strong>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cr_api_users" model="ir.actions.act_window">
+        <field name="name">Usuarios</field>
+        <field name="res_model">cr.api.users</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_id" ref="view_cr_api_users_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Añadir nuevo usuario
+            </p>
+        </field>
+    </record>
+</odoo>

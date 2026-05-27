@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="l10n_cr_payment_method_01" model="cr.api.payment.method">
+            <field name="code">01</field>
+            <field name="name">Efectivo</field>
+        </record>
+        <record id="l10n_cr_payment_method_02" model="cr.api.payment.method">
+            <field name="code">02</field>
+            <field name="name">Tarjeta</field>
+        </record>
+        <record id="l10n_cr_payment_method_03" model="cr.api.payment.method">
+            <field name="code">03</field>
+            <field name="name">Cheque</field>
+        </record>
+        <record id="l10n_cr_payment_method_04" model="cr.api.payment.method">
+            <field name="code">04</field>
+            <field name="name">Transferencia – depósito bancario</field>
+        </record>
+        <record id="l10n_cr_payment_method_05" model="cr.api.payment.method">
+            <field name="code">05</field>
+            <field name="name">Recaudado por terceros</field>
+        </record>
+        <record id="l10n_cr_payment_method_06" model="cr.api.payment.method">
+            <field name="code">06</field>
+            <field name="name">SINPE MOVIL</field>
+        </record>
+        <record id="l10n_cr_payment_method_07" model="cr.api.payment.method">
+            <field name="code">07</field>
+            <field name="name">Plataforma Digital</field>
+        </record>
+        <record id="l10n_cr_payment_method_99" model="cr.api.payment.method">
+            <field name="code">99</field>
+            <field name="name">Otros</field>
+        </record>
+    </data>
+</odoo>

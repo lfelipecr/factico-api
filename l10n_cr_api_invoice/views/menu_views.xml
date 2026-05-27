@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem name="API"
+        id="menu_cr_api"
+        groups="l10n_cr_api_invoice.group_cr_api_admin"
+        web_icon="l10n_cr_api_invoice,static/description/icon.png"
+        sequence="50">
+      <menuitem id="menu_cr_api_users" action="action_cr_api_users" sequence="10"/>
+      <menuitem id="menu_cr_api_certifies" action="action_cr_api_certifies" sequence="30"/>
+      <menuitem id="menu_cr_api_invoices" action="action_cr_api_invoice" sequence="60"/>
+      <menuitem id="menu_cr_api_branch_and_terminal" action="action_cr_api_branch" sequence="200"/>
+      <menuitem id="menu_cr_api_config" name="Configuración" sequence="500">
+            <menuitem id="menu_cr_api_config_config" name="Ajustes" action="action_cr_api_config"
+                      sequence="100" groups="l10n_cr_api_invoice.group_cr_api_admin"/>
+            <menuitem id="menu_cr_api_tables" name="Tablas CR" sequence="300">
+                 <menuitem id="menu_cr_api_tables_identification_type" action="action_cr_api_identification_type" sequence="100" />
+                 <menuitem id="menu_cr_api_economic_activity" action="action_cr_api_economic_activity" sequence="100" />
+            </menuitem>
+      </menuitem>
+  </menuitem>
+
+</odoo>

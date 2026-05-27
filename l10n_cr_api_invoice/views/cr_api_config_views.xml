@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cr_api_config_list" model="ir.ui.view">
+        <field name="name">cr.api.config.list</field>
+        <field name="model">cr.api.config</field>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="name" optional="show"/>
+                <field name="api_active" optional="show"/>
+                <field name="company_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cr_api_config_form" model="ir.ui.view">
+        <field name="name">cr.api.config.form</field>
+        <field name="model">cr.api.config</field>
+        <field name="arch" type="xml">
+            <form string="Configuración de API">
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Ejem: Configuración de api"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group id="user_left">
+                            <field name="api_active"/>
+                            <field name="api_only_super_user"/>
+                            <field name="active"/>
+                        </group>
+                        <group id="user_right">
+                            <field name="api_store_invoices"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <!-- Chatter -->
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cr_api_config_kanban" model="ir.ui.view">
+        <field name="name">cr.api.config.kanban</field>
+        <field name="model">cr.api.config</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <templates>
+                    <t t-name="card" class="row g-0">
+                        <main class="col-10 pe-2">
+                            <div class="d-flex mb-1 h5">
+                                <field name="name"/>
+                            </div>
+                            <span>
+                                Activar uso de API:
+                                <field name="api_active"/>
+                            </span>
+                        </main>
+                        <aside class="col-2">
+                            <field name="image_1920" widget="image" options="{'img_class': 'o_image_64_contain mw-100'}"
+                                   alt="Product"/>
+                        </aside>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cr_api_config" model="ir.actions.act_window">
+        <field name="name">Ajustes</field>
+        <field name="res_model">cr.api.config</field>
+        <field name="view_mode">kanban,form,list</field>
+        <field name="view_id" ref="view_cr_api_config_kanban"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Añadir nueva configuración
+            </p>
+        </field>
+    </record>
+</odoo>

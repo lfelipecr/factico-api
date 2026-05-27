@@ -1,0 +1,51 @@
+{
+    'name': 'API Facturación electrónica 4.4',
+    "summary": """
+        Módulo que sirve como api para enviar datos de facturación electrónica a Hacienda.
+        Esta API esta desarrollada para la versión 4.4
+    """,
+    'version': '18.0.4.2',
+    'author': "xalachi",
+    'contributors': ['Ing.Jhonny Mack Merino Samillan'],
+    'website': "",
+    'category': 'api',
+    'depends': [
+        'base',
+        'base_setup',
+        'account',
+        #'accountant',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/groups_security.xml',
+        'data/cr_api_config.xml',
+        'data/cr_api_identification_type_data.xml',
+        'data/cr_api_document_type_data.xml',
+        #'data/cr_api_economic_activity_data.xml',
+        'data/cr_api_payment_type_data.xml',
+        'data/cr_api_payment_method_data.xml',
+        'data/cr_api_reference_code_data.xml',
+        'data/ir_cron.xml',
+        #Lugares
+        'data_places/res.country.state.csv',
+        'data_places/res.country.county.csv',
+        'data_places/res.country.district.csv',
+        'data_places/res.country.neighborhood.csv',
+        'data_places/cr.api.economic.activity.csv',
+        #'views/res_config_settings_views.xml',
+        'views/cr_api_config_views.xml',
+        'views/cr_api_identification_type.xml',
+        'views/cr_api_economic_activity_views.xml',
+        'views/cr_api_users_views.xml',
+        'views/cr_api_certifies_views.xml',
+        'views/cr_api_branch_views.xml',
+        'views/cr_api_sequence_views.xml',
+        'views/cr_api_invoice_views.xml',
+        'views/menu_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'AGPL-3',
+
+}

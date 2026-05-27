@@ -1,0 +1,25 @@
+<MensajeReceptor xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/mensajeReceptor">
+    <Clave>{{ data['clave'] }}</Clave>
+    <NumeroCedulaEmisor>{{ data['numero_cedula_emisor'] }}</NumeroCedulaEmisor>
+    <FechaEmisionDoc>{{ data['fecha_emision_documento'] }}</FechaEmisionDoc>
+    <Mensaje>{{ data['mensaje'] }}</Mensaje>
+    {% if data['detalle_mensaje'] %}
+        <DetalleMensaje>{{ data['detalle_mensaje'] }}</DetalleMensaje>
+    {% endif %}
+    {% if data['monto_total_impuesto'] %}
+        <MontoTotalImpuesto>{{ data['monto_total_impuesto'] }}</MontoTotalImpuesto>
+    {% endif %}
+    {% if data['codigo_actividad'] %}
+        <CodigoActividad>{{ data['codigo_actividad'] }}</CodigoActividad>
+    {% endif %}
+    <CondicionImpuesto>{{ data['condicion_impuesto'] }}</CondicionImpuesto>
+    {% if data['monto_total_impuesto_acreditar'] %}
+        <MontoTotalImpuestoAcreditar>{{ data['monto_total_impuesto_acreditar'] }}</MontoTotalImpuestoAcreditar>
+    {% endif %}
+    {% if data['monto_total_de_gasto_aplicable'] %}
+        <MontoTotalDeGastoAplicable>{{ data['monto_total_de_gasto_aplicable'] }}</MontoTotalDeGastoAplicable>
+    {% endif %}
+    <TotalFactura>{{ data['total_factura'] }}</TotalFactura>
+    <NumeroCedulaReceptor>{{ data['numero_cedula_receptor'] }}</NumeroCedulaReceptor>
+    <NumeroConsecutivoReceptor>{{ data['numero_consecutivo_receptor'] }}</NumeroConsecutivoReceptor>
+</MensajeReceptor>

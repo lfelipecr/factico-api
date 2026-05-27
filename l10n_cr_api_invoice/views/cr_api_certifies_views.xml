@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cr_api_certifies_list" model="ir.ui.view">
+        <field name="name">cr.api.certifies.list</field>
+        <field name="model">cr.api.certifies</field>
+        <field name="arch" type="xml">
+            <list sample="1">
+                <field name="file_name" optional="show"/>
+                <field name="file_code" optional="show"/>
+                <field name="user_certified" optional="show"/>
+                <field name="api_user_id" optional="show"/>
+                <field name="api_user_mode" optional="show" decoration-success="api_user_mode == 'production'"
+                       decoration-warning="api_user_mode == 'staging'" widget="badge"/>
+                <field name="company_id" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_cr_api_certifies_form" model="ir.ui.view">
+        <field name="name">cr.api.certifies.form</field>
+        <field name="model">cr.api.certifies</field>
+        <field name="arch" type="xml">
+            <form string="Certificado">
+                <header>
+                    <button name="action_generate_file_code" string="Generar código" class="oe_highlight"
+                            type="object" invisible="file_code != False"/>
+                    <button name="action_update_file_code" string="Actualizar código" class="oe_highlight"
+                            type="object" invisible="file_code == False"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="file_name"/>
+                        <h1>
+                            <field name="file_name" placeholder="Ejem: Felipe Montero"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Credenciales" id="group_left">
+                            <field name="file_p12" filename="file_name"/>
+                            <field name="user_certified"/>
+                            <field name="pass_certified"/>
+                            <field name="pin"/>
+                        </group>
+                        <group string="Información" id="group_right">
+                            <field name="file_code"/>
+                            <field name="api_user_id"/>
+                            <field name="api_user_mode"/>
+                            <field name="company_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <!-- Chatter -->
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cr_api_certifies_kanban" model="ir.ui.view">
+        <field name="name">cr.api.certifies.kanban</field>
+        <field name="model">cr.api.certifies</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <div class="row">
+                            <div class="col-8">
+                                <field class="fw-bolder" name="file_name"/>
+                            </div>
+                            <div class="col-4 text-end">
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Código de arhivo:</strong>
+                            <field name="file_code"/>
+                        </div>
+                        <div>
+                            <strong>Usuario API:</strong>
+                            <field name="api_user_id"/>
+                        </div>
+                        <div>
+                            <strong>Ambiente:</strong>
+                            <field name="api_user_mode"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cr_api_certifies" model="ir.actions.act_window">
+        <field name="name">Certificados</field>
+        <field name="res_model">cr.api.certifies</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_id" ref="view_cr_api_certifies_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Añadir nuevo certificado
+            </p>
+        </field>
+    </record>
+</odoo>
