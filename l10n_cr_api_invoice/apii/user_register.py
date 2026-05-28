@@ -42,6 +42,18 @@ def _create_user_api(self, mode='production', **kw):
         msg = 'El código de tipo de identificación no se encuentra en la base de datos'
         return assets.response.invalid_response(typ='Error', message=msg, status=400)
 
+    existing, _find_msg = assets.provision_validate._find_api_user_by_identification(
+        self,
+        mode,
+        _res_config['company_id'],
+        document_code,
+        kw.get('numero_identificacion'),
+    )
+    if existing:
+        data = assets.provision_validate._user_lookup_response(existing)
+        data['already_exists'] = True
+        return assets.response.valid_response(data=data)
+
     data = {
         'user_name': kw.get('usuario_nombre'),
         'identification_id': identification_type.id,

@@ -17,6 +17,12 @@ class CrApiConfig(models.Model):
     image_1920 = fields.Image("Imagen", max_width=1920, max_height=1920)
     api_active = fields.Boolean(string='Activar uso de API', tracking=True)
     api_only_super_user = fields.Boolean(string='Solo super Usuario puede crear', tracking=True)
+    api_provision_key = fields.Char(
+        string='Clave provisionamiento middleware',
+        help='Debe coincidir con PROVISION_SERVICE_KEY del middleware SaaS. '
+             'Obligatoria para user_lookup y user_update.',
+        copy=False,
+    )
     api_store_invoices = fields.Boolean(string='Almacenar comprobantes de Hacienda', tracking=True)
 
     active = fields.Boolean(string='Activo', default=True)

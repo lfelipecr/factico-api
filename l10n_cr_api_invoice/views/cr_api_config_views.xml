@@ -30,6 +30,7 @@
                         <group id="user_left">
                             <field name="api_active"/>
                             <field name="api_only_super_user"/>
+                            <field name="api_provision_key" password="True"/>
                             <field name="active"/>
                         </group>
                         <group id="user_right">

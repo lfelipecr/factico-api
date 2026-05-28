@@ -1,0 +1,633 @@
+{
+  "info": {
+    "_postman_id": "0f9a7f1b-7d8b-4c6a-8f8e-0c7d5d0b3a8a",
+    "name": "Fáctico Middleware (Local)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:54321/functions/v1/api"
+    },
+    {
+      "key": "environment",
+      "value": "staging",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "fc_live_REPLACE_ME"
+    },
+    {
+      "key": "panelJwt",
+      "value": "REPLACE_ME"
+    },
+    {
+      "key": "provisionServiceKey",
+      "value": "REPLACE_ME"
+    },
+    {
+      "key": "organizationId",
+      "value": "REPLACE_ME"
+    },
+    {
+      "key": "documentId",
+      "value": "REPLACE_ME"
+    },
+    {
+      "key": "xmlBase64",
+      "value": "REPLACE_ME"
+    },
+    {
+      "key": "clave",
+      "value": ""
+    },
+    {
+      "key": "consecutivo",
+      "value": ""
+    },
+    {
+      "key": "signedXmlBase64",
+      "value": ""
+    },
+    {
+      "key": "fechaEmision",
+      "value": "2025-09-04T10:00:00-06:00"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET /v1/health",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/v1/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "health"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin (JWT o X-Provision-Key)",
+      "item": [
+        {
+          "name": "POST /v1/admin/organizations/provision (X-Provision-Key)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Provision-Key",
+                "value": "{{provisionServiceKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"environment\": \"{{environment}}\",\n  \"organization\": {\n    \"name\": \"Cliente Demo\",\n    \"tax_id\": \"3102802163\"\n  },\n  \"odoo_user\": {\n    \"usuario_nombre\": \"Cliente Demo\",\n    \"codigo_identificacion\": \"cedula_juridica\",\n    \"numero_identificacion\": \"3102802163\",\n    \"correo\": \"demo@demo.com\"\n  },\n  \"hacienda\": {\n    \"usuario_hacienda\": \"\",\n    \"contrasena_hacienda\": \"\"\n  },\n  \"api_client_name\": \"ERP Principal\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/admin/organizations/provision",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "admin",
+                "organizations",
+                "provision"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  const json = pm.response.json();",
+                  "  if (json.organization_id) pm.collectionVariables.set('organizationId', json.organization_id);",
+                  "  if (json.api_key) pm.collectionVariables.set('apiKey', json.api_key);",
+                  "} catch (e) {}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /v1/admin/organizations/provision (JWT superadmin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{panelJwt}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"environment\": \"{{environment}}\",\n  \"organization\": {\n    \"name\": \"Cliente Demo\",\n    \"tax_id\": \"3102802163\"\n  },\n  \"odoo_user\": {\n    \"usuario_nombre\": \"Cliente Demo\",\n    \"codigo_identificacion\": \"cedula_juridica\",\n    \"numero_identificacion\": \"3102802163\",\n    \"correo\": \"demo@demo.com\"\n  },\n  \"api_client_name\": \"ERP Principal\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/admin/organizations/provision",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "admin",
+                "organizations",
+                "provision"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PUT /v1/admin/organizations/:id/credentials (JWT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{panelJwt}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"environment\": \"{{environment}}\",\n  \"factico_secret_key\": \"\",\n  \"hacienda_user\": \"\",\n  \"hacienda_password\": \"\",\n  \"certificate_code\": \"\",\n  \"certificate_pin\": \"\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/admin/organizations/{{organizationId}}/credentials",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "admin",
+                "organizations",
+                "{{organizationId}}",
+                "credentials"
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST /v1/admin/organizations/:id/certificate (multipart, JWT)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{panelJwt}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "environment",
+                  "value": "{{environment}}",
+                  "type": "text"
+                },
+                {
+                  "key": "pin",
+                  "value": "1234",
+                  "type": "text"
+                },
+                {
+                  "key": "archivo_p12",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/admin/organizations/{{organizationId}}/certificate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "admin",
+                "organizations",
+                "{{organizationId}}",
+                "certificate"
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST /v1/admin/organizations/:id/api-clients (JWT)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{panelJwt}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"ERP secundario\" }\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/admin/organizations/{{organizationId}}/api-clients",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "admin",
+                "organizations",
+                "{{organizationId}}",
+                "api-clients"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  const json = pm.response.json();",
+                  "  if (json.api_key) pm.collectionVariables.set('apiKey', json.api_key);",
+                  "} catch (e) {}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/admin/organizations/me (JWT)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{panelJwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/admin/organizations/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "admin",
+                "organizations",
+                "me"
+              ]
+            }
+          }
+        },
+        {
+          "name": "PATCH /v1/admin/profiles/link-organization (JWT superadmin)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{panelJwt}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"REPLACE_AUTH_USER_UUID\",\n  \"organization_id\": \"{{organizationId}}\",\n  \"role\": \"admin\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/admin/profiles/link-organization",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "admin",
+                "profiles",
+                "link-organization"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Integrador (API key fc_live_*)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.request.headers.upsert({ key: 'Authorization', value: 'Bearer ' + pm.collectionVariables.get('apiKey') });",
+              "pm.request.headers.upsert({ key: 'X-Environment', value: pm.collectionVariables.get('environment') });"
+            ]
+          }
+        }
+      ],
+      "item": [
+        {
+          "name": "POST /v1/documents/key",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sucursal\": \"001\",\n  \"terminal\": \"00001\",\n  \"secuencia\": \"0000000001\",\n  \"tipo_documento\": \"FE\",\n  \"numero_identificacion\": \"3102802163\",\n  \"situacion\": \"normal\",\n  \"codigo_pais\": \"506\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/key",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "key"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  const json = pm.response.json();",
+                  "  if (json.document_id) pm.collectionVariables.set('documentId', json.document_id);",
+                  "  if (json.clave) pm.collectionVariables.set('clave', json.clave);",
+                  "  if (json.consecutivo) pm.collectionVariables.set('consecutivo', json.consecutivo);",
+                  "} catch (e) {}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /v1/documents/xml (requiere /key antes)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_documento\": \"FE\",\n  \"clave\": \"{{clave}}\",\n  \"consecutivo\": \"{{consecutivo}}\",\n  \"proveedor_sistemas\": \"3102802163\",\n  \"fecha_emision\": \"2025-09-04T10:00:00-06:00\",\n\n  \"emisor_nombre\": \"Emisor Demo\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identififcacion\": \"3102802163\",\n  \"emisor_nombre_comercial\": \"Demo\",\n  \"emisor_provincia\": \"1\",\n  \"emisor_canton\": \"01\",\n  \"emisor_distrito\": \"01\",\n  \"emisor_otras_senas\": \"San José\",\n  \"emisor_codigo_pais_telefono\": \"506\",\n  \"emisor_telefono\": \"22223333\",\n  \"emisor_email\": \"demo@demo.com\",\n\n  \"receptor_nombre\": \"Receptor Demo\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"receptor_provincia\": \"1\",\n  \"receptor_canton\": \"01\",\n  \"receptor_distrito\": \"01\",\n  \"receptor_otras_senas\": \"San José\",\n  \"receptor_codigo_pais_telefono\": \"506\",\n  \"receptor_telefono\": \"22224444\",\n  \"receptor_email\": \"receptor@demo.com\",\n\n  \"codigo_actividad_emisor\": \"721001\",\n  \"codigo_actividad_receptor\": \"\",\n\n  \"condicion_venta\": \"01\",\n  \"condicion_venta_otros\": \"\",\n  \"plazo_credito\": \"0\",\n  \"codigo_moneda\": \"CRC\",\n  \"tipo_cambio\": \"1\",\n\n  \"detalle_servicio\": [\n    {\n      \"numero_linea\": \"1\",\n      \"codigo_cabys\": \"8439200000000\",\n      \"codigo_comercial\": [{ \"tipo\": \"03\", \"codigo\": \"1111\" }],\n      \"cantidad\": \"1.000\",\n      \"unidad_medida\": \"Unid\",\n      \"detalle\": \"Servicio demo\",\n      \"precio_unitario\": \"100.00000\",\n      \"monto_total\": \"100.00000\",\n      \"sub_total\": \"100.00000\",\n      \"base_imponible\": \"100.00000\",\n      \"impuesto\": [\n        { \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"tarifa\": 13.0, \"monto\": \"13.00000\" }\n      ],\n      \"descuento\": { \"aplica\": \"no\", \"monto_descuento\": \"0.0\", \"codigo_descuento\": \"01\", \"naturaleza_descuento\": \"\" },\n      \"impuesto_asumido_emisor_fabrica\": \"0.00000\",\n      \"impuesto_neto\": \"13.00000\",\n      \"registro_medicamento\": \"\",\n      \"forma_farmaceutica\": \"\",\n      \"monto_total_linea\": \"113.00000\"\n    }\n  ],\n\n  \"total_serv_gravados\": \"0.00000\",\n  \"total_serv_exentos\": \"0.00000\",\n  \"total_serv_exonerado\": \"0.00000\",\n  \"total_serv_no_sujeto\": \"0.00000\",\n  \"total_merc_gravadas\": \"100.00000\",\n  \"total_merc_exentas\": \"0.00000\",\n  \"total_merc_exonerada\": \"0.00000\",\n  \"total_merc_no_sujeta\": \"0.00000\",\n  \"total_gravado\": \"100.00000\",\n  \"total_exento\": \"0.00000\",\n  \"total_exonerado\": \"0.00000\",\n  \"total_no_sujeto\": \"0.00000\",\n  \"total_venta\": \"100.00000\",\n  \"total_descuentos\": \"0.00000\",\n  \"total_venta_neta\": \"100.00000\",\n  \"total_desglose_impuesto\": [{ \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"total_monto_impuesto\": 13.0 }],\n  \"total_impuesto\": \"13.00000\",\n  \"total_impuestos_asumidos_fabrica\": \"0.00000\",\n  \"total_iva_devuelto\": \"0.00000\",\n  \"total_otros_cargos\": \"0.00000\",\n  \"medios_pago\": [{ \"tipo_medio_pago\": \"01\", \"total_medio_pago\": \"113.00000\" }],\n  \"total_comprobante\": \"113.00000\",\n  \"otros\": \"Orden de compra: 2131231\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/xml",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "xml"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  const json = pm.response.json();",
+                  "  if (json.document_id) pm.collectionVariables.set('documentId', json.document_id);",
+                  "  if (json.xml) pm.collectionVariables.set('xmlBase64', json.xml);",
+                  "  pm.collectionVariables.set('fechaEmision', '2025-09-04T10:00:00-06:00');",
+                  "} catch (e) {}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /v1/documents/sign (usa xmlBase64)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"document_id\": \"{{documentId}}\",\n  \"comprobante_xml\": \"{{xmlBase64}}\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/sign",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "sign"
+              ]
+            }
+          }
+        },
+        {
+          "name": "POST /v1/documents/send (usa signedXmlBase64)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"document_id\": \"{{documentId}}\",\n  \"clave\": \"{{clave}}\",\n  \"fecha\": \"{{fechaEmision}}\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identificacion\": \"3102802163\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"comprobante_xml_firmado\": \"{{signedXmlBase64}}\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/send",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "send"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  const json = pm.response.json();",
+                  "  if (json.estado) pm.collectionVariables.set('haciendaEstado', json.estado);",
+                  "} catch (e) {}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST /v1/documents/process (FE completo)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_documento\": \"FE\",\n  \"sucursal\": \"001\",\n  \"terminal\": \"00001\",\n  \"secuencia\": \"0000000001\",\n  \"numero_identificacion\": \"3102802163\",\n  \"situacion\": \"normal\",\n  \"codigo_pais\": \"506\",\n\n  \"proveedor_sistemas\": \"3102802163\",\n  \"fecha_emision\": \"2025-09-04T10:00:00-06:00\",\n\n  \"emisor_nombre\": \"Emisor Demo\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identififcacion\": \"3102802163\",\n  \"emisor_nombre_comercial\": \"Demo\",\n  \"emisor_provincia\": \"1\",\n  \"emisor_canton\": \"01\",\n  \"emisor_distrito\": \"01\",\n\n  \"receptor_nombre\": \"Receptor Demo\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"receptor_provincia\": \"1\",\n  \"receptor_canton\": \"01\",\n  \"receptor_distrito\": \"01\",\n\n  \"codigo_actividad_emisor\": \"721001\",\n  \"condicion_venta\": \"01\",\n  \"plazo_credito\": \"0\",\n  \"codigo_moneda\": \"CRC\",\n  \"tipo_cambio\": \"1\",\n\n  \"detalle_servicio\": [\n    {\n      \"numero_linea\": \"1\",\n      \"codigo_cabys\": \"8439200000000\",\n      \"codigo_comercial\": [{ \"tipo\": \"03\", \"codigo\": \"1111\" }],\n      \"cantidad\": \"1.000\",\n      \"unidad_medida\": \"Unid\",\n      \"detalle\": \"Servicio demo\",\n      \"precio_unitario\": \"100.00000\",\n      \"monto_total\": \"100.00000\",\n      \"sub_total\": \"100.00000\",\n      \"base_imponible\": \"100.00000\",\n      \"impuesto\": [\n        { \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"tarifa\": 13.0, \"monto\": \"13.00000\", \"exoneracion\": null }\n      ],\n      \"descuento\": { \"aplica\": \"no\", \"monto_descuento\": \"0.0\", \"codigo_descuento\": \"01\", \"naturaleza_descuento\": \"\" },\n      \"impuesto_asumido_emisor_fabrica\": \"0.00000\",\n      \"impuesto_neto\": \"13.00000\",\n      \"monto_total_linea\": \"113.00000\"\n    }\n  ],\n\n  \"total_serv_gravados\": \"0.00000\",\n  \"total_serv_exentos\": \"0.00000\",\n  \"total_serv_exonerado\": \"0.00000\",\n  \"total_serv_no_sujeto\": \"0.00000\",\n  \"total_merc_gravadas\": \"100.00000\",\n  \"total_merc_exentas\": \"0.00000\",\n  \"total_merc_exonerada\": \"0.00000\",\n  \"total_merc_no_sujeta\": \"0.00000\",\n  \"total_gravado\": \"100.00000\",\n  \"total_exento\": \"0.00000\",\n  \"total_exonerado\": \"0.00000\",\n  \"total_no_sujeto\": \"0.00000\",\n  \"total_venta\": \"100.00000\",\n  \"total_descuentos\": \"0.00000\",\n  \"total_venta_neta\": \"100.00000\",\n  \"total_desglose_impuesto\": [{ \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"total_monto_impuesto\": 13.0 }],\n  \"total_impuesto\": \"13.00000\",\n  \"total_impuestos_asumidos_fabrica\": \"0.00000\",\n  \"total_iva_devuelto\": \"0.00000\",\n  \"total_otros_cargos\": \"0.00000\",\n  \"medios_pago\": [{ \"tipo_medio_pago\": \"01\", \"total_medio_pago\": \"113.00000\" }],\n  \"total_comprobante\": \"113.00000\",\n\n  \"fecha\": \"2025-09-04T10:00:00-06:00\",\n  \"emisor_numero_identificacion\": \"3102802163\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/process",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "process"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "try {",
+                  "  const json = pm.response.json();",
+                  "  if (json.document_id) pm.collectionVariables.set('documentId', json.document_id);",
+                  "} catch (e) {}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/documents/:id/status",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/{{documentId}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "{{documentId}}",
+                "status"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET /v1/documents/:id/download/xml",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/{{documentId}}/download/xml",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "{{documentId}}",
+                "download",
+                "xml"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET /v1/documents/:id/download/signed",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/{{documentId}}/download/signed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "{{documentId}}",
+                "download",
+                "signed"
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET /v1/documents/:id/download/response",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/v1/documents/{{documentId}}/download/response",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "documents",
+                "{{documentId}}",
+                "download",
+                "response"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

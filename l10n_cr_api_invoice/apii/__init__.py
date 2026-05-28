@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from . import api
 from . import user_register
+from . import user_lookup
+from . import user_update
 from . import certified_upload
 from . import certified_get
 from . import generarte_key

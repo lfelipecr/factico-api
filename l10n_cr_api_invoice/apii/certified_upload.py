@@ -37,8 +37,11 @@ def _create_certified(self, mode='production', **kw):
         _msg = "No se recibió archivo"
         return assets.response.invalid_response(typ='Error', message=_msg, status=400)
 
-    if _exist_one_certified(self, _res_api_users):
-        _msg = "Ya existe un archivo cargado para el usuario : %s" % _res_api_users['api_user'].user_name
+    reemplazar = str(kw.get('reemplazar', '')).lower() in ('1', 'true', 'yes', 'si', 'sí')
+    api_user = _res_api_users['api_user']
+
+    if _exist_one_certified(self, _res_api_users) and not reemplazar:
+        _msg = "Ya existe un archivo cargado para el usuario : %s. Envíe reemplazar=1 para actualizar." % api_user.user_name
         return assets.response.invalid_response(typ='Error', message=_msg, status=400)
 
     # 2. Obtener contenido y nombre
@@ -48,6 +51,20 @@ def _create_certified(self, mode='production', **kw):
 
         # 3. Convertir a base64
         file_base64 = base64.b64encode(file_content)
+
+        if _exist_one_certified(self, _res_api_users) and reemplazar:
+            certified = api_user.certifies_ids[0]
+            certified.sudo().write({
+                'file_p12': file_base64,
+                'file_name': file_name,
+            })
+            if not certified.file_code:
+                certified.save_file_code()
+            return assets.response.valid_response(data={
+                'codigo_certificado': certified.file_code,
+                'nombre_certificado': certified.file_name,
+                'reemplazado': True,
+            })
 
         data = {
             'api_user_id': _res_api_users['api_user_id'],

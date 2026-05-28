@@ -16,6 +16,22 @@ class ApiInvoiceVersion44Controller(http.Controller):
     def cr_api_staging_user_register(self, **kw):
         return apii.user_register._create_user_api(self=http.request, mode='staging', **kw)
 
+    @http.route('/cr_api/user_lookup', auth='none', methods=['POST'], csrf=False)
+    def cr_api_user_lookup(self, **kw):
+        return apii.user_lookup._lookup_user(self=http.request, **kw)
+
+    @http.route('/cr_api-staging/user_lookup', auth='none', methods=['POST'], csrf=False)
+    def cr_api_staging_user_lookup(self, **kw):
+        return apii.user_lookup._lookup_user(self=http.request, mode='staging', **kw)
+
+    @http.route('/cr_api/user_update', auth='none', methods=['POST'], csrf=False)
+    def cr_api_user_update(self, **kw):
+        return apii.user_update._update_user(self=http.request, **kw)
+
+    @http.route('/cr_api-staging/user_update', auth='none', methods=['POST'], csrf=False)
+    def cr_api_staging_user_update(self, **kw):
+        return apii.user_update._update_user(self=http.request, mode='staging', **kw)
+
     #CERTIFICADOS
     @http.route('/cr_api/certified_upload', auth='none', methods=['POST'], csrf=False)
     def cr_api_upload_certified(self, **kw):
