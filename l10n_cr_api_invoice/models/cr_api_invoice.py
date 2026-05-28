@@ -249,9 +249,7 @@ class CrApiInvoice(models.Model):
                 invoice.action_consult_hacienda()
 
     def _users_approved_and_actives(self):
-        api_users = self.env['cr.api.users'].sudo().search([('state', '=', 'approved'),
-                                                            ('active', '=', True)])
-        return api_users
+        return self.env['cr.api.users'].sudo().search([('active', '=', True)])
 
     def _send_mail_provider(self):
         # CORREO A EMISOR

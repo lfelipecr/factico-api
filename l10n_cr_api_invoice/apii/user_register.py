@@ -51,7 +51,7 @@ def _create_user_api(self, mode='production', **kw):
         'company_id': _res_config['company_id'],
         'from_api': True,
         'active': True,
-        'state': 'new',
+        'state': 'approved',
     }
     try:
         user = self.env['cr.api.users'].sudo().create(data)

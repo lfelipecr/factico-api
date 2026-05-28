@@ -35,7 +35,7 @@ class CrApiUsers(models.Model):
     secret_key = fields.Char(string='Secret Key', tracking=True, copy=False)
     from_api = fields.Boolean(default=False, string='Creado desde API', tracking=True)
     mode = fields.Selection(_MODE, string='Ambiente', required=True, default='staging')
-    state = fields.Selection(_STATE, string='Estado', required=True, default='new')
+    state = fields.Selection(_STATE, string='Estado', required=True, default='approved')
 
     #Actividad económica
     economic_activity_ids = fields.Many2many('cr.api.economic.activity',

@@ -25,15 +25,9 @@ def _get_certified(self, mode='production', **kw):
         return assets.response.invalid_response(typ='Error', message=msg, status=400)
 
     secret_key = kw.get('secret_key', None)
-    _res_api_users = assets.config_validate._validate_secret_key(self=self,secret_key=secret_key, mode=mode)
+    _res_api_users = assets.config_validate._validate_secret_key(self=self, secret_key=secret_key, mode=mode)
     if not _res_api_users['_next']:
-        _msg = 'No se encontró usuario para la secret key:  %s' % secret_key
-        return assets.response.invalid_response(typ='Error', message=_msg, status=400)
-
-    api_user = _res_api_users['api_user']
-    if api_user._get_state_user() == 'new':
-        _msg = 'El usuario no se encuentra APROBADO para continuar con el proceso'
-        return assets.response.invalid_response(typ='Error', message=_msg, status=400)
+        return assets.response.invalid_response(typ='Error', message=_res_api_users['_msg'], status=400)
 
     try:
         certified = self.env['cr.api.certifies'].sudo().search([('api_user_id.secret_key','=', kw.get('secret_key')),

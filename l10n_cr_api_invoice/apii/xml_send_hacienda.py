@@ -58,16 +58,11 @@ def _send_xml(self, mode='production', **kw):
     secret_key = kw.get('secret_key', None)
     _res_api_users = assets.config_validate._validate_secret_key(self=self, secret_key=secret_key, mode=mode)
     if not _res_api_users['_next']:
-        _msg = 'No se encontró usuario para la secret key:  %s' % secret_key
-        _logger.info(_msg)
-        return assets.response.invalid_response(typ='Error', message=_msg, status=400)
+        _logger.info(_res_api_users['_msg'])
+        return assets.response.invalid_response(typ='Error', message=_res_api_users['_msg'], status=400)
 
     _logger.info("Valiando api_user")
     api_user = _res_api_users['api_user']
-    if api_user._get_state_user() == 'new':
-        _msg = 'El usuario no se encuentra APROBADO para continuar con el proceso'
-        _logger.info(_msg)
-        return assets.response.invalid_response(typ='Error', message=_msg, status=400)
 
     #OBTENCIÓN DE TOKEN
     ApiHacienda = api.ApiHacienda

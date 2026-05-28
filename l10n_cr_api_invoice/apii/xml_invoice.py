@@ -29,13 +29,7 @@ def _create_xml(self, mode='production', **kw):
     secret_key = kw.get('secret_key', None)
     _res_api_users = assets.config_validate._validate_secret_key(self=self, secret_key=secret_key, mode=mode)
     if not _res_api_users['_next']:
-        _msg = 'No se encontró usuario para la secret key:  %s' % secret_key
-        return assets.response.invalid_response(typ='Error', message=_msg, status=400)
-
-    api_user = _res_api_users['api_user']
-    if api_user._get_state_user() == 'new':
-        _msg = 'El usuario no se encuentra APROBADO para continuar con el proceso'
-        return assets.response.invalid_response(typ='Error', message=_msg, status=400)
+        return assets.response.invalid_response(typ='Error', message=_res_api_users['_msg'], status=400)
 
     _res_validation = assets.xml_template._validations(params=kw)
     if not _res_validation['_next']:
