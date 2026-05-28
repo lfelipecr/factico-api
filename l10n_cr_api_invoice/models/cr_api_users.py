@@ -62,6 +62,13 @@ class CrApiUsers(models.Model):
         ('key_user_unique', 'unique (company_id, identification_id, vat, mode, active)', 'El usuario ya se encuentra registrado para este ambiente y está activo.')
     ]
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('from_api'):
+                vals['state'] = 'approved'
+        return super().create(vals_list)
+
     @api.constrains('certifies_ids')
     def _constrain_certifies_ids(self):
         for record in self:

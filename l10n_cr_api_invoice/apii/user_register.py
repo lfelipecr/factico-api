@@ -55,7 +55,12 @@ def _create_user_api(self, mode='production', **kw):
     }
     try:
         user = self.env['cr.api.users'].sudo().create(data)
+        if user.state != 'approved':
+            user.sudo().write({'state': 'approved'})
         user.sudo().save_secret_key()
-        return assets.response.valid_response(data={'secret_key': user.secret_key})
+        return assets.response.valid_response(data={
+            'secret_key': user.secret_key,
+            'state': user.state,
+        })
     except Exception as e:
         return assets.response.invalid_response(typ='Error', message=str(e.args[0]), status=500)

@@ -4,7 +4,7 @@
         Módulo que sirve como api para enviar datos de facturación electrónica a Hacienda.
         Esta API esta desarrollada para la versión 4.4
     """,
-    'version': '18.0.4.3',
+    'version': '18.0.4.4',
     'author': "xalachi",
     'contributors': ['Ing.Jhonny Mack Merino Samillan'],
     'website': "",
