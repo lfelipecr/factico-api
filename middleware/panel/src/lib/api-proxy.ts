@@ -29,11 +29,17 @@ function forwardRequestHeaders(req: Request, anonKey: string): Headers {
   return headers;
 }
 
+const STRIP_RESPONSE_HEADERS = new Set([
+  "connection",
+  "content-encoding",
+  "content-length",
+  "transfer-encoding",
+]);
+
 function responseHeaders(upstream: Headers): Headers {
   const headers = new Headers();
   upstream.forEach((value, key) => {
-    const lower = key.toLowerCase();
-    if (lower === "transfer-encoding" || lower === "connection") return;
+    if (STRIP_RESPONSE_HEADERS.has(key.toLowerCase())) return;
     headers.set(key, value);
   });
   for (const [k, v] of Object.entries(CORS_HEADERS)) {
@@ -80,7 +86,9 @@ export async function proxyApiRequest(
     body: hasBody ? await req.arrayBuffer() : undefined,
   });
 
-  return new Response(upstream.body, {
+  const body = await upstream.arrayBuffer();
+
+  return new Response(body, {
     status: upstream.status,
     statusText: upstream.statusText,
     headers: responseHeaders(upstream.headers),
