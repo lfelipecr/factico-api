@@ -40,12 +40,11 @@ En GitHub **gratis**, Pages en repos **privados** no está disponible (hace falt
 
 ## Probar desde Swagger UI
 
-En **Authorize**:
+En **Authorize** solo va la API key del tenant: `X-Api-Key` = `fc_live_...`.
 
-1. `apikey` → anon key de Supabase.
-2. `X-Api-Key` → `fc_live_...` del tenant.
+Si la petición va a `https://TU_REF.supabase.co/functions/v1/api/...`, Supabase **además** exige la anon key en header `apikey` (gateway, no es credencial del cliente). Swagger no la pide en Authorize; en Postman está el pre-request script, o agrégala a mano al probar **Try it out**.
 
-Header global `X-Environment`: `staging` o `production`.
+Header `X-Environment`: `staging` o `production`.
 
 ## Relación con apifecrdoc
 

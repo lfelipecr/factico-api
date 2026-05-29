@@ -2,17 +2,13 @@
   "openapi": "3.0.0",
   "info": {
     "title": "API Fáctico Middleware Versión 4.4 — Integradores",
-    "description": "Documentación pública para integradores (ERP/POS). Autenticación: `X-Api-Key` (fc_live_...), `apikey` Supabase, `X-Environment`.\n\n**Odoo directo (form-data):** https://lfelipecr.github.io/apifecrdoc/",
+    "description": "Documentación pública para integradores (ERP/POS).\n\n**Credencial del tenant:** header `X-Api-Key` con valor `fc_live_...` (o `Authorization: Bearer fc_live_...`).\n\n**Solo si llamas a la URL `*.supabase.co/functions/v1/...`:** el gateway de Supabase exige además header `apikey` (o `Authorization: Bearer` con la anon key del proyecto). Eso no valida el tenant; solo abre la puerta hasta la Edge Function. En Postman/curl ver `middleware/docs/DEPLOY.md`.\n\nHeader `X-Environment`: `staging` o `production`.\n\n**Odoo directo (form-data):** https://lfelipecr.github.io/apifecrdoc/",
     "version": "1.0.0"
   },
   "servers": [
     {
       "url": "https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api",
       "description": "Producción"
-    },
-    {
-      "url": "http://127.0.0.1:54321/functions/v1/api",
-      "description": "Desarrollo local"
     }
   ],
   "tags": [
@@ -59,9 +55,6 @@
         ],
         "security": [
           {
-            "SupabaseAnon": []
-          },
-          {
             "FacticoApiKey": []
           }
         ],
@@ -99,9 +92,6 @@
         ],
         "security": [
           {
-            "SupabaseAnon": []
-          },
-          {
             "FacticoApiKey": []
           }
         ],
@@ -138,9 +128,6 @@
           }
         ],
         "security": [
-          {
-            "SupabaseAnon": []
-          },
           {
             "FacticoApiKey": []
           }
@@ -190,9 +177,6 @@
           }
         ],
         "security": [
-          {
-            "SupabaseAnon": []
-          },
           {
             "FacticoApiKey": []
           }
@@ -274,9 +258,6 @@
         ],
         "security": [
           {
-            "SupabaseAnon": []
-          },
-          {
             "FacticoApiKey": []
           }
         ],
@@ -310,9 +291,6 @@
         ],
         "security": [
           {
-            "SupabaseAnon": []
-          },
-          {
             "FacticoApiKey": []
           }
         ],
@@ -340,9 +318,6 @@
         ],
         "security": [
           {
-            "SupabaseAnon": []
-          },
-          {
             "FacticoApiKey": []
           }
         ],
@@ -366,15 +341,11 @@
   },
   "components": {
     "securitySchemes": {
-      "SupabaseAnon": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "apikey"
-      },
       "FacticoApiKey": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-Api-Key"
+        "name": "X-Api-Key",
+        "description": "API key del integrador (`fc_live_...`). Obligatoria en todas las rutas de documentos."
       }
     },
     "parameters": {
