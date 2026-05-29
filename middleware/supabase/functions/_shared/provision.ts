@@ -35,17 +35,33 @@ export async function provisionOrganization(
 ): Promise<ProvisionResult> {
   const supabase = createServiceClient();
 
+  const idNum = input.odoo_user.numero_identificacion.trim();
+  const taxId = (input.organization.tax_id ?? "").trim();
+
   const { data: existingCred } = await supabase
     .from("provider_credentials")
     .select("organization_id")
     .eq("environment", input.environment)
-    .eq("odoo_user_ref", input.odoo_user.numero_identificacion)
+    .eq("odoo_user_ref", idNum)
     .maybeSingle();
 
   if (existingCred) {
     throw new Error(
-      `Ya existe un tenant (${existingCred.organization_id}) con la cédula ${input.odoo_user.numero_identificacion} en ${input.environment}`,
+      `Ya existe un tenant (${existingCred.organization_id}) con la cédula ${idNum} en ${input.environment}`,
     );
+  }
+
+  if (taxId) {
+    const { data: existingOrg } = await supabase
+      .from("organizations")
+      .select("id")
+      .eq("tax_id", taxId)
+      .maybeSingle();
+    if (existingOrg) {
+      throw new Error(
+        `Ya existe una organización con tax_id ${taxId} (${existingOrg.id})`,
+      );
+    }
   }
 
   const { data: org, error: orgError } = await supabase

@@ -13,6 +13,7 @@ export default function NewOrganizationPage() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (loading) return;
     setLoading(true);
     setError(null);
     setResult(null);

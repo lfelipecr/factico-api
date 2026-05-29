@@ -101,6 +101,7 @@ export default async function OrganizationsPage() {
                   <td className="px-4 py-3">
                     <p className="font-medium text-slate-900">{o.name}</p>
                     <p className="text-xs text-slate-500">{o.tax_id ?? "—"}</p>
+                    <p className="text-xs font-mono text-slate-400">{o.id}</p>
                   </td>
                   <td className="px-4 py-3">{o.status}</td>
                   <td className="px-4 py-3">
