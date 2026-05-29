@@ -23,11 +23,18 @@ Abrir: http://localhost:8080
 1. Subir `docs/api/` al repo `factico-api` en GitHub.
 2. **Settings → Pages** → Source: **Deploy from branch**
 3. Branch: `main` — Folder: **`/docs`**
-4. Guardar. En unos minutos:
+4. Guardar. En unos minutos abre:
 
-   `https://lfelipecr.github.io/factico-api/api/`
+   - **Swagger:** https://lfelipecr.github.io/factico-api/api/
+   - **Raíz** (`/factico-api/`) redirige solo si existe `docs/index.html` en el repo.
 
-   (Si prefieres URL corta `factico-middleware-doc`, crea repo `factico-middleware-doc` solo con esta carpeta.)
+### Repositorio privado (plan gratuito)
+
+En GitHub **gratis**, Pages en repos **privados** no está disponible (hace falta plan de pago) o el sitio no se publica. Opciones:
+
+1. Hacer el repo **público** (solo documentación + código; sin secrets en el repo).
+2. Subir solo `docs/api/` a un repo **público** vacío, ej. `factico-api-doc`.
+3. Ver la doc en local: `cd docs/api && python3 -m http.server 8080`
 
 ## Probar desde Swagger UI
 
