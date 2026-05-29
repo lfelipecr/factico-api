@@ -1,18 +1,14 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "API Fáctico Middleware — Administración (interno)",
+    "title": "API Fáctico Middleware ��� Administración (interno)",
     "description": "No publicar en GitHub Pages. Uso interno: panel, provisionamiento, Postman carpeta Admin.\n\nAuth: JWT Supabase (superadmin/admin) o header `X-Provision-Key`.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api",
-      "description": "Producción"
-    },
-    {
-      "url": "http://127.0.0.1:54321/functions/v1/api",
-      "description": "Desarrollo local"
+      "url": "https://apife.factico.net",
+      "description": "Produccion (proxy Vercel)"
     }
   ],
   "tags": [

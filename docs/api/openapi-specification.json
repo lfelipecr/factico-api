@@ -2,19 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "API Fáctico Middleware Versión 4.4 — Integradores",
-    "description": "Documentación pública para integradores (ERP/POS).\n\n**Credencial del tenant:** header `X-Api-Key` con valor `fc_live_...` (o `Authorization: Bearer fc_live_...`).\n\n**Solo si llamas a la URL `*.supabase.co/functions/v1/...`:** el gateway de Supabase exige además header `apikey` (o `Authorization: Bearer` con la anon key del proyecto). Eso no valida el tenant; solo abre la puerta hasta la Edge Function. En Postman/curl ver `middleware/docs/DEPLOY.md`.\n\nHeader `X-Environment`: `staging` o `production`.\n\n**Odoo directo (form-data):** https://lfelipecr.github.io/apifecrdoc/",
+    "description": "Documentación pública para integradores (ERP/POS).\n\n**URL base:** `https://apife.factico.net` (rutas `/v1/...`).\n\n**Autenticación:** header `X-Api-Key` con valor `fc_live_...` (también acepta `Authorization: Bearer fc_live_...`).\n\n**Ambiente:** header `X-Environment` con valor `staging` o `production`.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api",
+      "url": "https://apife.factico.net",
       "description": "Producción"
     }
   ],
   "tags": [
     {
       "name": "1. Clave",
-      "description": "Generación de clave numérica y consecutivo (Odoo generate_key)."
+      "description": "Generación de clave numérica y consecutivo."
     },
     {
       "name": "2. Crear XML",
@@ -81,7 +81,7 @@
           "2. Crear XML"
         ],
         "summary": "Crear XML (FE, NC, ND, TE, REP, MR)",
-        "description": "Mismos campos que Odoo xml_invoice. Enviar clave y consecutivo del paso 1.",
+        "description": "Crea el comprobante electrónico. Enviar clave y consecutivo del paso 1.",
         "parameters": [
           {
             "$ref": "#/components/parameters/XEnvironment"
@@ -420,7 +420,7 @@
           },
           "clave": {
             "type": "string",
-            "description": "50 dígitos. Obtener en paso 1 (generate_key)."
+            "description": "50 dígitos. Obtener en paso 1 (generar clave)."
           },
           "consecutivo": {
             "type": "string",
@@ -443,7 +443,7 @@
           },
           "emisor_numero_identififcacion": {
             "type": "string",
-            "description": "Tres 'f' — typo histórico Odoo."
+            "description": "Tres 'f' — valor fijo requerido por Hacienda."
           },
           "emisor_nombre_comercial": {
             "type": "string"
@@ -526,7 +526,7 @@
           },
           "detalle_servicio": {
             "type": "array",
-            "description": "Líneas de detalle (JSON array; en Odoo directo va como string).",
+            "description": "Líneas de detalle (array JSON).",
             "items": {
               "type": "object"
             }

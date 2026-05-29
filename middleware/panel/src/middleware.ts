@@ -1,7 +1,21 @@
-import { type NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const host = request.headers.get("host") ?? "";
+
+  if (pathname.startsWith("/v1")) {
+    return NextResponse.next();
+  }
+
+  if (host.startsWith("apife.") && pathname === "/") {
+    return NextResponse.json({
+      service: "Factico API",
+      documentation: "https://lfelipecr.github.io/factico-api/api/",
+    });
+  }
+
   return await updateSession(request);
 }
 

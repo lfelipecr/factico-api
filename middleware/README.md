@@ -49,7 +49,8 @@ npm install
 npm run dev
 ```
 
-- API: `http://127.0.0.1:54321/functions/v1/api`
+- API local: `http://127.0.0.1:54321/functions/v1/api` (o proxy `http://localhost:3000` si defines `SUPABASE_FUNCTIONS_URL` + `SUPABASE_ANON_KEY`)
+- API producción integradores: `https://apife.factico.net`
 - Panel: `http://localhost:3000`
 - Studio: `http://127.0.0.1:54323`
 

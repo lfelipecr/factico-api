@@ -18,10 +18,10 @@ Tiempo estimado: ~45–60 min la primera vez.
 |---------|--------|
 | Supabase URL | `https://rabcundgpzfzwnntjuxu.supabase.co` |
 | Project ref | `rabcundgpzfzwnntjuxu` |
-| API Edge Functions | `https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api` |
-| Panel (Vercel) | `https://api.factico.net` |
+| API integradores + proxy `/v1` | `https://apife.factico.net` (este repo, `middleware/panel`) |
+| `api.factico.net` | **Otro** proyecto Vercel — no confundir con el panel ni con la API JSON |
 
-> **Nota:** `api.factico.net` en Vercel es el **panel** (Next.js). Los integradores (ERP/Postman) llaman la URL de **Supabase** arriba, salvo que configures un proxy inverso que reenvíe rutas hacia Supabase.
+> Solo `apife.factico.net` (en el deploy del panel) reenvía `/v1/*` a la Edge Function e inyecta el gateway. Los integradores usan `X-Api-Key` y `X-Environment`.
 
 ---
 
@@ -94,8 +94,7 @@ En `config.toml` ya está `verify_jwt = false` para que la API use API keys prop
 Comprueba:
 
 ```bash
-curl -s "https://TU_PROJECT_REF.supabase.co/functions/v1/api/v1/health" \
-  -H "Authorization: Bearer TU_ANON_KEY"
+curl -s "https://apife.factico.net/v1/health"
 ```
 
 Debe devolver JSON con `"status":"ok"`.
@@ -134,7 +133,9 @@ En Vercel → proyecto → **Settings → Environment Variables**:
 |----------|--------|
 | `NEXT_PUBLIC_SUPABASE_URL` | `https://TU_PROJECT_REF.supabase.co` |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | anon key (Settings → API) |
-| `NEXT_PUBLIC_API_URL` | `https://TU_PROJECT_REF.supabase.co/functions/v1/api` |
+| `NEXT_PUBLIC_API_URL` | `https://apife.factico.net` |
+| `SUPABASE_FUNCTIONS_URL` | `https://TU_PROJECT_REF.supabase.co/functions/v1/api` |
+| `SUPABASE_ANON_KEY` | anon key (Settings → API) |
 
 Copia desde `panel/.env.local.example`.
 
@@ -184,24 +185,19 @@ Variables:
 
 | Variable | Valor |
 |----------|--------|
-| `baseUrl` | `https://TU_PROJECT_REF.supabase.co/functions/v1/api` |
+| `baseUrl` | `https://apife.factico.net` |
 | `apiKey` | `fc_live_...` (del panel al crear tenant) |
 
-Headers en cada request:
+Headers en cada request (producción vía `apife.factico.net`):
 
 ```
-Authorization: Bearer fc_live_XXXX
-apikey: TU_ANON_KEY
-```
-
-Supabase Gateway suele exigir `apikey` o `Authorization: Bearer <anon_key>` además de tu API key de negocio. Si solo envías `fc_live_...`, prueba:
-
-```
-Authorization: Bearer TU_ANON_KEY
 X-Api-Key: fc_live_XXXX
+X-Environment: staging
 ```
 
-(o `Authorization: Bearer fc_live_...` si tu gateway lo acepta — valida con `/v1/health`).
+El proxy en Vercel añade el gateway internamente; **no** hace falta `apikey` en Postman si usas `apife.factico.net`.
+
+Validar: `GET https://apife.factico.net/v1/health`
 
 ---
 
@@ -233,7 +229,8 @@ supabase functions deploy api --no-verify-jwt
 |----------|--------|
 | Vercel | Domains → `panel.factico.com` |
 | Supabase Auth | Añadir URL en Redirect URLs |
-| API | Sigue en `*.supabase.co/functions/v1/api` (o [Custom Domains](https://supabase.com/docs/guides/platform/custom-domains) en plan pago) |
+| API integradores | `https://apife.factico.net` (proxy Vercel → Edge Function) |
+| Panel | Dominio del deploy Vercel del panel (ej. `*.vercel.app` o custom distinto de `api.factico.net`) |
 
 ---
 

@@ -7,7 +7,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api"
+      "value": "https://apife.factico.net"
     },
     {
       "key": "environment",
@@ -90,13 +90,12 @@
           "script": {
             "type": "text/javascript",
             "exec": [
+              "const baseUrl = pm.collectionVariables.get('baseUrl') || '';",
               "const apiKey = pm.collectionVariables.get('apiKey');",
               "const anon = pm.collectionVariables.get('supabaseAnonKey');",
-              "if (anon && anon !== 'PEGAR_ANON_KEY_AQUI') {",
+              "if (baseUrl.includes('supabase.co') && anon && anon !== 'PEGAR_ANON_KEY_AQUI') {",
               "  pm.request.headers.upsert({ key: 'apikey', value: anon });",
-              "  pm.request.headers.upsert({ key: 'Authorization', value: 'Bearer ' + anon });",
-              "}",
-              "if (apiKey && apiKey.startsWith('fc_live_')) {"
+              "}"
             ]
           }
         }
@@ -375,9 +374,10 @@
           "script": {
             "type": "text/javascript",
             "exec": [
+              "const baseUrl = pm.collectionVariables.get('baseUrl') || '';",
               "const apiKey = pm.collectionVariables.get('apiKey');",
               "const anon = pm.collectionVariables.get('supabaseAnonKey');",
-              "if (anon && anon !== 'PEGAR_ANON_KEY_AQUI') {",
+              "if (baseUrl.includes('supabase.co') && anon && anon !== 'PEGAR_ANON_KEY_AQUI') {",
               "  pm.request.headers.upsert({ key: 'apikey', value: anon });",
               "  pm.request.headers.upsert({ key: 'Authorization', value: 'Bearer ' + anon });",
               "}",

@@ -1,6 +1,6 @@
 # Documentación API — Swagger UI
 
-Sitio estático estilo [apifecrdoc](https://lfelipecr.github.io/apifecrdoc/) para integradores (**sin** endpoints `/v1/admin/*`).
+Documentación pública para integradores (**sin** endpoints `/v1/admin/*`).
 
 La documentación de administración está en [`docs/internal/`](../internal/) (no publicar en Pages).
 
@@ -40,15 +40,8 @@ En GitHub **gratis**, Pages en repos **privados** no está disponible (hace falt
 
 ## Probar desde Swagger UI
 
-En **Authorize** solo va la API key del tenant: `X-Api-Key` = `fc_live_...`.
-
-Si la petición va a `https://TU_REF.supabase.co/functions/v1/api/...`, Supabase **además** exige la anon key en header `apikey` (gateway, no es credencial del cliente). Swagger no la pide en Authorize; en Postman está el pre-request script, o agrégala a mano al probar **Try it out**.
+En **Authorize**: `X-Api-Key` = `fc_live_...` (entregada al activar el tenant).
 
 Header `X-Environment`: `staging` o `production`.
 
-## Relación con apifecrdoc
-
-| Documentación | Audiencia | Formato |
-|---------------|-----------|---------|
-| [apifecrdoc](https://lfelipecr.github.io/apifecrdoc/) | Integración directa Odoo | form-data |
-| Esta API | Integración vía middleware SaaS | JSON |
+**URL base producción:** `https://apife.factico.net` (p. ej. `POST /v1/documents/key`).
