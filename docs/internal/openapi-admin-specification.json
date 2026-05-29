@@ -1,0 +1,245 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Fáctico Middleware — Administración (interno)",
+    "description": "No publicar en GitHub Pages. Uso interno: panel, provisionamiento, Postman carpeta Admin.\n\nAuth: JWT Supabase (superadmin/admin) o header `X-Provision-Key`.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api",
+      "description": "Producción"
+    },
+    {
+      "url": "http://127.0.0.1:54321/functions/v1/api",
+      "description": "Desarrollo local"
+    }
+  ],
+  "tags": [
+    {
+      "name": "9. Administración",
+      "description": "Provisionamiento y panel."
+    }
+  ],
+  "paths": {
+    "/v1/admin/organizations/provision": {
+      "post": {
+        "tags": [
+          "9. Administración"
+        ],
+        "summary": "Provisionar tenant",
+        "security": [
+          {
+            "BearerJwt": []
+          },
+          {
+            "ProvisionKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    },
+    "/v1/admin/profiles/link-organization": {
+      "patch": {
+        "tags": [
+          "9. Administración"
+        ],
+        "summary": "Vincular usuario panel a tenant",
+        "security": [
+          {
+            "BearerJwt": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "user_id",
+                  "organization_id"
+                ],
+                "properties": {
+                  "user_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "organization_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "admin",
+                      "implementer",
+                      "client"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    },
+    "/v1/admin/organizations/me": {
+      "get": {
+        "tags": [
+          "9. Administración"
+        ],
+        "summary": "Mi organización (panel)",
+        "security": [
+          {
+            "BearerJwt": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    },
+    "/v1/admin/organizations/{id}/credentials": {
+      "put": {
+        "tags": [
+          "9. Administración"
+        ],
+        "summary": "Actualizar credenciales",
+        "security": [
+          {
+            "BearerJwt": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrganizationId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    },
+    "/v1/admin/organizations/{id}/api-clients": {
+      "post": {
+        "tags": [
+          "9. Administración"
+        ],
+        "summary": "Crear API key",
+        "security": [
+          {
+            "BearerJwt": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrganizationId"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    },
+    "/v1/admin/organizations/{id}/certificate": {
+      "post": {
+        "tags": [
+          "9. Administración"
+        ],
+        "summary": "Subir certificado P12",
+        "security": [
+          {
+            "BearerJwt": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrganizationId"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "archivo_p12",
+                  "pin"
+                ],
+                "properties": {
+                  "environment": {
+                    "type": "string"
+                  },
+                  "pin": {
+                    "type": "string"
+                  },
+                  "archivo_p12": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Respuesta exitosa"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerJwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ProvisionKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Provision-Key"
+      }
+    },
+    "parameters": {
+      "OrganizationId": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    }
+  }
+}

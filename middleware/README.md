@@ -91,7 +91,8 @@ Supabase Auth (email/password). Perfil en `profiles` con `role`: `superadmin` | 
 
 ## Documentación OpenAPI (Swagger)
 
-- Código: [`docs/api/`](../docs/api/) (Swagger UI + `openapi-specification.json`)
+- Integradores (público): [`docs/api/`](../docs/api/) (Swagger UI)
+- Admin (interno): [`docs/internal/`](../docs/internal/)
 - Publicación sugerida: GitHub Pages → `https://<usuario>.github.io/factico-api/api/`
 - Referencia Odoo directa: [apifecrdoc](https://lfelipecr.github.io/apifecrdoc/)
 

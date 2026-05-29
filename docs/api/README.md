@@ -1,6 +1,8 @@
 # Documentación API — Swagger UI
 
-Sitio estático estilo [apifecrdoc](https://lfelipecr.github.io/apifecrdoc/) para la **Fáctico Middleware API** (JSON REST).
+Sitio estático estilo [apifecrdoc](https://lfelipecr.github.io/apifecrdoc/) para integradores (**sin** endpoints `/v1/admin/*`).
+
+La documentación de administración está en [`docs/internal/`](../internal/) (no publicar en Pages).
 
 ## Archivos
 

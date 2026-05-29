@@ -1,18 +1,14 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.0.0",
   "info": {
-    "title": "Fáctico Middleware API",
-    "version": "1.0.0",
-    "description": "API REST multi-tenant para facturación electrónica Costa Rica (v4.4). Los integradores envían **JSON**; el middleware traduce a Odoo (form-data), aplica cuotas y guarda trazabilidad.\n\n## Autenticación (integradores)\n1. Header `X-Api-Key: fc_live_...` (clave del panel).\n2. Header `apikey` o `Authorization: Bearer` con la **anon key** de Supabase (requerido en el gateway de Edge Functions).\n3. Header `X-Environment: staging` o `production`.\n\n## Flujo recomendado\n`key` → `xml` → `sign` → `send` → `status` (o un solo `process`).\n\nDocumentación Odoo directa (form-data): [apifecrdoc](https://lfelipecr.github.io/apifecrdoc/)\n",
-    "contact": {
-      "name": "Fáctico / Kibu",
-      "url": "https://api.kibuinc.com"
-    }
+    "title": "API Fáctico Middleware Versión 4.4 — Integradores",
+    "description": "Documentación pública para integradores (ERP/POS). Autenticación: `X-Api-Key` (fc_live_...), `apikey` Supabase, `X-Environment`.\n\n**Odoo directo (form-data):** https://lfelipecr.github.io/apifecrdoc/",
+    "version": "1.0.0"
   },
   "servers": [
     {
       "url": "https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api",
-      "description": "Producción (Supabase Edge Functions)"
+      "description": "Producción"
     },
     {
       "url": "http://127.0.0.1:54321/functions/v1/api",
@@ -21,47 +17,38 @@
   ],
   "tags": [
     {
-      "name": "0. General",
-      "description": "Salud y convenciones"
+      "name": "1. Clave",
+      "description": "Generación de clave numérica y consecutivo (Odoo generate_key)."
     },
     {
-      "name": "1. Documentos (integrador)",
-      "description": "Flujo FE con API key `fc_live_`"
+      "name": "2. Crear XML",
+      "description": "Crea FE, NC, ND, TE, REP, MR, etc. según tipo_documento."
     },
     {
-      "name": "2. Administración",
-      "description": "Panel, provisionamiento y credenciales (JWT o Provision Key)"
+      "name": "3. Firma",
+      "description": "Firma del XML con certificado cargado en el panel."
+    },
+    {
+      "name": "4. Hacienda",
+      "description": "Envío y consulta ante el Ministerio de Hacienda."
+    },
+    {
+      "name": "5. Descargas",
+      "description": "Respaldos XML almacenados en el middleware."
+    },
+    {
+      "name": "6. Proceso completo",
+      "description": "Key + XML + firma + envío en un solo paso."
     }
   ],
   "paths": {
-    "/v1/health": {
-      "get": {
-        "tags": [
-          "0. General"
-        ],
-        "summary": "Health check",
-        "description": "No requiere API key. Recomendado enviar `apikey` de Supabase.",
-        "responses": {
-          "200": {
-            "description": "Servicio activo",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HealthResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/v1/documents/key": {
       "post": {
         "tags": [
-          "1. Documentos (integrador)"
+          "1. Clave"
         ],
-        "summary": "Generar clave y consecutivo",
-        "description": "Primer paso del flujo. Crea registro en `documents` y llama Odoo `generate_key`.",
+        "summary": "Generar clave",
+        "description": "Genera clave de 50 dígitos y consecutivo. Incremente secuencia en cada comprobante.",
         "parameters": [
           {
             "$ref": "#/components/parameters/XEnvironment"
@@ -90,20 +77,7 @@
         },
         "responses": {
           "200": {
-            "description": "Clave generada",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenerateKeyResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "429": {
-            "$ref": "#/components/responses/QuotaExceeded"
+            "description": "Respuesta exitosa"
           }
         }
       }
@@ -111,10 +85,10 @@
     "/v1/documents/xml": {
       "post": {
         "tags": [
-          "1. Documentos (integrador)"
+          "2. Crear XML"
         ],
-        "summary": "Crear XML (FE, NC, ND, …)",
-        "description": "Requiere `clave` y `consecutivo` del paso **key**. Devuelve XML en Base64.",
+        "summary": "Crear XML (FE, NC, ND, TE, REP, MR)",
+        "description": "Mismos campos que Odoo xml_invoice. Enviar clave y consecutivo del paso 1.",
         "parameters": [
           {
             "$ref": "#/components/parameters/XEnvironment"
@@ -143,20 +117,7 @@
         },
         "responses": {
           "200": {
-            "description": "XML creado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/XmlResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "429": {
-            "$ref": "#/components/responses/QuotaExceeded"
+            "description": "Respuesta exitosa"
           }
         }
       }
@@ -164,10 +125,10 @@
     "/v1/documents/sign": {
       "post": {
         "tags": [
-          "1. Documentos (integrador)"
+          "3. Firma"
         ],
-        "summary": "Firmar XML",
-        "description": "Usa certificado P12 cargado en el panel. PIN y `codigo_certificado` se toman de credenciales del tenant.",
+        "summary": "Firmar xml",
+        "description": "Body: comprobante_xml (Base64 del paso 2). Certificado y PIN en credenciales del tenant.",
         "parameters": [
           {
             "$ref": "#/components/parameters/XEnvironment"
@@ -189,27 +150,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SignRequest"
+                "type": "object",
+                "required": [
+                  "comprobante_xml"
+                ],
+                "properties": {
+                  "document_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "comprobante_xml": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "XML firmado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SignResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "412": {
-            "description": "Credenciales/certificado no configurados"
+            "description": "Respuesta exitosa"
           }
         }
       }
@@ -217,10 +177,10 @@
     "/v1/documents/send": {
       "post": {
         "tags": [
-          "1. Documentos (integrador)"
+          "4. Hacienda"
         ],
-        "summary": "Enviar a Hacienda",
-        "description": "Envía el XML firmado. Credenciales ATV del tenant (panel) si no se envían en el body.",
+        "summary": "Hacienda envío",
+        "description": "Envía XML firmado. Credenciales ATV en panel si no se envían aquí.",
         "parameters": [
           {
             "$ref": "#/components/parameters/XEnvironment"
@@ -242,67 +202,54 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SendRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Resultado envío",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HaciendaResponse"
+                "type": "object",
+                "required": [
+                  "clave",
+                  "fecha",
+                  "emisor_tipo_identificacion",
+                  "emisor_numero_identificacion",
+                  "comprobante_xml_firmado"
+                ],
+                "properties": {
+                  "document_id": {
+                    "type": "string"
+                  },
+                  "clave": {
+                    "type": "string"
+                  },
+                  "fecha": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "emisor_tipo_identificacion": {
+                    "type": "string"
+                  },
+                  "emisor_numero_identificacion": {
+                    "type": "string"
+                  },
+                  "receptor_tipo_identificacion": {
+                    "type": "string"
+                  },
+                  "receptor_numero_identificacion": {
+                    "type": "string"
+                  },
+                  "comprobante_xml_firmado": {
+                    "type": "string"
+                  },
+                  "usuario_hacienda": {
+                    "type": "string"
+                  },
+                  "contrasena_hacienda": {
+                    "type": "string"
+                  }
                 }
               }
             }
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "429": {
-            "$ref": "#/components/responses/QuotaExceeded"
-          }
-        }
-      }
-    },
-    "/v1/documents/process": {
-      "post": {
-        "tags": [
-          "1. Documentos (integrador)"
-        ],
-        "summary": "Proceso completo (key + xml + sign + send)",
-        "description": "Un solo request con todos los campos de FE más opcionales de key/send. Útil para pruebas.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/XEnvironment"
-          },
-          {
-            "$ref": "#/components/parameters/IdempotencyKey"
-          }
-        ],
-        "security": [
-          {
-            "SupabaseAnon": []
-          },
-          {
-            "FacticoApiKey": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FeXmlRequest"
-              }
-            }
           }
         },
         "responses": {
           "200": {
-            "description": "Resultado del proceso"
+            "description": "Respuesta exitosa"
           }
         }
       }
@@ -310,10 +257,10 @@
     "/v1/documents/{id}/status": {
       "get": {
         "tags": [
-          "1. Documentos (integrador)"
+          "4. Hacienda"
         ],
-        "summary": "Consultar estado en Hacienda",
-        "description": "Consulta MH por `clave` del documento.",
+        "summary": "Hacienda consulta",
+        "description": "Consulta estado del comprobante en Hacienda por document_id.",
         "parameters": [
           {
             "$ref": "#/components/parameters/XEnvironment"
@@ -333,20 +280,9 @@
             "FacticoApiKey": []
           }
         ],
-        "requestBody": null,
         "responses": {
           "200": {
-            "description": "Estado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatusResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
+            "description": "Respuesta exitosa"
           }
         }
       }
@@ -354,10 +290,10 @@
     "/v1/documents/{id}/download/{kind}": {
       "get": {
         "tags": [
-          "1. Documentos (integrador)"
+          "5. Descargas"
         ],
         "summary": "Descargar respaldo",
-        "description": "`kind`: xml | signed | response (Base64 almacenado).",
+        "description": "kind: xml | signed | response",
         "parameters": [
           {
             "$ref": "#/components/parameters/XEnvironment"
@@ -380,37 +316,34 @@
             "FacticoApiKey": []
           }
         ],
-        "requestBody": null,
         "responses": {
           "200": {
-            "description": "Contenido",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DownloadResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
+            "description": "Respuesta exitosa"
           }
         }
       }
     },
-    "/v1/admin/organizations/provision": {
+    "/v1/documents/process": {
       "post": {
         "tags": [
-          "2. Administración"
+          "6. Proceso completo"
         ],
-        "summary": "Provisionar tenant",
-        "description": "Crea organización, usuario Odoo (o reutiliza), credenciales y API key. Auth: JWT superadmin o `X-Provision-Key`.",
-        "security": [
+        "summary": "FE completo (key+xml+sign+send)",
+        "description": "Un request con campos de key, xml y send.",
+        "parameters": [
           {
-            "BearerJwt": []
+            "$ref": "#/components/parameters/XEnvironment"
           },
           {
-            "ProvisionKey": []
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "security": [
+          {
+            "SupabaseAnon": []
+          },
+          {
+            "FacticoApiKey": []
           }
         ],
         "requestBody": {
@@ -418,235 +351,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProvisionRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Tenant creado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProvisionResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/admin/organizations/me": {
-      "get": {
-        "tags": [
-          "2. Administración"
-        ],
-        "summary": "Mi organización (panel)",
-        "security": [
-          {
-            "BearerJwt": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Perfil y org"
-          }
-        }
-      }
-    },
-    "/v1/admin/profiles/link-organization": {
-      "patch": {
-        "tags": [
-          "2. Administración"
-        ],
-        "summary": "Vincular usuario panel a tenant",
-        "security": [
-          {
-            "BearerJwt": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "user_id",
-                  "organization_id"
-                ],
-                "properties": {
-                  "user_id": {
-                    "type": "string",
-                    "format": "uuid"
-                  },
-                  "organization_id": {
-                    "type": "string",
-                    "format": "uuid"
-                  },
-                  "role": {
-                    "type": "string",
-                    "enum": [
-                      "admin",
-                      "implementer",
-                      "client"
-                    ]
-                  }
-                }
+                "$ref": "#/components/schemas/FeXmlRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Vinculado"
-          }
-        }
-      }
-    },
-    "/v1/admin/organizations/{id}/credentials": {
-      "put": {
-        "tags": [
-          "2. Administración"
-        ],
-        "summary": "Actualizar credenciales",
-        "security": [
-          {
-            "BearerJwt": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/OrganizationId"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "environment": {
-                    "type": "string",
-                    "enum": [
-                      "staging",
-                      "production"
-                    ]
-                  },
-                  "factico_secret_key": {
-                    "type": "string"
-                  },
-                  "hacienda_user": {
-                    "type": "string"
-                  },
-                  "hacienda_password": {
-                    "type": "string"
-                  },
-                  "certificate_code": {
-                    "type": "string"
-                  },
-                  "certificate_pin": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Actualizado"
-          }
-        }
-      }
-    },
-    "/v1/admin/organizations/{id}/api-clients": {
-      "post": {
-        "tags": [
-          "2. Administración"
-        ],
-        "summary": "Crear API key",
-        "security": [
-          {
-            "BearerJwt": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/OrganizationId"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "API key creada (mostrada una vez)"
-          }
-        }
-      }
-    },
-    "/v1/admin/organizations/{id}/certificate": {
-      "post": {
-        "tags": [
-          "2. Administración"
-        ],
-        "summary": "Subir certificado P12",
-        "security": [
-          {
-            "BearerJwt": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/OrganizationId"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "archivo_p12",
-                  "pin"
-                ],
-                "properties": {
-                  "environment": {
-                    "type": "string",
-                    "enum": [
-                      "staging",
-                      "production"
-                    ]
-                  },
-                  "pin": {
-                    "type": "string"
-                  },
-                  "archivo_p12": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Certificado cargado"
+            "description": "Respuesta exitosa"
           }
         }
       }
@@ -657,31 +369,12 @@
       "SupabaseAnon": {
         "type": "apiKey",
         "in": "header",
-        "name": "apikey",
-        "description": "Anon/public key del proyecto Supabase (gateway)."
+        "name": "apikey"
       },
       "FacticoApiKey": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-Api-Key",
-        "description": "API key del tenant (`fc_live_...`)."
-      },
-      "BearerApiKey": {
-        "type": "http",
-        "scheme": "bearer",
-        "description": "Alternativa: `Authorization: Bearer fc_live_...`"
-      },
-      "BearerJwt": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT",
-        "description": "JWT de Supabase Auth (panel)."
-      },
-      "ProvisionKey": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-Provision-Key",
-        "description": "Clave de servicio para provisionar tenants."
+        "name": "X-Api-Key"
       }
     },
     "parameters": {
@@ -696,25 +389,13 @@
             "production"
           ],
           "default": "staging"
-        },
-        "description": "Ambiente Odoo: `staging` → `/cr_api-staging`, `production` → `/cr_api`."
+        }
       },
       "IdempotencyKey": {
         "name": "Idempotency-Key",
         "in": "header",
-        "required": false,
         "schema": {
           "type": "string"
-        },
-        "description": "Opcional. Evita duplicar documentos en reintentos."
-      },
-      "OrganizationId": {
-        "name": "id",
-        "in": "path",
-        "required": true,
-        "schema": {
-          "type": "string",
-          "format": "uuid"
         }
       },
       "DocumentId": {
@@ -741,36 +422,230 @@
       }
     },
     "schemas": {
-      "ErrorBody": {
+      "FeXmlRequest": {
         "type": "object",
+        "required": [
+          "tipo_documento",
+          "clave",
+          "consecutivo",
+          "proveedor_sistemas",
+          "fecha_emision",
+          "emisor_nombre",
+          "emisor_tipo_identificacion",
+          "emisor_numero_identififcacion",
+          "receptor_nombre",
+          "codigo_actividad_emisor",
+          "condicion_venta",
+          "plazo_credito",
+          "codigo_moneda",
+          "detalle_servicio",
+          "total_comprobante"
+        ],
         "properties": {
-          "error": {
-            "type": "object",
-            "properties": {
-              "code": {
-                "type": "string",
-                "example": "unauthorized"
-              },
-              "message": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "HealthResponse": {
-        "type": "object",
-        "properties": {
-          "status": {
+          "tipo_documento": {
             "type": "string",
-            "example": "ok"
+            "description": "FE, NC, ND, TE, REP, MR, FEC, FEE.",
+            "example": "FE"
           },
-          "odoo_base_url": {
+          "clave": {
+            "type": "string",
+            "description": "50 dígitos. Obtener en paso 1 (generate_key)."
+          },
+          "consecutivo": {
+            "type": "string",
+            "description": "20 dígitos. Obtener en paso 1."
+          },
+          "proveedor_sistemas": {
             "type": "string"
           },
-          "timestamp": {
+          "fecha_emision": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2025-09-04T10:00:00-06:00"
+          },
+          "emisor_nombre": {
+            "type": "string"
+          },
+          "emisor_tipo_identificacion": {
+            "type": "string",
+            "example": "02"
+          },
+          "emisor_numero_identififcacion": {
+            "type": "string",
+            "description": "Tres 'f' — typo histórico Odoo."
+          },
+          "emisor_nombre_comercial": {
+            "type": "string"
+          },
+          "emisor_provincia": {
+            "type": "string"
+          },
+          "emisor_canton": {
+            "type": "string"
+          },
+          "emisor_distrito": {
+            "type": "string"
+          },
+          "emisor_barrio": {
+            "type": "string"
+          },
+          "emisor_otras_senas": {
+            "type": "string"
+          },
+          "emisor_codigo_pais_telefono": {
+            "type": "string",
+            "example": "506"
+          },
+          "emisor_telefono": {
+            "type": "string"
+          },
+          "emisor_email": {
+            "type": "string"
+          },
+          "receptor_nombre": {
+            "type": "string"
+          },
+          "receptor_tipo_identificacion": {
+            "type": "string"
+          },
+          "receptor_numero_identificacion": {
+            "type": "string"
+          },
+          "receptor_provincia": {
+            "type": "string"
+          },
+          "receptor_canton": {
+            "type": "string"
+          },
+          "receptor_distrito": {
+            "type": "string"
+          },
+          "receptor_barrio": {
+            "type": "string"
+          },
+          "receptor_otras_senas": {
+            "type": "string"
+          },
+          "receptor_codigo_pais_telefono": {
+            "type": "string"
+          },
+          "receptor_telefono": {
+            "type": "string"
+          },
+          "receptor_email": {
+            "type": "string"
+          },
+          "receptor_nombre_comercial": {
+            "type": "string"
+          },
+          "codigo_actividad_emisor": {
+            "type": "string"
+          },
+          "codigo_actividad_receptor": {
+            "type": "string"
+          },
+          "condicion_venta": {
+            "type": "string"
+          },
+          "condicion_venta_otros": {
+            "type": "string"
+          },
+          "plazo_credito": {
+            "type": "string"
+          },
+          "detalle_servicio": {
+            "type": "array",
+            "description": "Líneas de detalle (JSON array; en Odoo directo va como string).",
+            "items": {
+              "type": "object"
+            }
+          },
+          "codigo_moneda": {
+            "type": "string",
+            "example": "CRC"
+          },
+          "tipo_cambio": {
+            "type": "string",
+            "example": "1"
+          },
+          "total_serv_gravados": {
+            "type": "string"
+          },
+          "total_serv_exentos": {
+            "type": "string"
+          },
+          "total_serv_exonerado": {
+            "type": "string"
+          },
+          "total_serv_no_sujeto": {
+            "type": "string"
+          },
+          "total_merc_gravadas": {
+            "type": "string"
+          },
+          "total_merc_exentas": {
+            "type": "string"
+          },
+          "total_merc_exonerada": {
+            "type": "string"
+          },
+          "total_merc_no_sujeta": {
+            "type": "string"
+          },
+          "total_gravado": {
+            "type": "string"
+          },
+          "total_exento": {
+            "type": "string"
+          },
+          "total_exonerado": {
+            "type": "string"
+          },
+          "total_no_sujeto": {
+            "type": "string"
+          },
+          "total_venta": {
+            "type": "string"
+          },
+          "total_descuentos": {
+            "type": "string"
+          },
+          "total_venta_neta": {
+            "type": "string"
+          },
+          "total_desglose_impuesto": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "total_impuesto": {
+            "type": "string"
+          },
+          "total_impuestos_asumidos_fabrica": {
+            "type": "string"
+          },
+          "total_iva_devuelto": {
+            "type": "string"
+          },
+          "total_otros_cargos": {
+            "type": "string"
+          },
+          "medios_pago": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "total_comprobante": {
+            "type": "string"
+          },
+          "otros": {
+            "type": "string"
+          },
+          "informacion_referencia": {
+            "type": "object",
+            "description": "Obligatorio para NC/ND."
           }
         }
       },
@@ -796,17 +671,14 @@
           },
           "secuencia": {
             "type": "string",
-            "example": "0000000001",
-            "description": "Incrementar por cada comprobante."
+            "example": "0000000001"
           },
           "tipo_documento": {
             "type": "string",
-            "example": "FE",
-            "description": "FE, NC, ND, TE, REP, MR, FEC, FEE"
+            "example": "FE"
           },
           "numero_identificacion": {
-            "type": "string",
-            "description": "Cédula del emisor"
+            "type": "string"
           },
           "situacion": {
             "type": "string",
@@ -815,430 +687,6 @@
           "codigo_pais": {
             "type": "string",
             "example": "506"
-          }
-        }
-      },
-      "GenerateKeyResponse": {
-        "type": "object",
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "clave": {
-            "type": "string"
-          },
-          "consecutivo": {
-            "type": "string"
-          }
-        }
-      },
-      "FeXmlRequest": {
-        "type": "object",
-        "required": [
-          "tipo_documento",
-          "clave",
-          "consecutivo",
-          "proveedor_sistemas",
-          "fecha_emision",
-          "emisor_nombre",
-          "emisor_tipo_identificacion",
-          "emisor_numero_identififcacion",
-          "receptor_nombre",
-          "codigo_actividad_emisor",
-          "condicion_venta",
-          "plazo_credito",
-          "codigo_moneda",
-          "detalle_servicio",
-          "total_comprobante"
-        ],
-        "description": "Payload JSON para FE. Use los mismos campos que Odoo `xml_invoice`. El campo `emisor_numero_identififcacion` lleva tres 'f' (typo histórico de Odoo).",
-        "properties": {
-          "tipo_documento": {
-            "type": "string",
-            "example": "FE"
-          },
-          "clave": {
-            "type": "string"
-          },
-          "consecutivo": {
-            "type": "string"
-          },
-          "proveedor_sistemas": {
-            "type": "string"
-          },
-          "fecha_emision": {
-            "type": "string",
-            "example": "2025-09-04T10:00:00-06:00"
-          },
-          "emisor_nombre": {
-            "type": "string"
-          },
-          "emisor_tipo_identificacion": {
-            "type": "string",
-            "example": "02"
-          },
-          "emisor_numero_identififcacion": {
-            "type": "string"
-          },
-          "emisor_nombre_comercial": {
-            "type": "string"
-          },
-          "emisor_provincia": {
-            "type": "string"
-          },
-          "emisor_canton": {
-            "type": "string"
-          },
-          "emisor_distrito": {
-            "type": "string"
-          },
-          "receptor_nombre": {
-            "type": "string"
-          },
-          "receptor_tipo_identificacion": {
-            "type": "string"
-          },
-          "receptor_numero_identificacion": {
-            "type": "string"
-          },
-          "codigo_actividad_emisor": {
-            "type": "string"
-          },
-          "condicion_venta": {
-            "type": "string"
-          },
-          "plazo_credito": {
-            "type": "string"
-          },
-          "codigo_moneda": {
-            "type": "string",
-            "example": "CRC"
-          },
-          "tipo_cambio": {
-            "type": "string",
-            "example": "1"
-          },
-          "detalle_servicio": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          "total_desglose_impuesto": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          "medios_pago": {
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
-          },
-          "total_serv_gravados": {
-            "type": "string"
-          },
-          "total_serv_exentos": {
-            "type": "string"
-          },
-          "total_merc_gravadas": {
-            "type": "string"
-          },
-          "total_gravado": {
-            "type": "string"
-          },
-          "total_venta": {
-            "type": "string"
-          },
-          "total_impuesto": {
-            "type": "string"
-          },
-          "total_comprobante": {
-            "type": "string"
-          }
-        }
-      },
-      "XmlResponse": {
-        "type": "object",
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "clave": {
-            "type": "string"
-          },
-          "consecutivo": {
-            "type": "string"
-          },
-          "xml": {
-            "type": "string",
-            "description": "XML en Base64"
-          }
-        }
-      },
-      "SignRequest": {
-        "type": "object",
-        "required": [
-          "comprobante_xml"
-        ],
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "comprobante_xml": {
-            "type": "string",
-            "description": "XML Base64 del paso xml"
-          }
-        }
-      },
-      "SignResponse": {
-        "type": "object",
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "comprobante_xml_firmado": {
-            "type": "string",
-            "description": "XML firmado Base64"
-          }
-        }
-      },
-      "SendRequest": {
-        "type": "object",
-        "required": [
-          "clave",
-          "fecha",
-          "emisor_tipo_identificacion",
-          "emisor_numero_identificacion",
-          "comprobante_xml_firmado"
-        ],
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "clave": {
-            "type": "string"
-          },
-          "fecha": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "emisor_tipo_identificacion": {
-            "type": "string"
-          },
-          "emisor_numero_identificacion": {
-            "type": "string"
-          },
-          "receptor_tipo_identificacion": {
-            "type": "string"
-          },
-          "receptor_numero_identificacion": {
-            "type": "string"
-          },
-          "comprobante_xml_firmado": {
-            "type": "string"
-          },
-          "usuario_hacienda": {
-            "type": "string",
-            "description": "Opcional si está en credenciales del tenant"
-          },
-          "contrasena_hacienda": {
-            "type": "string"
-          }
-        }
-      },
-      "HaciendaResponse": {
-        "type": "object",
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "codigo_estado": {
-            "type": "integer"
-          },
-          "estado": {
-            "type": "string"
-          },
-          "mensaje": {
-            "type": "string"
-          }
-        }
-      },
-      "StatusResponse": {
-        "type": "object",
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "local_status": {
-            "type": "string",
-            "description": "accepted, rejected, processing, sent, signed, xml_created"
-          },
-          "codigo_estado": {
-            "type": "integer"
-          },
-          "estado": {
-            "type": "string"
-          },
-          "mensaje": {
-            "type": "string"
-          },
-          "clave": {
-            "type": "string"
-          },
-          "respuesta_xml": {
-            "type": "string",
-            "description": "Respuesta MH Base64"
-          }
-        }
-      },
-      "DownloadResponse": {
-        "type": "object",
-        "properties": {
-          "document_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "kind": {
-            "type": "string"
-          },
-          "content_base64": {
-            "type": "string"
-          }
-        }
-      },
-      "ProvisionRequest": {
-        "type": "object",
-        "required": [
-          "organization",
-          "odoo_user"
-        ],
-        "properties": {
-          "environment": {
-            "type": "string",
-            "enum": [
-              "staging",
-              "production"
-            ],
-            "default": "staging"
-          },
-          "organization": {
-            "type": "object",
-            "required": [
-              "name"
-            ],
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "tax_id": {
-                "type": "string"
-              }
-            }
-          },
-          "odoo_user": {
-            "type": "object",
-            "required": [
-              "usuario_nombre",
-              "codigo_identificacion",
-              "numero_identificacion",
-              "correo"
-            ],
-            "properties": {
-              "usuario_nombre": {
-                "type": "string"
-              },
-              "codigo_identificacion": {
-                "type": "string",
-                "description": "cedula_fisica, cedula_juridica, dimex, nite, extranjero"
-              },
-              "numero_identificacion": {
-                "type": "string"
-              },
-              "correo": {
-                "type": "string",
-                "format": "email"
-              }
-            }
-          },
-          "hacienda": {
-            "type": "object",
-            "properties": {
-              "usuario_hacienda": {
-                "type": "string"
-              },
-              "contrasena_hacienda": {
-                "type": "string"
-              }
-            }
-          },
-          "api_client_name": {
-            "type": "string"
-          }
-        }
-      },
-      "ProvisionResponse": {
-        "type": "object",
-        "properties": {
-          "organization_id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "factico_secret_key": {
-            "type": "string"
-          },
-          "api_key": {
-            "type": "string",
-            "example": "fc_live_..."
-          },
-          "odoo_state": {
-            "type": "string"
-          },
-          "odoo_user_reused": {
-            "type": "boolean"
-          },
-          "warning": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "responses": {
-      "Unauthorized": {
-        "description": "API key o JWT inválido",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ErrorBody"
-            }
-          }
-        }
-      },
-      "NotFound": {
-        "description": "Recurso no encontrado",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ErrorBody"
-            }
-          }
-        }
-      },
-      "QuotaExceeded": {
-        "description": "Cuota del plan excedida",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ErrorBody"
-            }
           }
         }
       }
