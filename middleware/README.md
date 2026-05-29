@@ -117,9 +117,21 @@ Ver [docs/PROVISIONING.md](docs/PROVISIONING.md).
 | GET | `/v1/documents/:id/download/{xml\|signed\|response}` | Backup base64 |
 | GET | `/v1/health` | ping |
 
-## Despliegue (al final del proyecto)
+## Despliegue en la nube
 
-Ver sección cuando panel y métodos estén completos. No desplegar antes.
+Guía paso a paso: **[docs/DEPLOY.md](docs/DEPLOY.md)** (Supabase + Vercel + Odoo).
+
+Resumen:
+
+```bash
+cd middleware
+supabase login && supabase link --project-ref TU_REF
+supabase db push
+supabase secrets set PROVISION_SERVICE_KEY="..." ODOO_BASE_URL="https://api.kibuinc.com"
+supabase functions deploy api --no-verify-jwt
+```
+
+Panel: deploy `middleware/panel` en Vercel con variables de `panel/.env.local.example`.
 
 ## Panel (`middleware/panel`)
 
