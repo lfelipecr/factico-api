@@ -89,6 +89,12 @@ La clave se crea en el panel (tabla `api_clients`); solo se muestra una vez al c
 
 Supabase Auth (email/password). Perfil en `profiles` con `role`: `superadmin` | `admin` | `implementer` | `client`.
 
+## Documentación OpenAPI (Swagger)
+
+- Código: [`docs/api/`](../docs/api/) (Swagger UI + `openapi-specification.json`)
+- Publicación sugerida: GitHub Pages → `https://<usuario>.github.io/factico-api/api/`
+- Referencia Odoo directa: [apifecrdoc](https://lfelipecr.github.io/apifecrdoc/)
+
 ## Endpoints
 
 ### Admin (JWT Supabase o `X-Provision-Key`)

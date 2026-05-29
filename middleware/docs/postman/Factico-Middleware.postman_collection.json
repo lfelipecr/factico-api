@@ -1,13 +1,13 @@
 {
   "info": {
     "_postman_id": "0f9a7f1b-7d8b-4c6a-8f8e-0c7d5d0b3a8a",
-    "name": "Fáctico Middleware (Local)",
+    "name": "Fáctico Middleware (Cloud + Local)",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://127.0.0.1:54321/functions/v1/api"
+      "value": "https://rabcundgpzfzwnntjuxu.supabase.co/functions/v1/api"
     },
     {
       "key": "environment",
@@ -53,6 +53,14 @@
     {
       "key": "fechaEmision",
       "value": "2025-09-04T10:00:00-06:00"
+    },
+    {
+      "key": "supabaseAnonKey",
+      "value": "PEGAR_ANON_KEY_AQUI"
+    },
+    {
+      "key": "emisorCedula",
+      "value": "202280986"
     }
   ],
   "item": [
@@ -73,6 +81,23 @@
                 "health"
               ]
             }
+          }
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const apiKey = pm.collectionVariables.get('apiKey');",
+              "const anon = pm.collectionVariables.get('supabaseAnonKey');",
+              "if (anon && anon !== 'PEGAR_ANON_KEY_AQUI') {",
+              "  pm.request.headers.upsert({ key: 'apikey', value: anon });",
+              "  pm.request.headers.upsert({ key: 'Authorization', value: 'Bearer ' + anon });",
+              "}",
+              "if (apiKey && apiKey.startsWith('fc_live_')) {"
+            ]
           }
         }
       ]
@@ -96,7 +121,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"environment\": \"{{environment}}\",\n  \"organization\": {\n    \"name\": \"Cliente Demo\",\n    \"tax_id\": \"3102802163\"\n  },\n  \"odoo_user\": {\n    \"usuario_nombre\": \"Cliente Demo\",\n    \"codigo_identificacion\": \"cedula_juridica\",\n    \"numero_identificacion\": \"3102802163\",\n    \"correo\": \"demo@demo.com\"\n  },\n  \"hacienda\": {\n    \"usuario_hacienda\": \"\",\n    \"contrasena_hacienda\": \"\"\n  },\n  \"api_client_name\": \"ERP Principal\"\n}\n"
+              "raw": "{\n  \"environment\": \"{{environment}}\",\n  \"organization\": {\n    \"name\": \"Cliente Demo\",\n    \"tax_id\": \"{{emisorCedula}}\"\n  },\n  \"odoo_user\": {\n    \"usuario_nombre\": \"Cliente Demo\",\n    \"codigo_identificacion\": \"cedula_juridica\",\n    \"numero_identificacion\": \"{{emisorCedula}}\",\n    \"correo\": \"demo@demo.com\"\n  },\n  \"hacienda\": {\n    \"usuario_hacienda\": \"\",\n    \"contrasena_hacienda\": \"\"\n  },\n  \"api_client_name\": \"ERP Principal\"\n}\n"
             },
             "url": {
               "raw": "{{baseUrl}}/v1/admin/organizations/provision",
@@ -143,7 +168,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"environment\": \"{{environment}}\",\n  \"organization\": {\n    \"name\": \"Cliente Demo\",\n    \"tax_id\": \"3102802163\"\n  },\n  \"odoo_user\": {\n    \"usuario_nombre\": \"Cliente Demo\",\n    \"codigo_identificacion\": \"cedula_juridica\",\n    \"numero_identificacion\": \"3102802163\",\n    \"correo\": \"demo@demo.com\"\n  },\n  \"api_client_name\": \"ERP Principal\"\n}\n"
+              "raw": "{\n  \"environment\": \"{{environment}}\",\n  \"organization\": {\n    \"name\": \"Cliente Demo\",\n    \"tax_id\": \"{{emisorCedula}}\"\n  },\n  \"odoo_user\": {\n    \"usuario_nombre\": \"Cliente Demo\",\n    \"codigo_identificacion\": \"cedula_juridica\",\n    \"numero_identificacion\": \"{{emisorCedula}}\",\n    \"correo\": \"demo@demo.com\"\n  },\n  \"api_client_name\": \"ERP Principal\"\n}\n"
             },
             "url": {
               "raw": "{{baseUrl}}/v1/admin/organizations/provision",
@@ -350,7 +375,15 @@
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.request.headers.upsert({ key: 'Authorization', value: 'Bearer ' + pm.collectionVariables.get('apiKey') });",
+              "const apiKey = pm.collectionVariables.get('apiKey');",
+              "const anon = pm.collectionVariables.get('supabaseAnonKey');",
+              "if (anon && anon !== 'PEGAR_ANON_KEY_AQUI') {",
+              "  pm.request.headers.upsert({ key: 'apikey', value: anon });",
+              "  pm.request.headers.upsert({ key: 'Authorization', value: 'Bearer ' + anon });",
+              "}",
+              "if (apiKey && apiKey.startsWith('fc_live_')) {",
+              "  pm.request.headers.upsert({ key: 'X-Api-Key', value: apiKey });",
+              "}",
               "pm.request.headers.upsert({ key: 'X-Environment', value: pm.collectionVariables.get('environment') });"
             ]
           }
@@ -369,7 +402,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"sucursal\": \"001\",\n  \"terminal\": \"00001\",\n  \"secuencia\": \"0000000001\",\n  \"tipo_documento\": \"FE\",\n  \"numero_identificacion\": \"3102802163\",\n  \"situacion\": \"normal\",\n  \"codigo_pais\": \"506\"\n}\n"
+              "raw": "{\n  \"sucursal\": \"001\",\n  \"terminal\": \"00001\",\n  \"secuencia\": \"0000000001\",\n  \"tipo_documento\": \"FE\",\n  \"numero_identificacion\": \"{{emisorCedula}}\",\n  \"situacion\": \"normal\",\n  \"codigo_pais\": \"506\"\n}\n"
             },
             "url": {
               "raw": "{{baseUrl}}/v1/documents/key",
@@ -412,7 +445,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"tipo_documento\": \"FE\",\n  \"clave\": \"{{clave}}\",\n  \"consecutivo\": \"{{consecutivo}}\",\n  \"proveedor_sistemas\": \"3102802163\",\n  \"fecha_emision\": \"2025-09-04T10:00:00-06:00\",\n\n  \"emisor_nombre\": \"Emisor Demo\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identififcacion\": \"3102802163\",\n  \"emisor_nombre_comercial\": \"Demo\",\n  \"emisor_provincia\": \"1\",\n  \"emisor_canton\": \"01\",\n  \"emisor_distrito\": \"01\",\n  \"emisor_otras_senas\": \"San José\",\n  \"emisor_codigo_pais_telefono\": \"506\",\n  \"emisor_telefono\": \"22223333\",\n  \"emisor_email\": \"demo@demo.com\",\n\n  \"receptor_nombre\": \"Receptor Demo\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"receptor_provincia\": \"1\",\n  \"receptor_canton\": \"01\",\n  \"receptor_distrito\": \"01\",\n  \"receptor_otras_senas\": \"San José\",\n  \"receptor_codigo_pais_telefono\": \"506\",\n  \"receptor_telefono\": \"22224444\",\n  \"receptor_email\": \"receptor@demo.com\",\n\n  \"codigo_actividad_emisor\": \"721001\",\n  \"codigo_actividad_receptor\": \"\",\n\n  \"condicion_venta\": \"01\",\n  \"condicion_venta_otros\": \"\",\n  \"plazo_credito\": \"0\",\n  \"codigo_moneda\": \"CRC\",\n  \"tipo_cambio\": \"1\",\n\n  \"detalle_servicio\": [\n    {\n      \"numero_linea\": \"1\",\n      \"codigo_cabys\": \"8439200000000\",\n      \"codigo_comercial\": [{ \"tipo\": \"03\", \"codigo\": \"1111\" }],\n      \"cantidad\": \"1.000\",\n      \"unidad_medida\": \"Unid\",\n      \"detalle\": \"Servicio demo\",\n      \"precio_unitario\": \"100.00000\",\n      \"monto_total\": \"100.00000\",\n      \"sub_total\": \"100.00000\",\n      \"base_imponible\": \"100.00000\",\n      \"impuesto\": [\n        { \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"tarifa\": 13.0, \"monto\": \"13.00000\" }\n      ],\n      \"descuento\": { \"aplica\": \"no\", \"monto_descuento\": \"0.0\", \"codigo_descuento\": \"01\", \"naturaleza_descuento\": \"\" },\n      \"impuesto_asumido_emisor_fabrica\": \"0.00000\",\n      \"impuesto_neto\": \"13.00000\",\n      \"registro_medicamento\": \"\",\n      \"forma_farmaceutica\": \"\",\n      \"monto_total_linea\": \"113.00000\"\n    }\n  ],\n\n  \"total_serv_gravados\": \"0.00000\",\n  \"total_serv_exentos\": \"0.00000\",\n  \"total_serv_exonerado\": \"0.00000\",\n  \"total_serv_no_sujeto\": \"0.00000\",\n  \"total_merc_gravadas\": \"100.00000\",\n  \"total_merc_exentas\": \"0.00000\",\n  \"total_merc_exonerada\": \"0.00000\",\n  \"total_merc_no_sujeta\": \"0.00000\",\n  \"total_gravado\": \"100.00000\",\n  \"total_exento\": \"0.00000\",\n  \"total_exonerado\": \"0.00000\",\n  \"total_no_sujeto\": \"0.00000\",\n  \"total_venta\": \"100.00000\",\n  \"total_descuentos\": \"0.00000\",\n  \"total_venta_neta\": \"100.00000\",\n  \"total_desglose_impuesto\": [{ \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"total_monto_impuesto\": 13.0 }],\n  \"total_impuesto\": \"13.00000\",\n  \"total_impuestos_asumidos_fabrica\": \"0.00000\",\n  \"total_iva_devuelto\": \"0.00000\",\n  \"total_otros_cargos\": \"0.00000\",\n  \"medios_pago\": [{ \"tipo_medio_pago\": \"01\", \"total_medio_pago\": \"113.00000\" }],\n  \"total_comprobante\": \"113.00000\",\n  \"otros\": \"Orden de compra: 2131231\"\n}\n"
+              "raw": "{\n  \"tipo_documento\": \"FE\",\n  \"clave\": \"{{clave}}\",\n  \"consecutivo\": \"{{consecutivo}}\",\n  \"proveedor_sistemas\": \"{{emisorCedula}}\",\n  \"fecha_emision\": \"2025-09-04T10:00:00-06:00\",\n\n  \"emisor_nombre\": \"Emisor Demo\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identififcacion\": \"{{emisorCedula}}\",\n  \"emisor_nombre_comercial\": \"Demo\",\n  \"emisor_provincia\": \"1\",\n  \"emisor_canton\": \"01\",\n  \"emisor_distrito\": \"01\",\n  \"emisor_otras_senas\": \"San José\",\n  \"emisor_codigo_pais_telefono\": \"506\",\n  \"emisor_telefono\": \"22223333\",\n  \"emisor_email\": \"demo@demo.com\",\n\n  \"receptor_nombre\": \"Receptor Demo\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"receptor_provincia\": \"1\",\n  \"receptor_canton\": \"01\",\n  \"receptor_distrito\": \"01\",\n  \"receptor_otras_senas\": \"San José\",\n  \"receptor_codigo_pais_telefono\": \"506\",\n  \"receptor_telefono\": \"22224444\",\n  \"receptor_email\": \"receptor@demo.com\",\n\n  \"codigo_actividad_emisor\": \"721001\",\n  \"codigo_actividad_receptor\": \"\",\n\n  \"condicion_venta\": \"01\",\n  \"condicion_venta_otros\": \"\",\n  \"plazo_credito\": \"0\",\n  \"codigo_moneda\": \"CRC\",\n  \"tipo_cambio\": \"1\",\n\n  \"detalle_servicio\": [\n    {\n      \"numero_linea\": \"1\",\n      \"codigo_cabys\": \"8439200000000\",\n      \"codigo_comercial\": [{ \"tipo\": \"03\", \"codigo\": \"1111\" }],\n      \"cantidad\": \"1.000\",\n      \"unidad_medida\": \"Unid\",\n      \"detalle\": \"Servicio demo\",\n      \"precio_unitario\": \"100.00000\",\n      \"monto_total\": \"100.00000\",\n      \"sub_total\": \"100.00000\",\n      \"base_imponible\": \"100.00000\",\n      \"impuesto\": [\n        { \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"tarifa\": 13.0, \"monto\": \"13.00000\" }\n      ],\n      \"descuento\": { \"aplica\": \"no\", \"monto_descuento\": \"0.0\", \"codigo_descuento\": \"01\", \"naturaleza_descuento\": \"\" },\n      \"impuesto_asumido_emisor_fabrica\": \"0.00000\",\n      \"impuesto_neto\": \"13.00000\",\n      \"registro_medicamento\": \"\",\n      \"forma_farmaceutica\": \"\",\n      \"monto_total_linea\": \"113.00000\"\n    }\n  ],\n\n  \"total_serv_gravados\": \"0.00000\",\n  \"total_serv_exentos\": \"0.00000\",\n  \"total_serv_exonerado\": \"0.00000\",\n  \"total_serv_no_sujeto\": \"0.00000\",\n  \"total_merc_gravadas\": \"100.00000\",\n  \"total_merc_exentas\": \"0.00000\",\n  \"total_merc_exonerada\": \"0.00000\",\n  \"total_merc_no_sujeta\": \"0.00000\",\n  \"total_gravado\": \"100.00000\",\n  \"total_exento\": \"0.00000\",\n  \"total_exonerado\": \"0.00000\",\n  \"total_no_sujeto\": \"0.00000\",\n  \"total_venta\": \"100.00000\",\n  \"total_descuentos\": \"0.00000\",\n  \"total_venta_neta\": \"100.00000\",\n  \"total_desglose_impuesto\": [{ \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"total_monto_impuesto\": 13.0 }],\n  \"total_impuesto\": \"13.00000\",\n  \"total_impuestos_asumidos_fabrica\": \"0.00000\",\n  \"total_iva_devuelto\": \"0.00000\",\n  \"total_otros_cargos\": \"0.00000\",\n  \"medios_pago\": [{ \"tipo_medio_pago\": \"01\", \"total_medio_pago\": \"113.00000\" }],\n  \"total_comprobante\": \"113.00000\",\n  \"otros\": \"Orden de compra: 2131231\"\n}\n"
             },
             "url": {
               "raw": "{{baseUrl}}/v1/documents/xml",
@@ -482,7 +515,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"document_id\": \"{{documentId}}\",\n  \"clave\": \"{{clave}}\",\n  \"fecha\": \"{{fechaEmision}}\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identificacion\": \"3102802163\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"comprobante_xml_firmado\": \"{{signedXmlBase64}}\"\n}\n"
+              "raw": "{\n  \"document_id\": \"{{documentId}}\",\n  \"clave\": \"{{clave}}\",\n  \"fecha\": \"{{fechaEmision}}\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identificacion\": \"{{emisorCedula}}\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"comprobante_xml_firmado\": \"{{signedXmlBase64}}\"\n}\n"
             },
             "url": {
               "raw": "{{baseUrl}}/v1/documents/send",
@@ -523,7 +556,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"tipo_documento\": \"FE\",\n  \"sucursal\": \"001\",\n  \"terminal\": \"00001\",\n  \"secuencia\": \"0000000001\",\n  \"numero_identificacion\": \"3102802163\",\n  \"situacion\": \"normal\",\n  \"codigo_pais\": \"506\",\n\n  \"proveedor_sistemas\": \"3102802163\",\n  \"fecha_emision\": \"2025-09-04T10:00:00-06:00\",\n\n  \"emisor_nombre\": \"Emisor Demo\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identififcacion\": \"3102802163\",\n  \"emisor_nombre_comercial\": \"Demo\",\n  \"emisor_provincia\": \"1\",\n  \"emisor_canton\": \"01\",\n  \"emisor_distrito\": \"01\",\n\n  \"receptor_nombre\": \"Receptor Demo\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"receptor_provincia\": \"1\",\n  \"receptor_canton\": \"01\",\n  \"receptor_distrito\": \"01\",\n\n  \"codigo_actividad_emisor\": \"721001\",\n  \"condicion_venta\": \"01\",\n  \"plazo_credito\": \"0\",\n  \"codigo_moneda\": \"CRC\",\n  \"tipo_cambio\": \"1\",\n\n  \"detalle_servicio\": [\n    {\n      \"numero_linea\": \"1\",\n      \"codigo_cabys\": \"8439200000000\",\n      \"codigo_comercial\": [{ \"tipo\": \"03\", \"codigo\": \"1111\" }],\n      \"cantidad\": \"1.000\",\n      \"unidad_medida\": \"Unid\",\n      \"detalle\": \"Servicio demo\",\n      \"precio_unitario\": \"100.00000\",\n      \"monto_total\": \"100.00000\",\n      \"sub_total\": \"100.00000\",\n      \"base_imponible\": \"100.00000\",\n      \"impuesto\": [\n        { \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"tarifa\": 13.0, \"monto\": \"13.00000\", \"exoneracion\": null }\n      ],\n      \"descuento\": { \"aplica\": \"no\", \"monto_descuento\": \"0.0\", \"codigo_descuento\": \"01\", \"naturaleza_descuento\": \"\" },\n      \"impuesto_asumido_emisor_fabrica\": \"0.00000\",\n      \"impuesto_neto\": \"13.00000\",\n      \"monto_total_linea\": \"113.00000\"\n    }\n  ],\n\n  \"total_serv_gravados\": \"0.00000\",\n  \"total_serv_exentos\": \"0.00000\",\n  \"total_serv_exonerado\": \"0.00000\",\n  \"total_serv_no_sujeto\": \"0.00000\",\n  \"total_merc_gravadas\": \"100.00000\",\n  \"total_merc_exentas\": \"0.00000\",\n  \"total_merc_exonerada\": \"0.00000\",\n  \"total_merc_no_sujeta\": \"0.00000\",\n  \"total_gravado\": \"100.00000\",\n  \"total_exento\": \"0.00000\",\n  \"total_exonerado\": \"0.00000\",\n  \"total_no_sujeto\": \"0.00000\",\n  \"total_venta\": \"100.00000\",\n  \"total_descuentos\": \"0.00000\",\n  \"total_venta_neta\": \"100.00000\",\n  \"total_desglose_impuesto\": [{ \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"total_monto_impuesto\": 13.0 }],\n  \"total_impuesto\": \"13.00000\",\n  \"total_impuestos_asumidos_fabrica\": \"0.00000\",\n  \"total_iva_devuelto\": \"0.00000\",\n  \"total_otros_cargos\": \"0.00000\",\n  \"medios_pago\": [{ \"tipo_medio_pago\": \"01\", \"total_medio_pago\": \"113.00000\" }],\n  \"total_comprobante\": \"113.00000\",\n\n  \"fecha\": \"2025-09-04T10:00:00-06:00\",\n  \"emisor_numero_identificacion\": \"3102802163\"\n}\n"
+              "raw": "{\n  \"tipo_documento\": \"FE\",\n  \"sucursal\": \"001\",\n  \"terminal\": \"00001\",\n  \"secuencia\": \"0000000001\",\n  \"numero_identificacion\": \"{{emisorCedula}}\",\n  \"situacion\": \"normal\",\n  \"codigo_pais\": \"506\",\n\n  \"proveedor_sistemas\": \"{{emisorCedula}}\",\n  \"fecha_emision\": \"2025-09-04T10:00:00-06:00\",\n\n  \"emisor_nombre\": \"Emisor Demo\",\n  \"emisor_tipo_identificacion\": \"02\",\n  \"emisor_numero_identififcacion\": \"{{emisorCedula}}\",\n  \"emisor_nombre_comercial\": \"Demo\",\n  \"emisor_provincia\": \"1\",\n  \"emisor_canton\": \"01\",\n  \"emisor_distrito\": \"01\",\n\n  \"receptor_nombre\": \"Receptor Demo\",\n  \"receptor_tipo_identificacion\": \"02\",\n  \"receptor_numero_identificacion\": \"3102856049\",\n  \"receptor_provincia\": \"1\",\n  \"receptor_canton\": \"01\",\n  \"receptor_distrito\": \"01\",\n\n  \"codigo_actividad_emisor\": \"721001\",\n  \"condicion_venta\": \"01\",\n  \"plazo_credito\": \"0\",\n  \"codigo_moneda\": \"CRC\",\n  \"tipo_cambio\": \"1\",\n\n  \"detalle_servicio\": [\n    {\n      \"numero_linea\": \"1\",\n      \"codigo_cabys\": \"8439200000000\",\n      \"codigo_comercial\": [{ \"tipo\": \"03\", \"codigo\": \"1111\" }],\n      \"cantidad\": \"1.000\",\n      \"unidad_medida\": \"Unid\",\n      \"detalle\": \"Servicio demo\",\n      \"precio_unitario\": \"100.00000\",\n      \"monto_total\": \"100.00000\",\n      \"sub_total\": \"100.00000\",\n      \"base_imponible\": \"100.00000\",\n      \"impuesto\": [\n        { \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"tarifa\": 13.0, \"monto\": \"13.00000\", \"exoneracion\": null }\n      ],\n      \"descuento\": { \"aplica\": \"no\", \"monto_descuento\": \"0.0\", \"codigo_descuento\": \"01\", \"naturaleza_descuento\": \"\" },\n      \"impuesto_asumido_emisor_fabrica\": \"0.00000\",\n      \"impuesto_neto\": \"13.00000\",\n      \"monto_total_linea\": \"113.00000\"\n    }\n  ],\n\n  \"total_serv_gravados\": \"0.00000\",\n  \"total_serv_exentos\": \"0.00000\",\n  \"total_serv_exonerado\": \"0.00000\",\n  \"total_serv_no_sujeto\": \"0.00000\",\n  \"total_merc_gravadas\": \"100.00000\",\n  \"total_merc_exentas\": \"0.00000\",\n  \"total_merc_exonerada\": \"0.00000\",\n  \"total_merc_no_sujeta\": \"0.00000\",\n  \"total_gravado\": \"100.00000\",\n  \"total_exento\": \"0.00000\",\n  \"total_exonerado\": \"0.00000\",\n  \"total_no_sujeto\": \"0.00000\",\n  \"total_venta\": \"100.00000\",\n  \"total_descuentos\": \"0.00000\",\n  \"total_venta_neta\": \"100.00000\",\n  \"total_desglose_impuesto\": [{ \"codigo\": \"01\", \"codigo_tarifa_iva\": \"08\", \"total_monto_impuesto\": 13.0 }],\n  \"total_impuesto\": \"13.00000\",\n  \"total_impuestos_asumidos_fabrica\": \"0.00000\",\n  \"total_iva_devuelto\": \"0.00000\",\n  \"total_otros_cargos\": \"0.00000\",\n  \"medios_pago\": [{ \"tipo_medio_pago\": \"01\", \"total_medio_pago\": \"113.00000\" }],\n  \"total_comprobante\": \"113.00000\",\n\n  \"fecha\": \"2025-09-04T10:00:00-06:00\",\n  \"emisor_numero_identificacion\": \"{{emisorCedula}}\"\n}\n"
             },
             "url": {
               "raw": "{{baseUrl}}/v1/documents/process",
